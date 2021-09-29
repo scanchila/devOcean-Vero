@@ -9,15 +9,18 @@ def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():
-
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Cuenta creada: {username}!')
             return redirect('login')
-
     else:
         form = UserRegisterForm()
-    return render(request,  'users/register.html', {'form': form})
+
+    context = {
+        'pageTitle' : 'Register',
+        'form': form
+    }
+    return render(request,  'users/register.html', context)
 
 
 def login(request):
@@ -32,4 +35,10 @@ def login(request):
 
     else:
         form = UserRegisterForm()
-    return render(request,  'users/login.html', {'form': form})
+
+    context = {
+        'pageTitle' : 'Login',
+        'form': form
+    }
+
+    return render(request,  'users/login.html', context)

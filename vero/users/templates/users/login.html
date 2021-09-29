@@ -1,49 +1,37 @@
-<!DOCTYPE html>
-<html>
-{%load static%}
+{% extends 'home/base.html' %}
+{% block title %}{{ pageTitle }}{% endblock %}
+{%load static %}
+{%load crispy_forms_tags %}
+{% block style %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{%static 'home/css/styleReg.css'%}">
+{% endblock %}
 
-<head>
-  <link rel="stylesheet" type="text/css" href="{%static 'home/css/styleReg.css'%}">
-  <link rel="icon" type="image/png" href="{%static 'home/img/icono.png'%}" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-  <meta http-equiv="Content-Type" content="text/html;" charset="UTF-8" />
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"
-    integrity="sha384-LzhRnpGmQP+lOvWruF/lgkcqD+WDVt9fU3H4BWmwP5u5LTmkUGafMcpZKNObVMLU"
-    crossorigin="anonymous"></script>
-  <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″ />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Register | Vero</title>
-</head>
+{% block content %}
+<img class="fondo" src="{%static 'home/img/fondo.png'%}">
+<img class="fondo2" src="{%static 'home/img/fondo.png'%}">
+<div class="container">
+  <!-- Formulario de Registro -->
+  <div class="login">
+    <form method="post">
+      {%csrf_token%}
+      <div class="img2">
+        <img src="{%static 'home/img/logo.png'%}">
+      </div>
+      <h2 class="subtitle">Bienvenido a Vero</h2>
 
-<body>
-  <img class="fondo" src="{%static 'home/img/fondo.png'%}">
-  <img class="fondo2" src="{%static 'home/img/fondo.png'%}">
-  <div class="container">
-    <!-- Formulario de Registro -->
-    <div class="login">
-      <form method="post">
-        {%csrf_token%}
-        <div class="img2">
-          <img src="{%static 'home/img/logo.png'%}">
-        </div>
-        <h2 class="subtitle">Bienvenido a Vero</h2>
+      {{ form|crispy }}
+      <button id="Registrar" type="submit" class="btn">Login </button>
+      <a href="{% url 'register' %}" id="Devolver">Crea una cuenta</a><br>
+    </form>
 
-        <!--  -->
-        <button id="Registrar" type="submit" class="btn">Login </button>
-        <a href="{% url 'register' %}" id="Devolver">Crea una cuenta</a><br>
-      </form>
-
-
-    </div>
-    <div class="img">
-      <img src="{%static 'home/img/signinfo.svg'%}">
-    </div>
   </div>
+  <div class="img">
+    <img src="{%static 'home/img/signinfo.svg'%}">
+  </div>
+</div>
+{% endblock %}
 
-
-</body>
-
-</html>
+{% block footer %}
+{% include 'home/footer.html' %}
+{% endblock %}

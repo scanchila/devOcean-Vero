@@ -1,258 +1,146 @@
+{% extends 'home/base.html' %}
+{% block title %}{{ pageTitle }}{% endblock %}
 {% load static %}
-<!DOCTYPE html>
-<html>
 
-<head>
+{% block header %}
+{% include 'home/header.html' %}
+{% endblock %}
 
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+{% block content %}
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex align-items-center">
 
-  <title>Vero</title>
-  <link rel="icon" type="image/png" href="{% static 'home/img/icono.png' %}" width="100" height="100"/>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <meta http-equiv="Content-Type" content="text/html;" charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="https://cdn.socket.io/4.0.1/socket.io.min.js" integrity="sha384-LzhRnpGmQP+lOvWruF/lgkcqD+WDVt9fU3H4BWmwP5u5LTmkUGafMcpZKNObVMLU" crossorigin="anonymous"></script>
-  <!-- Compiled and minified Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
-  <!-- Minified JS library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!-- Compiled and minified Bootstrap JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
-
-  <link href="{% static 'home/css/style.css' %}" rel="stylesheet">
-
-</head>
-
-<body>
-
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center">
-    <div class="container d-flex align-items-center justify-content-between">
-
-      <div class="logo">
-        <a href="index.html"><img src="{% static 'home/img/logo.png' %}" alt="" class="img-fluid"></a>
-      </div>
-
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Inicio</a></li>
-          <li><a class="nav-link scrollto" href="#about">Sobre nosotros</a></li>
-          <li><a class="nav-link scrollto" href="#services">Servicios</a></li>
-          <li><a class="getstarted scrollto" href="{% url 'login' %}">Iniciar Sesión</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-
-    </div>
-  </header><!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
-
-    <div class="container">
-      <div class="row gy-4">
-        <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1>Una plataforma para cuidar tu salud mental</h1>
-          <h2>Somos una iniciativa de ayuda para las personas con trabajos que le generen estrés laboral, agotamiento  físico y mental debido a los cargos que ocupan.</h2>
-          <div>
-            <a href="{% url 'personalActivities' %}" class="btn-get-started scrollto">Crear cuenta</a>
-          </div>
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+        <h1>Una plataforma para cuidar tu salud mental</h1>
+        <h2>Somos una iniciativa de ayuda para las personas con trabajos que le generen estrés laboral, agotamiento
+          físico y mental debido a los cargos que ocupan.</h2>
+        <div>
+          <a href="{% url 'personalActivities' %}" class="btn-get-started scrollto">Crear cuenta</a>
         </div>
-          <div class="col-lg-6 order-1 order-lg-2 hero-img">
-            <img src="{% static 'home/img/landing1.svg' %}" class="img-fluid animated" alt="">
-          </div>
+      </div>
+      <div class="col-lg-6 order-1 order-lg-2 hero-img">
+        <img src="{% static 'home/img/landing1.svg' %}" class="img-fluid animated" alt="">
       </div>
     </div>
+  </div>
 
 
-  </section><!-- End Hero -->
+</section><!-- End Hero -->
 
+<!-- ======= About Section ======= -->
+<section id="about" class="about">
+  <div class="container" data-aos="fade-up">
 
-  <main id="main">
-
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container" data-aos="fade-up">
-    
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-          <ol class="carousel-indicators">
-            <li id="CarriselProcess" data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li id="CarriselProcess" data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li id="CarriselProcess" data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          </ol>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-                    <div class="Servicios">  
-                        <div class="Textos">
-                            <br><br><br><br><br><br>
-                              <p class="lead text-muted">Nuestro principal objetivo es permitir darte un espacio donde tomar un break de la vida laboral.</p>
-                        </div>
-                        <img src="{% static 'home/img/muchachaFlor.svg' %}" alt="" class="Servicio">
-                    </div>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li id="CarriselProcess" data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li id="CarriselProcess" data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li id="CarriselProcess" data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="Servicios">
+            <div class="Textos">
+              <br><br><br><br><br><br>
+              <p class="lead text-muted">Nuestro principal objetivo es permitir darte un espacio donde tomar un
+                break de la vida laboral.</p>
             </div>
-            <div class="carousel-item">
-                    <div class="Servicios">
-                        <img src="{% static 'home/img/escaleras.svg' %}" alt="" class="Servicio">
-                        <div class="Textos">
-                            <br><br><br><br><br><br>
-                            <p class="lead text-muted">Fortaleciendo tu crecimiento personal de forma entretenida, a cualquier hora y en cualquier sitio</p>
-                        </div>
-                    </div>
-            </div>
-            <div class="carousel-item">
-                    <div class="Servicios">
-                        <div class="Textos">
-                            <br><br><br><br><br><br>
-                            <p class="lead text-muted">Con el tiempo que tú dispongas.</p>
-                        </div>
-                        <img src="{% static 'home/img/tiempo.svg' %}" alt="" class="Servicio">
-                    </div>
-            </div>
-            
+            <img src="{% static 'home/img/muchachaFlor.svg' %}" alt="" class="Servicio">
           </div>
-          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span id="deslisanteCarrusel" class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span id="deslisanteCarrusel" class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
         </div>
-    
+        <div class="carousel-item">
+          <div class="Servicios">
+            <img src="{% static 'home/img/escaleras.svg' %}" alt="" class="Servicio">
+            <div class="Textos">
+              <br><br><br><br><br><br>
+              <p class="lead text-muted">Fortaleciendo tu crecimiento personal de forma entretenida, a cualquier
+                hora y en cualquier sitio</p>
+            </div>
           </div>
-
-          
-
-      </div>
-    </section><!-- End About Section -->
-
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services section-bg">
-      <div class="contenedor" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Servicios</h2>
-          <p>¿Qué puedes hacer?</p>
+        </div>
+        <div class="carousel-item">
+          <div class="Servicios">
+            <div class="Textos">
+              <br><br><br><br><br><br>
+              <p class="lead text-muted">Con el tiempo que tú dispongas.</p>
+            </div>
+            <img src="{% static 'home/img/tiempo.svg' %}" alt="" class="Servicio">
+          </div>
         </div>
 
-        <div class="Servicios">
-          <img src="{% static 'home/img/servicios1.svg' %}" alt="" class="Servicio">
-          <div class="Textos">
-              <br><br>
-              <h3><span>1</span>Actividades individuales de relajación. </h3>
-              <p class="lead text-muted">Ofrecemos actividades y ejercicios que pueden acomodarse a tu tiempo y a los sentimientos o estado anímico en el que te encuentres para generar sistemas de relajación.</p>
-              <br>
-              <h3><span>2</span>Actividades grupales de relajación.</h3>
-              <p class="lead text-muted"> Ofrecemos actividades y ejercicios que pueden realizarse a nivel grupal, generando nuevas amistades y compartiendo experiencias para el buen manejo de sentimientos y el estado anímico.
-              </p>
-              <br>
-              <h3><span>3</span>Progreso en el manejo de sentimientos.</h3>
-              <p class="lead text-muted">Podrás ver tu estado anímico a través del tiempo y cómo reaccionas a el, antes y después de los ejercicios tanto individuales como grupales propuestos.
-              </p>
-          </div>
       </div>
-      <div class="Servicios">
-          <div class="Textos">
-              <br><br>
-              <h3><span>4</span>Historial de actividades individuales realizadas</h3>
-              <p class="lead text-muted"> Ver todas las actividades individuales en los que te postulaste para saber cómo es tu progreso en estos, o ver los avances y ejercicios hechos.</p>
-              <br>
-              <h3><span>5</span>Historial de actividades grupales realizadas</h3>
-              <p class="lead text-muted"> Ver todas las actividades grupales en las que te postulaste para saber cómo es tu progreso en estos, las personas que participaron y ver los avances y ejercicios hechos.
-              </p>
-              <br>
-              <h3><span>6</span>Progreso y recompensas.</h3>
-              <p class="lead text-muted">Podrás revisar tus metas alcanzadas y la mejora a nivel anímico que has logrado presentar a través del tiempo.
-              </p>
-          </div>
-          <img src="{% static 'home/img/servicios2.svg' %}" alt="" class="Servicio2">
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span id="deslisanteCarrusel" class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span id="deslisanteCarrusel" class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
+  </div>
+
+
+
+  </div>
+</section><!-- End About Section -->
+
+<!-- ======= Services Section ======= -->
+<section id="services" class="services section-bg">
+  <div class="contenedor" data-aos="fade-up">
+
+    <div class="section-title">
+      <h2>Servicios</h2>
+      <p>¿Qué puedes hacer?</p>
+    </div>
+
+    <div class="Servicios">
+      <img src="{% static 'home/img/servicios1.svg' %}" alt="" class="Servicio">
+      <div class="Textos">
+        <br><br>
+        <h3><span>1</span>Actividades individuales de relajación. </h3>
+        <p class="lead text-muted">Ofrecemos actividades y ejercicios que pueden acomodarse a tu tiempo y a los
+          sentimientos o estado anímico en el que te encuentres para generar sistemas de relajación.</p>
+        <br>
+        <h3><span>2</span>Actividades grupales de relajación.</h3>
+        <p class="lead text-muted"> Ofrecemos actividades y ejercicios que pueden realizarse a nivel grupal,
+          generando nuevas amistades y compartiendo experiencias para el buen manejo de sentimientos y el estado
+          anímico.
+        </p>
+        <br>
+        <h3><span>3</span>Progreso en el manejo de sentimientos.</h3>
+        <p class="lead text-muted">Podrás ver tu estado anímico a través del tiempo y cómo reaccionas a el, antes y
+          después de los ejercicios tanto individuales como grupales propuestos.
+        </p>
       </div>
-
+    </div>
+    <div class="Servicios">
+      <div class="Textos">
+        <br><br>
+        <h3><span>4</span>Historial de actividades individuales realizadas</h3>
+        <p class="lead text-muted"> Ver todas las actividades individuales en los que te postulaste para saber cómo
+          es tu progreso en estos, o ver los avances y ejercicios hechos.</p>
+        <br>
+        <h3><span>5</span>Historial de actividades grupales realizadas</h3>
+        <p class="lead text-muted"> Ver todas las actividades grupales en las que te postulaste para saber cómo es
+          tu progreso en estos, las personas que participaron y ver los avances y ejercicios hechos.
+        </p>
+        <br>
+        <h3><span>6</span>Progreso y recompensas.</h3>
+        <p class="lead text-muted">Podrás revisar tus metas alcanzadas y la mejora a nivel anímico que has logrado
+          presentar a través del tiempo.
+        </p>
       </div>
-    </section><!-- End Services Section -->
+      <img src="{% static 'home/img/servicios2.svg' %}" alt="" class="Servicio2">
+    </div>
 
+  </div>
+</section><!-- End Services Section -->
+{% endblock %}
 
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= --> 
-  <footer> 
-    <div class="main-content "> 
- 
-        <div class="left box "> 
-            <h2> Sobre nosotros </h2> 
-            <div class="content "> 
-                <p> Te presentamos a Vero, una plataforma que te brinda espacios de ocio individual y en comunidad en donde podrás permitirte descansar, divertirte, aumentar tus conocimientos o relacionarte con otras personas de forma desinteresada que tienen tus mismas aficiones, una experiencia que beneficia el descanso mental para la salud, bienestar y el disfrute de la cultura.. </p> 
-                <div class="social "> 
-                    <a href="https://github.com/SebastianSierrajc/devOcean-Vero "><span class="fab fa-github "></span></a> 
-                </div> 
-            </div> 
-        </div> 
- 
-        <div class="center box "> 
-            <h2> Contáctanos</h2> 
-            <div class="content "> 
-                <div class="email "> 
-                    <span class="fas fa-envelope "></span> 
-                    <span class="text ">michael.pinilla01@correo.usa.edu.co</span> 
-                </div> 
-                <div class="email "> 
-                    <span class="fas fa-envelope "></span> 
-                    <span class="text ">jessica.parrado01@correo.usa.edu.co</span> 
-                </div> 
-                <div class="email "> 
-                    <span class="fas fa-envelope "></span> 
-                    <span class="text ">lady.salazar01@correo.usa.edu.co</span> 
-                </div> 
-                <div class="email "> 
-                    <span class="fas fa-envelope "></span> 
-                    <span class="text ">luis.vejarano01@correo.usa.edu.co</span> 
-                </div> 
-            </div> 
-        </div> 
- 
-        <div class="right box "> 
-            <h2> Contáctanos</h2> 
-            <div class="content "> 
-                <div class="email "> 
-                    <span class="fas fa-envelope "></span> 
-                    <span class="text ">juan.sierra01@correo.usa.edu.co</span> 
-                </div> 
-                <div class="email "> 
-                    <span class="fas fa-envelope "></span> 
-                    <span class="text ">santiago.gutierrez01@correo.usa.edu.co</span> 
-                </div> 
-                <div class="email "> 
-                    <span class="fas fa-envelope "></span> 
-                    <span class="text ">santiago.canchila01@correo.usa.edu.co</span> 
-                </div> 
-            </div> 
-        </div> 
-    </div> 
-    <div class="bottom "> 
-        <center> 
-            <span class="credit "> 
-                Creado por <a href="# ">Canchila - Gutierrez - Parrado - Pinilla - Salazar B - Sierra - Vejarano|</a> 
-            </span> 
-            <span class="far fa-copyright "></span><span> 2021 Todos los Derechos Reservados. </span> 
-        </center> 
-    </div> 
-</footer> 
- 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>  
- 
-
- 
-</body> 
- 
-</html>
+{% block footer %}
+{% include 'home/footer.html' %}
+{% endblock %}
