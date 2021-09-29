@@ -1,11 +1,11 @@
 document.getElementById('close-image1').onclick = function(){
     swal({
-        title: "pppppp",
-        text: "pppp",
-        icon: "success",
-        button: "ok",
+      title: "Good job!",
+      text: "You clicked the button!",
+      icon: "success",
+      button: "ok",
       }).then(function () {
-        window.location.href="/l./";
+        window.location.href="/../";
     })
     return false; 
 }
