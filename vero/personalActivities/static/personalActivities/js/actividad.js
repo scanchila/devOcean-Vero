@@ -31,12 +31,7 @@ function cambioRecurso(recursoSelec){
 }
 
 //Consultar actividad individual
-<<<<<<< HEAD
-async function verActividadIndividual() {
-   
-=======
 async function verActividadIndividual(actividad, recurso, tiempo){
->>>>>>> origin/alejandro2
     let data = {
         "actividad": actividad,
         "recurso": recurso,
