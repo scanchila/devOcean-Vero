@@ -124,7 +124,10 @@
                                             <a href=""><i class="icon-user"></i> <span>Cuenta</span></a>
                                         </li>
                                         <hr class="my-2">
-                                        <li><a href="{% url 'index' %}"><i class="icon-key"></i> <span>Cerrar sesión</span></a></li>
+                                        <li><form action="{% url 'users:logout' %}" method="POST">
+                                            {% csrf_token %}
+                                            <button class="btn btn-link" type="submit"><i class="icon-key"></i> <span>Cerrar sesión</span></button>
+                                        </form></li>
                                     </ul>
                                 </div>
                             </div>
@@ -395,10 +398,14 @@
     <script src="{% static 'PersonalActivities/js/settings.js' %}"></script>
     <script src="{% static 'PersonalActivities/js/gleek.js' %}"></script>
     <script src="{% static 'PersonalActivities/js/styleSwitcher.js' %}"></script>
-    <script src="{% static 'PersonalActivities/js/actividad.js' %}"></script>
+    <script src="{% static 'PersonalActivities/js/peticiones.js' %}"></script>
+    <script src="{% static 'PersonalActivities/js/funciones.js' %}"></script>
+    <script src="{% static 'PersonalActivities/js/Actividad.js' %}"></script>
     <script src="{% static 'PersonalActivities/js/audio.js' %}"></script>
+    
     <script>
-        window.onload = verActividadIndividual();
+       //window.onload = verActividadIndividual(); 
+       window.onload = mostrarActividadIndividual(124,"Meditación guiada para relajar cuerpo y mente en 10 minutos.", "actividad", "Video", "https://www.youtube.com/embed/WjO_098iXOw"); 
     </script>
     
 

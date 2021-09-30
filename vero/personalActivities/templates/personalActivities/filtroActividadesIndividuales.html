@@ -115,7 +115,10 @@
                                         <a href=""><i class="icon-user"></i> <span>Cuenta</span></a>
                                     </li>
                                     <hr class="my-2">
-                                    <li><a href="{% url 'index' %}"><i class="icon-key"></i> <span>Cerrar sesión</span></a></li>
+                                    <li><form action="{% url 'users:logout' %}" method="POST">
+                                        {% csrf_token %}
+                                        <button class="btn btn-link" type="submit"><i class="icon-key"></i> <span>Cerrar sesión</span></button>
+                                    </form></li>
                                 </ul>
                             </div>
                         </div>
@@ -441,7 +444,9 @@
     <script src="{% static 'PersonalActivities/js/settings.js' %}"></script>
     <script src="{% static 'PersonalActivities/js/gleek.js' %}"></script>
     <script src="{% static 'PersonalActivities/js/styleSwitcher.js' %}"></script>
-    <script src="{% static 'PersonalActivities/js/actividad.js' %}"></script>
+    <script src="{% static 'PersonalActivities/js/peticiones.js' %}"></script>
+    <script src="{% static 'PersonalActivities/js/funciones.js' %}"></script>
+    <script src="{% static 'PersonalActivities/js/actividad2.js' %}"></script>
 
 
     <script>
