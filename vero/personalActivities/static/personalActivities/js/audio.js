@@ -32,5 +32,6 @@ class musicPlayer {
     }
 
 }
-
-const newMusicPlayer = new musicPlayer();
+$( document ).ready(function() {
+    
+});

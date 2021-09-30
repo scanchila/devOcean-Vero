@@ -14726,3 +14726,8 @@ margin-top: 2%;
 footer{
   z-index: 2;
 }
+iframe{
+  width: 80%;
+  height: 90vh;
+  margin: auto
+}

@@ -16,6 +16,7 @@
 
     <link href="{% static 'personalActivities/css/footer.css' %}" rel="stylesheet">    
     <link href="{% static 'personalActivities/css/styleActividad.css' %}" rel="stylesheet">
+    <link href="{% static 'personalActivities/css/audio.css' %}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -301,7 +302,9 @@
                     
                     <div id="actividadPropuesta">
                         
+
                 </div>
+                
                  <!-- Video/texto/audio-->
                  <button id="BotonFinalizarSesion" type="button" class="btn mb-1 btn-primary" >Finalizar Sesión</button>
                 </div>
@@ -393,19 +396,11 @@
     <script src="{% static 'PersonalActivities/js/gleek.js' %}"></script>
     <script src="{% static 'PersonalActivities/js/styleSwitcher.js' %}"></script>
     <script src="{% static 'PersonalActivities/js/Actividad.js' %}"></script>
+    <script src="{% static 'PersonalActivities/js/audio.js' %}"></script>
     <script>
         window.onload = verActividadIndividual();
     </script>
     
-
-    <script>
-        const slide = document.querySelector(".input-slider")
-        const value = document.querySelector(".value")
-        value.textContent = slide.value + " minutos";
-        slide.oninput = function(){
-            value.textContent = this.value + " minutos";
-        }
-    </script>
 
 </body>
 
