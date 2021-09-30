@@ -11,13 +11,32 @@ document.getElementById('BotonFinalizarSesion').onclick = function(){
       
 }
 
+var recurso = "";
+document.getElementById('btnFiltroActividadesInd').onclick = async function(){
+        var actividad = "";
+        var tiempo = $('#sliderTime').val()
+        if ($('.check-act').is(":checked")){
+            actividad = "Respiración"
+        }else if ($('.check-actT').is(":checked")){
+            actividad = "Estiramientos"
+        }
+    window.location.href="actividad.html";
+      var ans = await verActividadIndividual(actividad, recurso, tiempo);
+
+}
+
+function cambioRecurso(recursoSelec){
+        recurso = recursoSelec;
+}
+
 //Consultar actividad individual
-async function verActividadIndividual() {
-    var USUARIO = JSON.parse(readCookie('token'));
+async function verActividadIndividual(actividad, recurso, tiempo){
     let data = {
-        "idUsuario": USUARIO['id']
-    }
-    console.log(JSON.stringify(data));
+        "actividad": actividad,
+        "recurso": recurso,
+        "tiempo": tiempo
+    };
+
     try {
         result = await $.ajax({
             url: url + "/verActividadIndividual",
@@ -43,7 +62,6 @@ async function verActividadIndividual() {
     return true;
 }
 
-//Funcion para realizar la busqueda de las ofertas compradas
 function traerActividadIndividual(actividades) {
     $("#actividadPropuesta").empty();
     console.log(actividades)
@@ -56,15 +74,16 @@ function traerActividadIndividual(actividades) {
 
 
 function mostrarActividadIndividual(codActividad, titulo, nombreActividad, tipo, url) {
-    if (tipo == "Video") { 
-        actividadC = "";
+    actividadC = "";
+    if (tipo == "Video") {
         actividadC = '<h2 id="' + codActividad + '" class="titulos" >' + titulo + '</h2> <div class="contenedor-video"> <iframe  src="' + url + '" frameborder="0"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' +
                     '</div> ';
     } else if (tipo == "Audio") {
-
-
-    }else{
-
+        actividadC = '<h2 id="' + codActividad + '" class="titulos" >' + titulo + '</h2> <div class="contenedor-audio"> <iframe  src="' + url + '" frameborder="0"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' +
+                    '</div> ';
+    }else if (tipo == "Texto"){
+        actividadC = '<h2 id="' + codActividad + '" class="titulos" >' + titulo + '</h2> <div class="contenedor-texto"> <iframe  src="' + url + '" frameborder="0"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' +
+                    '</div> '; //Agregar el visualizador de Lady
     }
     
     
