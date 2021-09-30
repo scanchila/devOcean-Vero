@@ -83,7 +83,7 @@ document.getElementById('close-image8').onclick = function(){
       icon: "success",
       button: "ok",
     }).then(function () {
-      window.location.href="../";
+      window.location.href="/../";
   })
   return false; 
 }

@@ -5,7 +5,8 @@ from django.template import loader
 
 # Create your views here.
 
-def index(request):
+def main(request):
+  return render(request,"personalActivities/filtroActividadesIndividuales.html")
+
+def actividad(request):
   return render(request,"personalActivities/actividad.html")
-
-
