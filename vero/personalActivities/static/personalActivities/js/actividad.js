@@ -5,7 +5,7 @@ document.getElementById('BotonFinalizarSesion').onclick = function(){
         icon: "success",
         button: "ok",
       }).then(function () {
-        window.location.href="/encuesta/";
+        window.location.href="/../encuesta/encuesta";
     })
     return false;
       

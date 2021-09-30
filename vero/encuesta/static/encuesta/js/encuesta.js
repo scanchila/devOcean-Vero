@@ -92,6 +92,8 @@ document.getElementById('close-image8').onclick = function(){
     }).then(async function () {
       var ans = await responderEncuesta(3)
       window.location.href="../";
+    }).then(function () {
+      window.location.href="/../";
   })
   return false;
 }
