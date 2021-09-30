@@ -106,7 +106,7 @@ async function responderEncuesta(estado) {
     print(estado)
     try {
         result = await $.ajax({
-            url: url + "/feelings",
+            url: "/../../",
             data: JSON.stringify(data),
             type: "POST",
             dataType: 'json',
