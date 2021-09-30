@@ -12,13 +12,37 @@ document.getElementById('BotonFinalizarSesion').onclick = function(){
       
 }
 
+var recurso = "";
+document.getElementById('btnFiltroActividadesInd').onclick = async function(){
+        var actividad = "";
+        var tiempo = $('#sliderTime').val()
+        if ($('.check-act').is(":checked")){
+            actividad = "Respiración"
+        }else if ($('.check-actT').is(":checked")){
+            actividad = "Estiramientos"
+        }
+    window.location.href="actividad.html";
+      var ans = await verActividadIndividual(actividad, recurso, tiempo);
+
+}
+
+function cambioRecurso(recursoSelec){
+        recurso = recursoSelec;
+}
+
 //Consultar actividad individual
+<<<<<<< HEAD
 async function verActividadIndividual() {
    
+=======
+async function verActividadIndividual(actividad, recurso, tiempo){
+>>>>>>> origin/alejandro2
     let data = {
-        "idUsuario": USUARIO['id']
-    }
-    console.log(JSON.stringify(data));
+        "actividad": actividad,
+        "recurso": recurso,
+        "tiempo": tiempo
+    };
+
     try {
         result = await $.ajax({
             url: url + "/verActividadIndividual",
@@ -44,7 +68,6 @@ async function verActividadIndividual() {
     return true;
 }
 
-//Funcion para realizar la busqueda de las ofertas compradas
 function traerActividadIndividual(actividades) {
     $("#actividadPropuesta").empty();
     console.log(actividades)
