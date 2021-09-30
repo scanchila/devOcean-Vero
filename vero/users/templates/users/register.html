@@ -1,103 +1,116 @@
-<!DOCTYPE html>
-<html>
-{%load static%}
+{% extends 'home/base.html' %}
+{% block title %}{{ pageTitle }}{% endblock %}
+{%load static %}
+{%load crispy_forms_tags %}
+{% block style %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{%static 'home/css/styleReg.css'%}">
+{% endblock %}
 
-<head>
-  <link rel="stylesheet" type="text/css" href="{%static 'home/css/styleReg.css'%}">
-  <link rel="icon" type="image/png" href="{%static 'home/img/icono.png'%}" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-  <meta http-equiv="Content-Type" content="text/html;" charset="UTF-8" />
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"
-    integrity="sha384-LzhRnpGmQP+lOvWruF/lgkcqD+WDVt9fU3H4BWmwP5u5LTmkUGafMcpZKNObVMLU"
-    crossorigin="anonymous"></script>
-  <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″ />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Register | Vero</title>
-</head>
+{% block content %}
+<img class="fondo" src="{%static 'home/img/fondo.png'%}">
+<img class="fondo2" src="{%static 'home/img/fondo.png'%}">
+<div class="container">
+  <!-- Formulario de Registro -->
+  <div class="login">
+    <form method="post">
+      {%csrf_token%}
+      <a href="{% url 'index' %}">
+        <div class="img2">
+          <img src="{%static 'home/img/logo.png'%}">
+        </div>
+      </a>
+      <h2 class="subtitle">Bienvenido a Vero</h2>
 
-<body>
-  <img class="fondo" src="{%static 'home/img/fondo.png'%}">
-  <img class="fondo2" src="{%static 'home/img/fondo.png'%}">
-  <div class="container">
-    <!-- Formulario de Registro -->
-    <div class="login">
-      <form method="post">
-        {%csrf_token%}
-        <a href="{% url 'index' %}">
-          <div class="img2">
-            <img src="{%static 'home/img/logo.png'%}">
-          </div>
-        </a>
-        <h2 class="subtitle">Bienvenido a Vero</h2>
-
-        <div class="input-div one">
-          <div class="i">
-            <i class="fas fa-id-card"></i>
-          </div>
-          <div class="div">
-
-            <input type="text" name="username" maxlength="150" autofocus="" required="" id="id_username">
-          </div>
+      <div class="input-div one">
+        <div class="i">
+          <i class="fas fa-id-card"></i>
+        </div>
+        <div class="div">
+          <input type="text" name="username" maxlength="150" autofocus="" required id="id_username"
+            placeholder="username">
         </div>
 
+      </div>
+      <div id="userNameHelp" class="form-text">
+        {% if form.username.errors %}
+            {% for error in form.username.errors %}
+              {{ error|escape }}
+            {% endfor %}
+        {% endif %}
+      </div>
 
-
-        <div class="input-div one">
-          <div class="i">
-            <i class="fas fa-envelope"></i>
-          </div>
-          <div class="div">
-
-            <input type="email" name="email" required="" id="id_email">
-          </div>
+      <div class="input-div one">
+        <div class="i">
+          <i class="fas fa-envelope"></i>
         </div>
+        <div class="div">
 
-
-
-
-        <div class="input-div pass">
-          <div class="i">
-            <i class="fas fa-lock"></i>
-          </div>
-          <div class="div">
-
-            <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1">
-          </div>
+          <input type="email" name="email" required id="id_email" placeholder="correo">
         </div>
+      </div>
+      <div id="emailHelp" class="form-text">
+        {% if form.email.errors %}
+            {% for error in form.email.errors %}
+              {{ error|escape }}
+            {% endfor %}
+        {% endif %}
+      </div>
 
-        <div class="input-div pass">
-          <div class="i">
-            <i class="fas fa-lock"></i>
-          </div>
-          <div class="div">
 
-            <input type="password" name="password2" autocomplete="new-password" required="" id="id_password2">
-          </div>
+
+
+      <div class="input-div pass">
+        <div class="i">
+          <i class="fas fa-lock"></i>
         </div>
-
-        <a href="{% url 'login' %}" id="Devolver">¿Ya tienes una cuenta? Inicia Sesión</a><br>
-        <div class="terminos">
-          <input style="opacity:1;" type="checkbox" data-required="1" name="terminos"> Aceptar los<a
-            href="PoliticasPrivacidad.html">
-            Términos y
-            Condiciones
-          </a></b>
-
+        <div class="div">
+          <input type="password" name="password1" autocomplete="new-password" required id="id_password1"
+            placeholder="contraseña">
         </div>
-        <button id="Registrar" type="submit" class="btn">Regístrate </button>
-      </form>
+      </div>
+      <div id="password1Help" class="form-text">
+        {% if form.password1.errors %}
+            {% for error in form.password1.errors %}
+              {{ error|escape }}
+            {% endfor %}
+        {% endif %}
+      </div>
+
+      <div class="input-div pass">
+        <div class="i">
+          <i class="fas fa-lock"></i>
+        </div>
+        <div class="div">
+
+          <input type="password" name="password2" autocomplete="new-password" required id="id_password2"
+            placeholder="confirmar contraseña">
+        </div>
+      </div>
+      <div id="password2Help" class="form-text">
+        {% if form.password2.errors %}
+            {% for error in form.password2.errors %}
+              <p>{{ error|escape }}</p>
+            {% endfor %}
+        {% endif %}
+      </div>
+      <br>
+      <a href="{% url 'users:login' %}" id="Devolver">¿Ya tienes una cuenta? Inicia Sesión</a><br>
+      <div class="terminos">
+        <input style="opacity:1;" type="checkbox" data-required="1" name="terminos"> Aceptar los<a
+          href="PoliticasPrivacidad.html">
+          Términos y
+          Condiciones
+        </a></b>
+
+      </div>
+      <button id="Registrar" type="submit" class="btn">Regístrate </button>
+    </form>
 
 
-    </div>
-    <div class="img">
-      <img src="{%static 'home/img/signinfo.svg'%}">
-    </div>
   </div>
-
-
-</body>
-
-</html>
+  <div class="img">
+    <img src="{%static 'home/img/signinfo.svg'%}">
+  </div>
+</div>
+{% endblock %}
