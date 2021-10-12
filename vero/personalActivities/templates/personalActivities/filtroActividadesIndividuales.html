@@ -26,29 +26,29 @@
     </div>
     
     
-   <!-- Navegación del header -->
-   <div id="main-wrapper">
+  <!-- Navegación del header -->
+  <div id="main-wrapper" class="show menu-toggle">
 
     <div class="nav-header">
         <div class="brand-logo">
-            <a href="{% url 'index' %}">
-                
-                <span class="logo-compact"><img src="{% static 'personalActivities/img/logo-text.png' %}" alt=""></span>
+            <a href="index.html">
+
+                <span class="logo-compact"><img src="{% static 'encuesta/images/logo.png' %}" alt=""></span>
                 <span class="brand-title">
-                    <img src="{% static 'personalActivities/img/logo-text.png' %}" alt="">
+                    <img src="{% static 'encuesta/images/logo-text.png' %}" alt="">
                 </span>
             </a>
         </div>
         <div class="brand-logoTwo">
-            <a href="{% url 'index' %}">
-                <b class="logo-abbr"><img src="{% static 'personalActivities/img/vero-icon-white.png' %}" alt=""> </b>
-            </a>              
+            <a href="index.html">
+                <b class="logo-abbr"><img src="{% static 'encuesta/images/vero-icon-white.png'%}" alt=""> </b>
+            </a>
         </div>
     </div>
 
-    <div class="header">    
+    <div class="header">
         <div class="header-content clearfix">
-            
+
             <!--Icono de navegación lateral-->
 
             <div class="nav-control">
@@ -64,7 +64,8 @@
                 <div class="input-group icons">
                     <!--Icono-->
                     <div class="input-group-prepend">
-                        <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i class="mdi mdi-magnify"></i></span>
+                        <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i
+                                class="mdi mdi-magnify"></i></span>
                     </div>
                     <!--Input-->
                     <input type="search" class="form-control" placeholder="Búsqueda" aria-label="Search Dashboard">
@@ -75,7 +76,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="header-right">
                 <ul class="clearfix">
 
@@ -89,7 +90,7 @@
 
 
                     <!--Número de notificaciones nuevas-->
-                    
+
                     <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
                             <i class="mdi mdi-bell-outline"></i>
                             <span class="badge badge-pill gradient-2">2</span>
@@ -99,14 +100,14 @@
 
                     <li class="icons dropdown">
 
-                         <!--Imagen del usuario-->
+                        <!--Imagen del usuario-->
 
-                        <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
+                        <div class="user-img c-pointer position-relative" data-toggle="dropdown">
                             <span class="activity active"></span>
-                            <img src="{% static 'personalActivities/img/user.png' %}" height="40" width="40" alt="">
+                            <img src="{% static 'encuesta/images/user.png'%}" height="40" width="40" alt="">
                         </div>
 
-                         <!--Opciones del usuario-->
+                        <!--Opciones del usuario-->
 
                         <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
                             <div class="dropdown-content-body">
@@ -115,10 +116,8 @@
                                         <a href=""><i class="icon-user"></i> <span>Cuenta</span></a>
                                     </li>
                                     <hr class="my-2">
-                                    <li><form action="{% url 'users:logout' %}" method="POST">
-                                        {% csrf_token %}
-                                        <button class="btn btn-link" type="submit"><i class="icon-key"></i> <span>Cerrar sesión</span></button>
-                                    </form></li>
+                                    <li><a href="page-login.html"><i class="icon-key"></i> <span>Cerrar
+                                                sesión</span></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -129,159 +128,79 @@
     </div>
 
 
-    <!--Barra de navegación lateral EDITAR-->
+   <!--Barra de navegación lateral EDITAR-->
 
-    <div class="nk-sidebar">           
-        <div class="nk-nav-scroll">
-            <ul class="metismenu" id="menu">
-                <li class="nav-label">Dashboard</li>
-                <li>
-                    <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a href="{% url 'index' %}">Home 1</a></li>
-                        <!-- <li><a href="./index-2.html">Home 2</a></li> -->
-                    </ul>
-                </li>
-                <li class="mega-menu mega-menu-sm">
-                    <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Layouts</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a href="./layout-blank.html">Blank</a></li>
-                        <li><a href="./layout-one-column.html">One Column</a></li>
-                        <li><a href="./layout-two-column.html">Two column</a></li>
-                        <li><a href="./layout-compact-nav.html">Compact Nav</a></li>
-                        <li><a href="./layout-vertical.html">Vertical</a></li>
-                        <li><a href="./layout-horizontal.html">Horizontal</a></li>
-                        <li><a href="./layout-boxed.html">Boxed</a></li>
-                        <li><a href="./layout-wide.html">Wide</a></li>
-                        
-                        
-                        <li><a href="./layout-fixed-header.html">Fixed Header</a></li>
-                        <li><a href="layout-fixed-sidebar.html">Fixed Sidebar</a></li>
-                    </ul>
-                </li>
-                <li class="nav-label">Apps</li>
-                <li>
-                    <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="icon-envelope menu-icon"></i> <span class="nav-text">Email</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a href="./email-inbox.html">Inbox</a></li>
-                        <li><a href="./email-read.html">Read</a></li>
-                        <li><a href="./email-compose.html">Compose</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="icon-screen-tablet menu-icon"></i><span class="nav-text">Apps</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a href="./app-profile.html">Profile</a></li>
-                        <li><a href="./app-calender.html">Calender</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="icon-graph menu-icon"></i> <span class="nav-text">Charts</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a href="./chart-flot.html">Flot</a></li>
-                        <li><a href="./chart-morris.html">Morris</a></li>
-                        <li><a href="./chart-chartjs.html">Chartjs</a></li>
-                        <li><a href="./chart-chartist.html">Chartist</a></li>
-                        <li><a href="./chart-sparkline.html">Sparkline</a></li>
-                        <li><a href="./chart-peity.html">Peity</a></li>
-                    </ul>
-                </li>
-                <li class="nav-label">UI Components</li>
-                <li>
-                    <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="icon-grid menu-icon"></i><span class="nav-text">UI Components</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a href="./ui-accordion.html">Accordion</a></li>
-                        <li><a href="./ui-alert.html">Alert</a></li>
-                        <li><a href="./ui-badge.html">Badge</a></li>
-                        <li><a href="./ui-button.html">Button</a></li>
-                        <li><a href="./ui-button-group.html">Button Group</a></li>
-                        <li><a href="./ui-cards.html">Cards</a></li>
-                        <li><a href="./ui-carousel.html">Carousel</a></li>
-                        <li><a href="./ui-dropdown.html">Dropdown</a></li>
-                        <li><a href="./ui-list-group.html">List Group</a></li>
-                        <li><a href="./ui-media-object.html">Media Object</a></li>
-                        <li><a href="./ui-modal.html">Modal</a></li>
-                        <li><a href="./ui-pagination.html">Pagination</a></li>
-                        <li><a href="./ui-popover.html">Popover</a></li>
-                        <li><a href="./ui-progressbar.html">Progressbar</a></li>
-                        <li><a href="./ui-tab.html">Tab</a></li>
-                        <li><a href="./ui-typography.html">Typography</a></li>
-                    <!-- </ul>
-                </li>
-                <li>
-                    <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="icon-layers menu-icon"></i><span class="nav-text">Components</span>
-                    </a>
-                    <ul aria-expanded="false"> -->
-                        <li><a href="./uc-nestedable.html">Nestedable</a></li>
-                        <li><a href="./uc-noui-slider.html">Noui Slider</a></li>
-                        <li><a href="./uc-sweetalert.html">Sweet Alert</a></li>
-                        <li><a href="./uc-toastr.html">Toastr</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="widgets.html" aria-expanded="false">
-                        <i class="icon-badge menu-icon"></i><span class="nav-text">Widget</span>
-                    </a>
-                </li>
-                <li class="nav-label">Forms</li>
-                <li>
-                    <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="icon-note menu-icon"></i><span class="nav-text">Forms</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a href="./form-basic.html">Basic Form</a></li>
-                        <li><a href="./form-validation.html">Form Validation</a></li>
-                        <li><a href="./form-step.html">Step Form</a></li>
-                        <li><a href="./form-editor.html">Editor</a></li>
-                        <li><a href="./form-picker.html">Picker</a></li>
-                    </ul>
-                </li>
-                <li class="nav-label">Table</li>
-                <li>
-                    <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="icon-menu menu-icon"></i><span class="nav-text">Table</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a href="./table-basic.html" aria-expanded="false">Basic Table</a></li>
-                        <li><a href="./table-datatable.html" aria-expanded="false">Data Table</a></li>
-                    </ul>
-                </li>
-                <li class="nav-label">Pages</li>
-                <li>
-                    <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="icon-notebook menu-icon"></i><span class="nav-text">Pages</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a href="./page-login.html">Login</a></li>
-                        <li><a href="./page-register.html">Register</a></li>
-                        <li><a href="./page-lock.html">Lock Screen</a></li>
-                        <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">Error</a>
-                            <ul aria-expanded="false">
-                                <li><a href="./page-error-404.html">Error 404</a></li>
-                                <li><a href="./page-error-403.html">Error 403</a></li>
-                                <li><a href="./page-error-400.html">Error 400</a></li>
-                                <li><a href="./page-error-500.html">Error 500</a></li>
-                                <li><a href="./page-error-503.html">Error 503</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+   <div class="nk-sidebar">           
+    <div class="nk-nav-scroll">
+        <ul class="metismenu" id="menu">
+            <li class="nav-label">Menú Principal</li>
+            <li>
+                <a  href="/../" aria-expanded="false">
+                    <i class="icon-speedometer menu-icon"></i><span class="nav-text">Home</span>
+                </a>  
+            </li>
+            
+            <li class="nav-label">Actividades</li>
+            <li>
+                <a  href="/./personalActivities/listaActividades/" aria-expanded="false">
+                    <i class="fa fa-user"></i><span class="nav-text">Actividades Individuales</span>
+                </a>
+            </li>
+            <li>
+                <a  href="./index.html" aria-expanded="false">
+                    <i class="fa fa-users"></i><span class="nav-text">Actividades Grupales</span>
+                </a>
+            </li>
+            <li>
+                <a  href="./index.html" aria-expanded="false">
+                    <i class="icon-grid menu-icon"></i><span class="nav-text">Recomendaciones</span>
+                </a>
+            </li>
+            <li>
+                <a  href="./index.html" aria-expanded="false">
+                    <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Crear Campeonato</span>
+                </a>
+            </li>
+            <li class="nav-label">Mi Perfil</li>
+            
+            <li>
+                <a  href="./index.html" aria-expanded="false">
+                    <i class="icon-menu menu-icon"></i><span class="nav-text">Historial de mis Actividades</span>
+                </a>
+            </li>
+            <li>
+                <a  href="./index.html" aria-expanded="false">
+                    <i class="icon-notebook menu-icon"></i><span class="nav-text">Mi Calendario</span>
+                </a>
+            </li>
+            <li>
+                <a  href="./index.html" aria-expanded="false">
+                    <i class="icon-badge menu-icon"></i><span class="nav-text">Mis Logros</span>
+                </a>
+            </li>
+            <li>
+                <a  href="./index.html" aria-expanded="false">
+                    <i class="icon-graph menu-icon"></i><span class="nav-text">Mi Experiencia</span>
+                </a>
+            </li>
+            <li class="nav-label">Cuenta</li>
+            <li>
+                <a  href="/../configuracionCuenta.html" aria-expanded="false">
+                    <i class="icon-note menu-icon"></i><span class="nav-text">Configuración de Cuenta</span>
+                </a>
+            </li>
+            
+                <li><form action="{% url 'users:logout' %}" method="POST">
+                    {% csrf_token %}
+                    <button id="botonlateralcerrarsesion" class="fa fa-paper-plane" type="submit" style="margin-left:20%;background: white; border: none;"> Cerrar sesión</button>
+                </form></li>
+            
+            
+        </ul>
     </div>
+</div>
+
+
 
         <!--Contenido del cuerpo-->
     {% load crispy_forms_tags %}
