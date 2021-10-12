@@ -1,5 +1,3 @@
-var recurso = "";
-
 document.getElementById('BotonFinalizarSesion').onclick = function(){
     swal({
         title: "¡Gracias por participar en esta actividad!",
