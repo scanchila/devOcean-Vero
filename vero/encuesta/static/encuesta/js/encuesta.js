@@ -91,10 +91,9 @@ document.getElementById('close-image8').onclick = function () {
     icon: "success",
     button: "ok",
   }).then(async function () {
-    var ans = await responderEncuesta("lady","energica","triste")
-    window.location.href = "../";
-  }).then(function () {
-    window.location.href = "/../";
+    var ans = await responderEncuesta("lady","energica","triste");
+    alert(ans);
+    //window.location.href = "../";
   })
   return false;
 }
@@ -114,7 +113,8 @@ async function responderEncuesta(estado,sentInicial,sentFinal) {
       cache: false,
       dataType: "json",
       success: function (resp) {
-        console.log("resp: " + resp.respuesta);
+        alert("resp: " + resp.respuesta);
+        return resp
       }
     });
   }

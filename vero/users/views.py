@@ -30,11 +30,10 @@ def loginUser(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            response = render(request, 'personalActivities/filtroActividadesIndividuales.html')
+            response = render(request, "personalActivities/filtroActividadesIndividuales.html")
             response.set_cookie('username', user)
-
             return response
-            #return redirect('index')
+
 
     else:
         form = UserLoginForm()
