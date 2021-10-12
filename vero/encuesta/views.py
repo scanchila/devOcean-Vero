@@ -4,6 +4,7 @@ from django.template import loader
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from encuesta.models import Encuesta
+from django.contrib.auth.models import User
 
 # Create your views here.
 def index(request):
@@ -17,9 +18,10 @@ def recibirEncuesta(request):
   #if request.method=="POST" and request.is_ajax():
   #  print(request.POST["sentimientoInicial"])
   #  return JsonResponse({"success": True, "respuesta": "siuu"}, status=200)
-
+  user=User.objects.get(username="jj")
   if request.method == 'POST'and request.is_ajax():
     form = Encuesta(request.POST)
+    form = Encuesta(user=user,sentimientoInicial=request.POST["sentimientoInicial"],sentimientoFinal=request.POST["sentimientoFinal"])
     form.save()
   else:
     form = Encuesta()

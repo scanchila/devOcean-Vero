@@ -91,7 +91,7 @@ document.getElementById('close-image8').onclick = function () {
     icon: "success",
     button: "ok",
   }).then(async function () {
-    var ans = await responderEncuesta("JUAN","energica","triste")
+    var ans = await responderEncuesta("lady","energica","triste")
     window.location.href = "../";
   }).then(function () {
     window.location.href = "/../";
