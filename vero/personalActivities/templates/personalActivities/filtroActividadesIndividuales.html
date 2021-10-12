@@ -284,7 +284,9 @@
     </div>
 
         <!--Contenido del cuerpo-->
-
+    {% load crispy_forms_tags %}
+    {% block content %}
+    {% csrf_token %}
         <div class="content-body">
 
             <div class="container-fluid mt-3">
@@ -292,7 +294,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="title_principal">Actividades individuales</h4>                        
+                            <h4 class="title_principal">Actividades individuales</h4>
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-lg-6">
@@ -300,7 +302,7 @@
                                             <div class="card-body">
                                                 <div class="card-act" id="opc">
                                                     <h2 class="text-white">Respiración</h2>
-                                                    <input class="check-act" type="checkbox" name="check">
+                                                    <input class="check-act" type="checkbox" name="check" value="respiracion">
                                                 </div>
                                             </div>
                                         </div>
@@ -310,7 +312,7 @@
                                             <div class="card-body">
                                                 <div class="card-act" id="opc">
                                                     <h2 class="text-white">Estiramientos</h2>
-                                                    <input class="check-actT" type="checkbox" name="check">
+                                                   <input class="check-actT" type="checkbox" name="check" value="estiramiento">
                                                 </div>
                                             </div>
                                         </div>
@@ -333,9 +335,9 @@
                             <div class="button-group">
                                 <div class="btn-toolbar">
                                     <div class="btn-group mr-2 mb-2">
-                                        <button type="button" class="btn btn-primary" id="btnVideo" onclick="cambioRecurso('Video')">Video</button>
-                                        <button type="button" class="btn btn-primary" id="btnAudio" onclick="cambioRecurso('Audio')">Audio</button>
-                                        <button type="button" class="btn btn-primary" id="btnTexto" onclick="cambioRecurso('texto')">Texto</button>
+                                        <input type="button" class="btn btn-primary" id="btnVideo" name="btn" value="video" onclick="cambioRecurso('Video')" >
+                                        <input type="button" class="btn btn-primary" id="btnAudio" name="btn" value="audio" onclick="cambioRecurso('Audio')" >
+                                        <input type="button" class="btn btn-primary" id="btnTexto" name="btn" value="texto" onclick="cambioRecurso('texto')" >
                                     </div>
                                 </div>
                             </div>
@@ -360,15 +362,15 @@
             </div>
         
         <div class="container-aux">
-            <button type="button" class="btn mb-1 btn-success" id="btnFiltroActividadesInd">Enviar</button>
+            <button class="btn mb-1 btn-success" id="btnFiltroActividadesInd">Enviar</button>
         </div>
                 
             </div>
 
         </div>
+        </div>
+    {% endblock %}
 
-
-        
         
        
 <!-- ======= Footer ======= --> 
