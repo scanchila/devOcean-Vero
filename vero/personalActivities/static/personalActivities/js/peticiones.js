@@ -1,3 +1,31 @@
+// Solicitar Actividad Individual
+var respuesta = "";
+async function enviarActividadIndividual(tipo, recurso, tiempo){
+    //Almecena los datos en JSON
+    let da = {
+        "tipo": tipo,
+        "recurso": recurso,
+        "tiempo": tiempo,
+        "csrfmiddlewaretoken": window.CSRF_TOKEN
+    };
+    console.log(da)
+    try {
+        $.ajax({
+            url: url + "personalActivities/recibirActividad/",
+            type: "POST",
+            data: da,
+            cache: false,
+            dataType: "json",
+            success: function (resp) {
+                console.log("resp: " + resp.respuesta);
+            }
+        });
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+
 //Consultar actividad individual
 async function verActividadIndividual(actividad, recurso, tiempo){
     let data = {
@@ -30,3 +58,4 @@ async function verActividadIndividual(actividad, recurso, tiempo){
     }
     return true;
 }
+

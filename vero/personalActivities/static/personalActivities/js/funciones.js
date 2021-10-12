@@ -1,8 +1,21 @@
+const url = "http://localhost:8000/";
+let recurso = "";
+function setCookie(token) {
+    document.cookie = "token=" + encodeURIComponent(token) + "; max-age=3600; path=/";
+}
+
+function readCookie(name) {
+    return decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + name.replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null;
+}
+
+function deleteCookie() {
+    document.cookie = "token=; max-age=0; path=/";
+    socket.disconnect();
+}
 
 function cambioRecurso(recursoSelec){
     recurso = recursoSelec;
 }
-
 
 function traerActividadIndividual(actividades) {
 $("#actividadPropuesta").empty();
