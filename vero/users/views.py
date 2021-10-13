@@ -37,7 +37,7 @@ def loginUser(request):
             # return redirect('personal_activities_list')
             response = render(request, "personalActivities/filtroActividadesIndividuales.html")
             response.set_cookie('username', user)
-            return response
+            return redirect('index')
 
 
     else:

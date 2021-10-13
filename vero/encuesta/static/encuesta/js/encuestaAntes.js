@@ -6,7 +6,8 @@ document.getElementById('close-image1').onclick = function () {
     icon: "success",
     button: "ok",
   }).then(async function () {
-    var ans = await responderEncuesta(2)
+    window.token = "enérgico";
+    setCookie(token);
     window.location.href = "/personalActivities/actividad";
   })
   return false;
@@ -19,7 +20,8 @@ document.getElementById('close-image2').onclick = function () {
     icon: "success",
     button: "ok",
   }).then(async function () {
-    var ans = await responderEncuesta(6)
+    window.token = "estresado";
+    setCookie(token);
     window.location.href = "/personalActivities/actividad";
   })
   return false;
@@ -31,7 +33,8 @@ document.getElementById('close-image3').onclick = function () {
     icon: "success",
     button: "ok",
   }).then(async function () {
-    var ans = await responderEncuesta(4)
+    window.token = "cansado";
+    setCookie(token);
     window.location.href = "/personalActivities/actividad";
   })
   return false;
@@ -43,7 +46,8 @@ document.getElementById('close-image4').onclick = function () {
     icon: "success",
     button: "ok",
   }).then(async function () {
-    var ans = await responderEncuesta(5)
+    window.token = "asustado";
+    setCookie(token);
     window.location.href = "/personalActivities/actividad";
   })
   return false;
@@ -55,7 +59,8 @@ document.getElementById('close-image5').onclick = function () {
     icon: "success",
     button: "ok",
   }).then(async function () {
-    var ans = await responderEncuesta(7)
+    window.token = "enojado";
+    setCookie(token);
     window.location.href = "/personalActivities/actividad";
   })
   return false;
@@ -67,7 +72,8 @@ document.getElementById('close-image6').onclick = function () {
     icon: "success",
     button: "ok",
   }).then(async function () {
-    var ans = await responderEncuesta(8)
+    window.token = "triste";
+    setCookie(token);
     window.location.href = "/personalActivities/actividad";
   })
   return false;
@@ -79,7 +85,8 @@ document.getElementById('close-image7').onclick = function () {
     icon: "success",
     button: "ok",
   }).then(async function () {
-    var ans = await responderEncuesta(1)
+    window.token = "feliz";
+    setCookie(token);
     window.location.href = "/personalActivities/actividad";
   })
   return false;
@@ -91,7 +98,8 @@ document.getElementById('close-image8').onclick = function () {
     icon: "success",
     button: "ok",
   }).then(async function () {
-    var ans = await responderEncuesta("lady","energica","triste");
+    window.token = "amigable";
+    setCookie(token);
     window.location.href = "/personalActivities/actividad";
   })
   return false;
@@ -121,4 +129,17 @@ async function responderEncuesta(estado,sentInicial,sentFinal) {
     console.log(error);
   }
 
+}
+
+
+function setCookie(token) {
+    document.cookie = "token=" + encodeURIComponent(token) + "; max-age=3600; path=/";
+}
+
+function readCookie(name) {
+    return decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + name.replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null;
+}
+
+function deleteCookie() {
+    document.cookie = "token=; max-age=0; path=/";
 }

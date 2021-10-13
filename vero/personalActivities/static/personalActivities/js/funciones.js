@@ -37,7 +37,7 @@ if (tipo == "Video") {
 } else if (tipo == "Audio") {
     imagen = "/./static/personalActivities/recursos/audios/img/Fondo.jpg";
     actividadC = ""; 
-    actividadC = '<h2 " class="titulos" >' + titulo +' </h2> <div> <video id="audio" controls="" autoplay="" name="media" style="text-align:center"><source src=" ' + url + ' " type="audio/mpeg"></video></div>';
+    actividadC = '<h2 " class="titulos" >' + titulo +' </h2><center> <video controls="" autoplay="" name="media" ><source src=" ' + url + ' " type="audio/mpeg"></video></center> <br><br><br>';
 }else{
     actividadC = ""; 
     actividadC = '<div class="container-fluid mt-3"> <div class="container-fluid"> <div class="row"> <div class="col-lg-12"> <div class="card gradient-1"> <div class="card-body">' +
