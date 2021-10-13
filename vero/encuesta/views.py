@@ -18,8 +18,10 @@ def recibirEncuesta(request):
   #if request.method=="POST" and request.is_ajax():
   #  print(request.POST["sentimientoInicial"])
   #  return JsonResponse({"success": True, "respuesta": "siuu"}, status=200)
-  user=User.objects.get(username="jj")
+  print(request.COOKIES['username'])
+  user=User.objects.get(username=request.COOKIES['username'])
   if request.method == 'POST'and request.is_ajax():
+    print("Vegetableeeees")
     form = Encuesta(request.POST)
     form = Encuesta(user=user,sentimientoInicial=request.POST["sentimientoInicial"],sentimientoFinal=request.POST["sentimientoFinal"])
     form.save()
