@@ -1,8 +1,21 @@
+const url = "http://localhost:8000/";
+let recurso = "";
+function setCookie(token) {
+    document.cookie = "token=" + encodeURIComponent(token) + "; max-age=3600; path=/";
+}
+
+function readCookie(name) {
+    return decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + name.replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null;
+}
+
+function deleteCookie() {
+    document.cookie = "token=; max-age=0; path=/";
+    socket.disconnect();
+}
 
 function cambioRecurso(recursoSelec){
     recurso = recursoSelec;
 }
-
 
 function traerActividadIndividual(actividades) {
 $("#actividadPropuesta").empty();
@@ -24,7 +37,7 @@ if (tipo == "Video") {
 } else if (tipo == "Audio") {
     imagen = "/./static/personalActivities/recursos/audios/img/Fondo.jpg";
     actividadC = ""; 
-    actividadC = '<video controls="" autoplay="" name="media"><source src=" ' + url + ' " type="audio/mpeg"></video>';
+    actividadC = '<h2 " class="titulos" >' + titulo +' </h2><center> <video controls="" autoplay="" name="media" ><source src=" ' + url + ' " type="audio/mpeg"></video></center> <br><br><br>';
 }else{
     actividadC = ""; 
     actividadC = '<div class="container-fluid mt-3"> <div class="container-fluid"> <div class="row"> <div class="col-lg-12"> <div class="card gradient-1"> <div class="card-body">' +
