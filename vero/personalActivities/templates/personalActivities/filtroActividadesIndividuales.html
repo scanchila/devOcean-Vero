@@ -215,27 +215,8 @@
                         <div class="card-body">
                             <h4 class="title_principal">Actividades individuales</h4>
                             <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="card gradient-1">
-                                            <div class="card-body">
-                                                <div class="card-act" id="opc">
-                                                    <h2 class="text-white">Respiración</h2>
-                                                    <input class="check-act" type="checkbox" name="check" value="respiracion">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="card gradient-2">
-                                            <div class="card-body">
-                                                <div class="card-act" id="opc">
-                                                    <h2 class="text-white">Estiramientos</h2>
-                                                   <input class="check-actT" type="checkbox" name="check" value="estiramiento">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="row" id="grupo_actividades">
+
                                 </div>
                             </div>
                         
@@ -388,6 +369,33 @@
             $(this).attr('checked', 'checked');
         });
     });
+</script>
+
+<script type="text/javascript">
+    datos = {{data|safe}};
+    $("#grupo_actividades").empty();
+    for(var i = 0; i < datos.activities.length; i++){
+        var e = 1;
+        if(i%2==0){
+            var e = 1; 
+        }else{ var e = 2;}
+        actividad = ""; 
+        actividad = '<div class="col-lg-6">'+
+            '<div class="card gradient-'+e+'">'+
+                '<div class="card-body">'+
+                    '<div class="card-act" id="opc">'+
+                        '<h2 class="text-white">'+datos.activities[i]+'</h2>'+
+                        '<input class="check-act" type="checkbox" name="check" value="respiracion">'+
+                    '</div>'+
+                '</div>'+
+            '</div>'+
+        '</div>';   
+
+        $("#grupo_actividades").append(actividad);
+
+    } 
+
+    
 </script>
 
 </body>

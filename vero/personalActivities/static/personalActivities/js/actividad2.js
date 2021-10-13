@@ -1,4 +1,3 @@
-
 document.getElementById('btnFiltroActividadesInd').onclick = async function(){
 
         var actividad = "";
@@ -12,6 +11,4 @@ document.getElementById('btnFiltroActividadesInd').onclick = async function(){
     //  var ans = await verActividadIndividual(actividad, recurso, tiempo);
     window.location.href="/encuesta/encuestaAntes";
     var ans = await enviarActividadIndividual(actividad, recurso, tiempo);
-        
-
 }
