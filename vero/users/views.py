@@ -1,8 +1,9 @@
 from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.shortcuts import redirect, render
-
+from django.template import RequestContext
 from .forms import UserLoginForm, UserRegisterForm
+import datetime
 
 # Create your views here.
 
@@ -29,7 +30,10 @@ def loginUser(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('index')
+            response = render(request, "personalActivities/filtroActividadesIndividuales.html")
+            response.set_cookie('username', user)
+            return response
+
 
     else:
         form = UserLoginForm()

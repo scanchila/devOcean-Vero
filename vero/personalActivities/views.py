@@ -16,8 +16,8 @@ def actividad(request):
 @csrf_exempt
 def recibirActividad(request):
   if request.method == "POST" and request.is_ajax():
-    for x in request.POST:
-      print(request.POST[x])
+    #for x in request.POST:
+    #  print(request.POST[x])
     return JsonResponse({"success": True, "respuesta": "siuu"}, status=200)
   return JsonResponse({"success": False, "respuesta": "noou"}, status=400)
 
