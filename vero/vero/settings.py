@@ -31,14 +31,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'personalActivities.apps.PersonalactivitiesConfig',
+    'home.apps.HomeConfig', # landing y pagina principal
+    'users.apps.UsersConfig', # usuarios y autenticacion
+    'personalActivities.apps.PersonalactivitiesConfig', # actividades individuales
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home'
 ]
 
 MIDDLEWARE = [

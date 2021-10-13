@@ -1,0 +1,56 @@
+{% extends 'home/base.html' %}
+{% block title %}{{ pageTitle }}{% endblock %}
+{%load static %}
+{% block style %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{%static 'home/css/styleReg.css'%}">
+{% endblock %}
+
+{% block content %}
+<img class="fondo" src="{%static 'home/img/fondo.png'%}">
+<img class="fondo2" src="{%static 'home/img/fondo.png'%}">
+<div class="container">
+  <!-- Formulario de Registro -->
+  <div class="login">
+    <form method="post">
+      {%csrf_token%}
+      <div class="img2">
+        <img src="{%static 'home/img/logo.png'%}">
+      </div>
+      <h2 class="subtitle">Bienvenido a Vero</h2>
+
+      <div class="input-div one">
+        <div class="i">
+          <i class="fas fa-id-card"></i>
+        </div>
+        <div class="div">
+          <input type="text" name="username" maxlength="150" autofocus="" required id="id_username" placeholder="username">
+          
+        </div>
+      </div>
+      
+      <div class="input-div pass">
+        <div class="i">
+          <i class="fas fa-lock"></i>
+        </div>
+        <div class="div">
+          <input type="password" name="password" autocomplete="new-password" required id="id_password" placeholder="contraseña">
+        </div>
+      </div>
+      <button id="Registrar" type="submit" class="btn">Iniciar sesión</button>
+      <a href="{% url 'users:register' %}" id="Devolver">Crea una cuenta</a><br>
+      <div id="userNameHelp" class="form-text">
+        {% if form.errors %}
+        {% for error in form.non_field_errors %}
+        {{ error|escape }}
+        {% endfor %}
+        {% endif %}
+      </div>
+    </form>
+
+  </div>
+  <div class="img">
+    <img src="{%static 'home/img/signinfo.svg'%}">
+  </div>
+</div>
+{% endblock %}
