@@ -92,8 +92,7 @@ document.getElementById('close-image8').onclick = function () {
     button: "ok",
   }).then(async function () {
     var ans = await responderEncuesta("lady","energica","triste");
-    alert(ans);
-    //window.location.href = "../";
+    window.location.href = "../";
   })
   return false;
 }

@@ -37,7 +37,7 @@ if (tipo == "Video") {
 } else if (tipo == "Audio") {
     imagen = "/./static/personalActivities/recursos/audios/img/Fondo.jpg";
     actividadC = ""; 
-    actividadC = '<video controls="" autoplay="" name="media"><source src=" ' + url + ' " type="audio/mpeg"></video>';
+    actividadC = '<h2 " class="titulos" >' + titulo +' </h2> <div> <video id="audio" controls="" autoplay="" name="media" style="text-align:center"><source src=" ' + url + ' " type="audio/mpeg"></video></div>';
 }else{
     actividadC = ""; 
     actividadC = '<div class="container-fluid mt-3"> <div class="container-fluid"> <div class="row"> <div class="col-lg-12"> <div class="card gradient-1"> <div class="card-body">' +
@@ -45,7 +45,7 @@ if (tipo == "Video") {
                     '<div class="row"> <div class="col-lg-12">  <div class="card">  <iframe src="' + url + '"> </iframe> </div> </div> </div> </div>  </div>';
 }
 
-
+$("#actividadPropuesta").empty();
 $("#actividadPropuesta").append(actividadC);
 const newMusicPlayer = new musicPlayer();
 }

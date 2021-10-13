@@ -116,8 +116,10 @@
                                         <a href=""><i class="icon-user"></i> <span>Cuenta</span></a>
                                     </li>
                                     <hr class="my-2">
-                                    <li><a href="page-login.html"><i class="icon-key"></i> <span>Cerrar
-                                                sesión</span></a></li>
+                                    <li><form action="{% url 'users:logout' %}" method="POST">
+                                        {% csrf_token %}
+                                        <button class="btn btn-link" type="submit"><i class="icon-key"></i> <span>Cerrar sesión</span></button>
+                                    </form></li>
                                 </ul>
                             </div>
                         </div>
@@ -190,10 +192,7 @@
                 </a>
             </li>
             
-                <li><form action="{% url 'users:logout' %}" method="POST">
-                    {% csrf_token %}
-                    <button id="botonlateralcerrarsesion" class="fa fa-paper-plane" type="submit" style="margin-left:20%;background: white; border: none;"> Cerrar sesión</button>
-                </form></li>
+                
             
             
         </ul>
