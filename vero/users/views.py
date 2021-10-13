@@ -8,6 +8,8 @@ from .forms import UserLoginForm, UserRegisterForm
 
 
 def registerUser(request):
+    if request.user.is_authenticated:
+        return redirect('personal_activities_list')
     context = {
         'pageTitle' : 'Register',
     }
@@ -15,7 +17,7 @@ def registerUser(request):
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('login')
+            return redirect('users:login')
     else:
         form = UserRegisterForm()
 
@@ -24,12 +26,14 @@ def registerUser(request):
 
 
 def loginUser(request):
+    if request.user.is_authenticated:
+        return redirect('personal_activities_list')
     if request.method == 'POST':
         form = UserLoginForm(data=request.POST)
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('index')
+            return redirect('personal_activities_list')
 
     else:
         form = UserLoginForm()
