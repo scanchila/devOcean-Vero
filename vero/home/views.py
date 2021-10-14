@@ -24,7 +24,8 @@ def menu(request):
   data = serialize('json', pers)
   data = json.loads(data)
   context = {
-    'activities': [[x.name, x.description, x.image_URL, x.duration] for x in pers]
+    'activities': [[x.name, x.description, x.image_URL, x.duration] for x in pers],
+    'activities2': pers
   }
   return render(request, "home/menu.html", context=context)
 

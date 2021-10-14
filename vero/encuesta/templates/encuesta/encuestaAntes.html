@@ -10,14 +10,14 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'encuesta/images/icono.png' %}">
     <link href="{% static 'encuesta/css/style.css' %}" rel="stylesheet">
     <link href="{% static 'encuesta/css/footer.css' %}" rel="stylesheet">
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    
 
-    
-    
+
+
+
 </head>
 
 <body>
@@ -33,178 +33,15 @@
     </div>
 
 
-     <!-- Navegación del header -->
-  <div id="main-wrapper" class="show menu-toggle">
+    <!-- Navegación del header -->
+    <div id="main-wrapper" class="show menu-toggle">
 
-    <div class="nav-header">
-        <div class="brand-logo">
-            <a href="index.html">
-
-                <span class="logo-compact"><img src="{% static 'encuesta/images/logo.png' %}" alt=""></span>
-                <span class="brand-title">
-                    <img src="{% static 'encuesta/images/logo-text.png' %}" alt="">
-                </span>
-            </a>
-        </div>
-        <div class="brand-logoTwo">
-            <a href="{% url 'index' %}">
-                <b class="logo-abbr"><img src="{% static 'encuesta/images/vero-icon-white.png'%}" alt=""> </b>
-            </a>
-        </div>
-    </div>
-
-    <div class="header">
-        <div class="header-content clearfix">
-
-            <!--Icono de navegación lateral-->
-
-            <div class="nav-control">
-                <div class="hamburger">
-                    <span class="toggle-icon"><i class="icon-menu"></i></span>
-                </div>
-            </div>
+        {% include 'home/headerMain.html' %}
 
 
-            <!--Campo de busqueda-->
+        <!--Barra de navegación lateral EDITAR-->
 
-            <div class="header-left">
-                <div class="input-group icons">
-                    <!--Icono-->
-                    <div class="input-group-prepend">
-                        <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i
-                                class="mdi mdi-magnify"></i></span>
-                    </div>
-                    <!--Input-->
-                    <input type="search" class="form-control" placeholder="Búsqueda" aria-label="Search Dashboard">
-                    <div class="drop-down animated flipInX d-md-none">
-                        <form action="#">
-                            <input type="text" class="form-control" placeholder="Search">
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-            <div class="header-right">
-                <ul class="clearfix">
-
-                    <!--Número de mensajes nuevos-->
-
-                    <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
-                            <i class="mdi mdi-email-outline"></i>
-                            <span class="badge badge-pill gradient-1">1</span>
-                        </a>
-                    </li>
-
-
-                    <!--Número de notificaciones nuevas-->
-
-                    <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
-                            <i class="mdi mdi-bell-outline"></i>
-                            <span class="badge badge-pill gradient-2">2</span>
-                        </a>
-                    </li>
-
-
-                    <li class="icons dropdown">
-
-                        <!--Imagen del usuario-->
-
-                        <div class="user-img c-pointer position-relative" data-toggle="dropdown">
-                            <span class="activity active"></span>
-                            <img src="{% static 'encuesta/images/user.png'%}" height="40" width="40" alt="">
-                        </div>
-
-                        <!--Opciones del usuario-->
-
-                        <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
-                            <div class="dropdown-content-body">
-                                <ul>
-                                    <li>
-                                        <a href=""><i class="icon-user"></i> <span>Cuenta</span></a>
-                                    </li>
-                                    <hr class="my-2">
-                                    <li><form action="{% url 'users:logout' %}" method="POST">
-                                        {% csrf_token %}
-                                        <button class="btn btn-link" type="submit"><i class="icon-key"></i> <span>Cerrar sesión</span></button>
-                                    </form></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-
-   <!--Barra de navegación lateral EDITAR-->
-
-   <div class="nk-sidebar">           
-    <div class="nk-nav-scroll">
-        <ul class="metismenu" id="menu">
-            <li class="nav-label">Menú Principal</li>
-            <li>
-                <a  href="/../" aria-expanded="false">
-                    <i class="icon-speedometer menu-icon"></i><span class="nav-text">Home</span>
-                </a>  
-            </li>
-            
-            <li class="nav-label">Actividades</li>
-            <li>
-                <a  href="/./personalActivities/listaActividades/" aria-expanded="false">
-                    <i class="fa fa-user"></i><span class="nav-text">Actividades Individuales</span>
-                </a>
-            </li>
-            <li>
-                <a  href="./index.html" aria-expanded="false">
-                    <i class="fa fa-users"></i><span class="nav-text">Actividades Grupales</span>
-                </a>
-            </li>
-            <li>
-                <a  href="./index.html" aria-expanded="false">
-                    <i class="icon-grid menu-icon"></i><span class="nav-text">Recomendaciones</span>
-                </a>
-            </li>
-            <li>
-                <a  href="./index.html" aria-expanded="false">
-                    <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Crear Campeonato</span>
-                </a>
-            </li>
-            <li class="nav-label">Mi Perfil</li>
-            
-            <li>
-                <a  href="./index.html" aria-expanded="false">
-                    <i class="icon-menu menu-icon"></i><span class="nav-text">Historial de mis Actividades</span>
-                </a>
-            </li>
-            <li>
-                <a  href="./index.html" aria-expanded="false">
-                    <i class="icon-notebook menu-icon"></i><span class="nav-text">Mi Calendario</span>
-                </a>
-            </li>
-            <li>
-                <a  href="./index.html" aria-expanded="false">
-                    <i class="icon-badge menu-icon"></i><span class="nav-text">Mis Logros</span>
-                </a>
-            </li>
-            <li>
-                <a  href="./index.html" aria-expanded="false">
-                    <i class="icon-graph menu-icon"></i><span class="nav-text">Mi Experiencia</span>
-                </a>
-            </li>
-            <li class="nav-label">Cuenta</li>
-            <li>
-                <a  href="/../configuracionCuenta.html" aria-expanded="false">
-                    <i class="icon-note menu-icon"></i><span class="nav-text">Configuración de Cuenta</span>
-                </a>
-            </li>
-            
-                
-            
-            
-        </ul>
-    </div>
-</div>
+        {% include 'home/lateralMenu.html' %}
 
         <!--Contenido del cuerpo-->
 
@@ -222,10 +59,13 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="text-center">
-                                            <img id="imgenes" src="{% static 'encuesta/images/7.jpg'%}" class="rounded-circle" alt="">
+                                            <img id="imgenes" src="{% static 'encuesta/images/7.jpg'%}"
+                                                class="rounded-circle" alt="">
                                             <br>
                                             <br>
-                                            <button onClick="confirmFeeling('feliz', {{ activity_id }}, 1)" id="close-image7" type="button" class="btn mb-1 btn-outline-primary" >Me siento feliz</button>
+                                            <button onClick="confirmFeeling('feliz', {{ activity_id }}, 1)"
+                                                id="close-image7" type="button" class="btn mb-1 btn-outline-primary">Me
+                                                siento feliz</button>
                                             <!-- <a href="javascript:void()" class="btn btn-sm btn-warning">Send Message</a> -->
                                         </div>
                                     </div>
@@ -235,10 +75,13 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="text-center">
-                                            <img id="imgenes" src="{% static 'encuesta/images/1.jpg'%}" class="rounded-circle" alt="">
+                                            <img id="imgenes" src="{% static 'encuesta/images/1.jpg'%}"
+                                                class="rounded-circle" alt="">
                                             <br>
                                             <br>
-                                            <button onClick="confirmFeeling('enérgico', {{ activity_id }}, 1)" id="close-image1" type="button" class="btn mb-1 btn-outline-primary">Me siento enérgico</button>
+                                            <button onClick="confirmFeeling('enérgico', {{ activity_id }}, 1)"
+                                                id="close-image1" type="button" class="btn mb-1 btn-outline-primary">Me
+                                                siento enérgico</button>
                                             <!-- <a href="javascript:void()" class="btn btn-sm btn-warning">Send Message</a> -->
                                         </div>
                                     </div>
@@ -248,10 +91,13 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="text-center">
-                                            <img id="imgenes" src="{% static 'encuesta/images/8.jpg'%}" class="rounded-circle" alt="">
+                                            <img id="imgenes" src="{% static 'encuesta/images/8.jpg'%}"
+                                                class="rounded-circle" alt="">
                                             <br>
                                             <br>
-                                            <button onClick="confirmFeeling('amigable', {{ activity_id }}, 1)" id="close-image8" type="button" class="btn mb-1 btn-outline-primary">Me siento amigable</button>
+                                            <button onClick="confirmFeeling('amigable', {{ activity_id }}, 1)"
+                                                id="close-image8" type="button" class="btn mb-1 btn-outline-primary">Me
+                                                siento amigable</button>
                                             <!-- <a href="javascript:void()" class="btn btn-sm btn-warning">Send Message</a> -->
                                         </div>
                                     </div>
@@ -261,10 +107,13 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="text-center">
-                                            <img id="imgenes" src="{% static 'encuesta/images/3.jpg'%}" class="rounded-circle" alt="">
+                                            <img id="imgenes" src="{% static 'encuesta/images/3.jpg'%}"
+                                                class="rounded-circle" alt="">
                                             <br>
                                             <br>
-                                            <button onClick="confirmFeeling('cansado', {{ activity_id }}, 1)" id="close-image3" type="button" class="btn mb-1 btn-outline-primary">Me siento cansado</button>
+                                            <button onClick="confirmFeeling('cansado', {{ activity_id }}, 1)"
+                                                id="close-image3" type="button" class="btn mb-1 btn-outline-primary">Me
+                                                siento cansado</button>
                                             <!-- <a href="javascript:void()" class="btn btn-sm btn-warning">Send Message</a> -->
                                         </div>
                                     </div>
@@ -274,10 +123,13 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="text-center">
-                                            <img id="imgenes" src="{% static 'encuesta/images/4.jpg'%}" class="rounded-circle" alt="">
+                                            <img id="imgenes" src="{% static 'encuesta/images/4.jpg'%}"
+                                                class="rounded-circle" alt="">
                                             <br>
                                             <br>
-                                            <button onClick="confirmFeeling('asustado', {{ activity_id }}, 1)" id="close-image4" type="button" class="btn mb-1 btn-outline-primary">Me siento asustado</button>
+                                            <button onClick="confirmFeeling('asustado', {{ activity_id }}, 1)"
+                                                id="close-image4" type="button" class="btn mb-1 btn-outline-primary">Me
+                                                siento asustado</button>
                                             <!-- <a href="javascript:void()" class="btn btn-sm btn-warning">Send Message</a> -->
                                         </div>
                                     </div>
@@ -287,10 +139,13 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="text-center">
-                                            <img id="imgenes" src="{% static 'encuesta/images/2.jpg'%}" class="rounded-circle" alt="">
+                                            <img id="imgenes" src="{% static 'encuesta/images/2.jpg'%}"
+                                                class="rounded-circle" alt="">
                                             <br>
                                             <br>
-                                            <button onClick="confirmFeeling('estresado', {{ activity_id }}, 1)" id="close-image2" type="button" class="btn mb-1 btn-outline-primary">Me siento estresado</button>
+                                            <button onClick="confirmFeeling('estresado', {{ activity_id }}, 1)"
+                                                id="close-image2" type="button" class="btn mb-1 btn-outline-primary">Me
+                                                siento estresado</button>
                                             <!-- <a href="javascript:void()" class="btn btn-sm btn-warning">Send Message</a> -->
                                         </div>
                                     </div>
@@ -300,10 +155,13 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="text-center">
-                                            <img id="imgenes" src="{% static 'encuesta/images/5.jpg'%}" class="rounded-circle" alt="">
+                                            <img id="imgenes" src="{% static 'encuesta/images/5.jpg'%}"
+                                                class="rounded-circle" alt="">
                                             <br>
                                             <br>
-                                            <button onClick="confirmFeeling('enojado', {{ activity_id }}, 1)" id="close-image5" type="button" class="btn mb-1 btn-outline-primary">Me siento enojado</button>
+                                            <button onClick="confirmFeeling('enojado', {{ activity_id }}, 1)"
+                                                id="close-image5" type="button" class="btn mb-1 btn-outline-primary">Me
+                                                siento enojado</button>
                                             <!-- <a href="javascript:void()" class="btn btn-sm btn-warning">Send Message</a> -->
                                         </div>
                                     </div>
@@ -313,10 +171,13 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="text-center">
-                                            <img id="imgenes" src="{% static 'encuesta/images/6.jpg'%}" class="rounded-circle" alt="">
+                                            <img id="imgenes" src="{% static 'encuesta/images/6.jpg'%}"
+                                                class="rounded-circle" alt="">
                                             <br>
                                             <br>
-                                            <button onClick="confirmFeeling('triste', {{ activity_id }}, 1)" id="close-image6" type="button" class="btn mb-1 btn-outline-primary">Me siento triste</button>
+                                            <button onClick="confirmFeeling('triste', {{ activity_id }}, 1)"
+                                                id="close-image6" type="button" class="btn mb-1 btn-outline-primary">Me
+                                                siento triste</button>
                                             <!-- <a href="javascript:void()" class="btn btn-sm btn-warning">Send Message</a> -->
                                         </div>
                                     </div>
@@ -413,7 +274,7 @@
         <script src="{% static 'encuesta/js/settings.js' %}"></script>
         <script src="{% static 'encuesta/js/gleek.js' %}"></script>
         <script src="{% static 'encuesta/js/styleSwitcher.js' %}"></script>
-        
+
 
 
         <script>
@@ -424,7 +285,7 @@
                 value.textContent = this.value + " minutos";
             }
         </script>
-
+    </div>
 </body>
 
 </html>

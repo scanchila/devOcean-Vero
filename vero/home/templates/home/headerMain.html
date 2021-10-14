@@ -1,0 +1,104 @@
+{% load static %}
+
+<div class="nav-header">
+  <div class="brand-logo">
+      <a href="{% url 'index' %}">
+
+          <span class="logo-compact"><img src="{% static 'encuesta/images/logo.png' %}" alt=""></span>
+          <span class="brand-title">
+              <img src="{% static 'encuesta/images/logo-text.png' %}" alt="">
+          </span>
+      </a>
+  </div>
+  <div class="brand-logoTwo">
+      <a href="{% url 'index' %}">
+          <b class="logo-abbr"><img src="{% static 'encuesta/images/vero-icon-white.png'%}" alt=""> </b>
+      </a>
+  </div>
+</div>
+
+<div class="header">
+  <div class="header-content clearfix">
+
+      <!--Icono de navegación lateral-->
+
+      <div class="nav-control">
+          <div class="hamburger">
+              <span class="toggle-icon"><i class="icon-menu"></i></span>
+          </div>
+      </div>
+
+
+      <!--Campo de busqueda-->
+
+      <div class="header-left">
+          <div class="input-group icons">
+              <!--Icono-->
+              <div class="input-group-prepend">
+                  <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i
+                          class="mdi mdi-magnify"></i></span>
+              </div>
+              <!--Input-->
+              <input type="search" class="form-control" placeholder="Búsqueda" aria-label="Search Dashboard">
+              <div class="drop-down animated flipInX d-md-none">
+                  <form action="#">
+                      <input type="text" class="form-control" placeholder="Search">
+                  </form>
+              </div>
+          </div>
+      </div>
+
+      <div class="header-right">
+          <ul class="clearfix">
+
+              <!--Número de mensajes nuevos-->
+
+              <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
+                      <i class="mdi mdi-email-outline"></i>
+                      <span class="badge badge-pill gradient-1">1</span>
+                  </a>
+              </li>
+
+
+              <!--Número de notificaciones nuevas-->
+
+              <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
+                      <i class="mdi mdi-bell-outline"></i>
+                      <span class="badge badge-pill gradient-2">2</span>
+                  </a>
+              </li>
+
+
+              <li class="icons dropdown">
+
+                  <!--Imagen del usuario-->
+
+                  <div class="user-img c-pointer position-relative" data-toggle="dropdown">
+                      <span class="activity active"></span>
+                      <img src="{% static 'encuesta/images/user.png'%}" height="40" width="40" alt="">
+                  </div>
+
+                  <!--Opciones del usuario-->
+
+                  <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
+                      <div class="dropdown-content-body">
+                          <ul>
+                              <li>
+                                  <a href=""><i class="icon-user"></i> <span>Cuenta</span></a>
+                              </li>
+                              <hr class="my-2">
+                              <li>
+                                  <form action="{% url 'users:logout' %}" method="POST">
+                                      {% csrf_token %}
+                                      <button class="btn btn-link" type="submit"><i class="icon-key"></i>
+                                          <span>Cerrar sesión</span></button>
+                                  </form>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </li>
+          </ul>
+      </div>
+  </div>
+</div>

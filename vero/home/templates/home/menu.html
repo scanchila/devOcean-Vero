@@ -30,228 +30,61 @@
     <!-- Navegación del header -->
     <div id="main-wrapper" class="show menu-toggle">
 
-        <div class="nav-header">
-            <div class="brand-logo">
-                <a href="index.html">
-
-                    <span class="logo-compact"><img src="{% static 'encuesta/images/logo.png' %}" alt=""></span>
-                    <span class="brand-title">
-                        <img src="{% static 'encuesta/images/logo-text.png' %}" alt="">
-                    </span>
-                </a>
-            </div>
-            <div class="brand-logoTwo">
-                <a href="index.html">
-                    <b class="logo-abbr"><img src="{% static 'encuesta/images/vero-icon-white.png'%}" alt=""> </b>
-                </a>
-            </div>
-        </div>
-
-        <div class="header">
-            <div class="header-content clearfix">
-
-                <!--Icono de navegación lateral-->
-
-                <div class="nav-control">
-                    <div class="hamburger">
-                        <span class="toggle-icon"><i class="icon-menu"></i></span>
-                    </div>
-                </div>
-
-
-                <!--Campo de busqueda-->
-
-                <div class="header-left">
-                    <div class="input-group icons">
-                        <!--Icono-->
-                        <div class="input-group-prepend">
-                            <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i
-                                    class="mdi mdi-magnify"></i></span>
-                        </div>
-                        <!--Input-->
-                        <input type="search" class="form-control" placeholder="Búsqueda" aria-label="Search Dashboard">
-                        <div class="drop-down animated flipInX d-md-none">
-                            <form action="#">
-                                <input type="text" class="form-control" placeholder="Search">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="header-right">
-                    <ul class="clearfix">
-
-                        <!--Número de mensajes nuevos-->
-
-                        <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
-                                <i class="mdi mdi-email-outline"></i>
-                                <span class="badge badge-pill gradient-1">1</span>
-                            </a>
-                        </li>
-
-
-                        <!--Número de notificaciones nuevas-->
-
-                        <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
-                                <i class="mdi mdi-bell-outline"></i>
-                                <span class="badge badge-pill gradient-2">2</span>
-                            </a>
-                        </li>
-
-
-                        <li class="icons dropdown">
-
-                            <!--Imagen del usuario-->
-
-                            <div class="user-img c-pointer position-relative" data-toggle="dropdown">
-                                <span class="activity active"></span>
-                                <img src="{% static 'encuesta/images/user.png'%}" height="40" width="40" alt="">
-                            </div>
-
-                            <!--Opciones del usuario-->
-
-                            <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
-                                <div class="dropdown-content-body">
-                                    <ul>
-                                        <li>
-                                            <a href=""><i class="icon-user"></i> <span>Cuenta</span></a>
-                                        </li>
-                                        <hr class="my-2">
-                                        <li>
-                                            <form action="{% url 'users:logout' %}" method="POST">
-                                                {% csrf_token %}
-                                                <button class="btn btn-link" type="submit"><i class="icon-key"></i>
-                                                    <span>Cerrar sesión</span></button>
-                                            </form>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        {% include 'home/headerMain.html' %}
 
 
         <!--Barra de navegación lateral EDITAR-->
 
-        <div class="nk-sidebar">
-            <div class="nk-nav-scroll">
-                <ul class="metismenu" id="menu">
-                    <li class="nav-label">Menú Principal</li>
-                    <li>
-                        <a href="/../" aria-expanded="false">
-                            <i class="icon-speedometer menu-icon"></i><span class="nav-text">Home</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-label">Actividades</li>
-                    <li>
-                        <a href="/./personalActivities/listaActividades/" aria-expanded="false">
-                            <i class="fa fa-user"></i><span class="nav-text">Actividades Individuales</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./index.html" aria-expanded="false">
-                            <i class="fa fa-users"></i><span class="nav-text">Actividades Grupales</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./index.html" aria-expanded="false">
-                            <i class="icon-grid menu-icon"></i><span class="nav-text">Recomendaciones</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./index.html" aria-expanded="false">
-                            <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Crear Campeonato</span>
-                        </a>
-                    </li>
-                    <li class="nav-label">Mi Perfil</li>
-
-                    <li>
-                        <a href="./index.html" aria-expanded="false">
-                            <i class="icon-menu menu-icon"></i><span class="nav-text">Historial de mis
-                                Actividades</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./index.html" aria-expanded="false">
-                            <i class="icon-notebook menu-icon"></i><span class="nav-text">Mi Calendario</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./index.html" aria-expanded="false">
-                            <i class="icon-badge menu-icon"></i><span class="nav-text">Mis Logros</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./index.html" aria-expanded="false">
-                            <i class="icon-graph menu-icon"></i><span class="nav-text">Mi Experiencia</span>
-                        </a>
-                    </li>
-                    <li class="nav-label">Cuenta</li>
-                    <li>
-                        <a href="/../configuracionCuenta.html" aria-expanded="false">
-                            <i class="icon-note menu-icon"></i><span class="nav-text">Configuración de Cuenta</span>
-                        </a>
-                    </li>
-
-
-
-
-                </ul>
-            </div>
-        </div>
+        {% include 'home/lateralMenu.html' %}
 
 
 
         <!--Contenido del cuerpo-->
-    {% block content %}
+        {% block content %}
         <section id="menuSection">
-    <h1>
-        Recomendación del momento
-    </h1>
-    <div class="container">
-        {% for act in activities %}
-            <div class="cardMenu">
-                <a href="#">
-                <h2>{{act.0}}</h2>
-                <h3>{{act.1}}</h3>
-                <div class="detail">
-                    <img src="{{act.2}}" alt="imagen">
-                    <h3>Durante {{act.3}}</h3>
+            <h1>
+                Recomendación del momento
+            </h1>
+            <div class="container">
+                {% for activity in activities2 %}
+                <div class="cardMenu">
+                    <a href="{% url 'encuestaAntes' activity.id %}">
+                        <h2>{{activity.name}}</h2>
+                        <h3>{{activity.description}}</h3>
+                        <div class="detail">
+                            <img src="{{activity.image_URL}}" alt="imagen">
+                            <h3>Durante {{activity.duration}}</h3>
+                        </div>
+                    </a>
                 </div>
-           </a>
+
+                {% endfor %}
             </div>
+            <h1>
+                Hacer de nuevo
+            </h1>
 
-        {% endfor %}
-    </div>
-    <h1>
-        Hacer de nuevo
-    </h1>
+            <div class="container">
 
-    <div class="container">
-
-             {% for act in activities %}
-            <div class="cardMenu">
-                <a href="#">
-                <h2>{{act.0}}</h2>
-                <h3>{{act.1}}</h3>
-                <div class="detail">
-                    <img src="{{act.2}}" alt="imagen">
-                    <h3>Durante {{act.3}}</h3>
+                {% for activity in activities2 %}
+                <div class="cardMenu">
+                    <a href="{% url 'encuestaAntes' activity.id %}">
+                        <h2>{{activity.name}}</h2>
+                        <h3>{{activity.description}}</h3>
+                        <div class="detail">
+                            <img src="{{activity.image_URL}}" alt="imagen">
+                            <h3>Durante {{activity.duration}}</h3>
+                        </div>
+                    </a>
                 </div>
-           </a>
+
+                {% endfor %}
+
+
             </div>
-
-        {% endfor %}
-
-
-    </div>
-</section>
-<!-- End Menu -->
-{% endblock %}
+        </section>
+        <!-- End Menu -->
+        {% endblock %}
 
 
         <!-- ======= Footer ======= -->
