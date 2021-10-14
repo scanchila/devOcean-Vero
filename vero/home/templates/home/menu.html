@@ -1,0 +1,60 @@
+{% extends 'home/base.html' %}
+{% block title %}{{ pageTitle }}{% endblock %}
+{% load static %}
+
+{% block header %}
+{% include 'home/header.html' %}
+<link href="{% static 'home/css/styleMenu.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+<!-- ======= Menu Section ======= -->
+<section id="menuSection">
+    <h1>
+        Recomendación del momento
+    </h1>
+    <div class="container">
+        {% for act in activities %}
+            <div class="cardMenu">
+                <a href="#">
+                <h2>{{act.0}}</h2>
+                <h3>{{act.1}}</h3>
+                <div class="detail">
+                    <img src="{{act.2}}" alt="imagen">
+                    <h3>Durante {{act.3}}</h3>
+                </div>
+           </a>
+            </div>
+
+        {% endfor %}
+    </div>
+    <h1>
+        Hacer de nuevo
+    </h1>
+
+    <div class="container">
+
+             {% for act in activities %}
+            <div class="cardMenu">
+                <a href="#">
+                <h2>{{act.0}}</h2>
+                <h3>{{act.1}}</h3>
+                <div class="detail">
+                    <img src="{{act.2}}" alt="imagen">
+                    <h3>Durante {{act.3}}</h3>
+                </div>
+           </a>
+            </div>
+
+        {% endfor %}
+
+
+    </div>
+</section>
+<!-- End Menu -->
+{% endblock %}
+
+{% block footer %}
+{% include 'home/footer.html' %}
+{% endblock %}

@@ -18,6 +18,17 @@ def index(request):
   }
   return render(request,"home/landing.html", context)
 
+
+def menu(request):
+  pers = PersonalActivites.objects.all()
+  data = serialize('json', pers)
+  data = json.loads(data)
+  context = {
+    'activities': [[x.name, x.description, x.image_URL, x.duration] for x in pers]
+  }
+  return render(request, "home/menu.html", context=context)
+
+
 @csrf_exempt
 def traerActividades(request):
   if request.method == 'POST':#:
@@ -25,5 +36,8 @@ def traerActividades(request):
     pers = PersonalActivites.objects.all()
     data = serialize('json',pers)
     data = json.loads(data)
-    return JsonResponse({"success": True, "respuesta": data}, status=200)
-  return JsonResponse({"success": False, "respuesta": "noou"}, status=400)
+    context = {
+      'activities': data
+    }
+    return render(request, context=context)
+  return render(request, context={'status':400})
