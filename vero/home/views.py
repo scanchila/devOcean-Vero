@@ -11,7 +11,7 @@ from personalActivities.models import PersonalActivites
 # Create your views here.
 def index(request):
   if(request.user.is_authenticated):
-    return redirect("personal_activities_list")
+    return redirect("menu")
   
   context = {
     'pageTitle' : 'Landing'
