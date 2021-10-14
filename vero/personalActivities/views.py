@@ -11,15 +11,22 @@ from .models import ActivityType, ActivityCategory, PersonalActivites
 
 # Create your views here.
 @login_required(login_url='/users/login/')
-def temp(request):
+def main(request):
   all_activities = PersonalActivites.objects.order_by('-pub_data')
+  f = open('personalActivities/ActivityGroup.json',)
+  data = json.load(f)
+  dat = []
+  for i in data['activities']:
+    dat.append(i)
+  f.close()
   context = {
     "pageTitle": "Personal Activities list",
-    "activities": all_activities
+    "activities": all_activities,
+    'data':data
   }
 
 
-  return render(request, "personalActivities/personalActivitiesList.html", context)
+  return render(request, "personalActivities/filtroActividadesIndividuales.html", context)
 
 
 @login_required(login_url='/users/login/')
@@ -28,20 +35,8 @@ def singleActivity(request, activity_id):
   context = {
     "activity" : activity
   }
-  return render(request, "personalActivities/activity.html", context)
+  return render(request, "personalActivities/actividad.html", context)
 
-
-def main(request):
-  f = open('personalActivities/ActivityGroup.json',)
-  data = json.load(f)
-  dat = []
-  for i in data['activities']:
-    dat.append(i)
-  f.close()
-  return render(request,"personalActivities/filtroActividadesIndividuales.html", context={'data':data})
-
-def actividad(request):
-  return render(request,"personalActivities/actividad.html")
 
 def recibirActividad(request):
   if request.method == "POST" and request.is_ajax():

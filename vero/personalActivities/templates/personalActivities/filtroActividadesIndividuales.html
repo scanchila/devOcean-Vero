@@ -24,187 +24,191 @@
             </svg>
         </div>
     </div>
-    
-    
-  <!-- Navegación del header -->
-  <div id="main-wrapper" class="show menu-toggle">
 
-    <div class="nav-header">
-        <div class="brand-logo">
-            <a href="index.html">
 
-                <span class="logo-compact"><img src="{% static 'encuesta/images/logo.png' %}" alt=""></span>
-                <span class="brand-title">
-                    <img src="{% static 'encuesta/images/logo-text.png' %}" alt="">
-                </span>
-            </a>
-        </div>
-        <div class="brand-logoTwo">
-            <a href="index.html">
-                <b class="logo-abbr"><img src="{% static 'encuesta/images/vero-icon-white.png'%}" alt=""> </b>
-            </a>
-        </div>
-    </div>
+    <!-- Navegación del header -->
+    <div id="main-wrapper" class="show menu-toggle">
 
-    <div class="header">
-        <div class="header-content clearfix">
+        <div class="nav-header">
+            <div class="brand-logo">
+                <a href="index.html">
 
-            <!--Icono de navegación lateral-->
-
-            <div class="nav-control">
-                <div class="hamburger">
-                    <span class="toggle-icon"><i class="icon-menu"></i></span>
-                </div>
+                    <span class="logo-compact"><img src="{% static 'encuesta/images/logo.png' %}" alt=""></span>
+                    <span class="brand-title">
+                        <img src="{% static 'encuesta/images/logo-text.png' %}" alt="">
+                    </span>
+                </a>
             </div>
+            <div class="brand-logoTwo">
+                <a href="index.html">
+                    <b class="logo-abbr"><img src="{% static 'encuesta/images/vero-icon-white.png'%}" alt=""> </b>
+                </a>
+            </div>
+        </div>
 
+        <div class="header">
+            <div class="header-content clearfix">
 
-            <!--Campo de busqueda-->
+                <!--Icono de navegación lateral-->
 
-            <div class="header-left">
-                <div class="input-group icons">
-                    <!--Icono-->
-                    <div class="input-group-prepend">
-                        <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i
-                                class="mdi mdi-magnify"></i></span>
-                    </div>
-                    <!--Input-->
-                    <input type="search" class="form-control" placeholder="Búsqueda" aria-label="Search Dashboard">
-                    <div class="drop-down animated flipInX d-md-none">
-                        <form action="#">
-                            <input type="text" class="form-control" placeholder="Search">
-                        </form>
+                <div class="nav-control">
+                    <div class="hamburger">
+                        <span class="toggle-icon"><i class="icon-menu"></i></span>
                     </div>
                 </div>
-            </div>
-
-            <div class="header-right">
-                <ul class="clearfix">
-
-                    <!--Número de mensajes nuevos-->
-
-                    <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
-                            <i class="mdi mdi-email-outline"></i>
-                            <span class="badge badge-pill gradient-1">1</span>
-                        </a>
-                    </li>
 
 
-                    <!--Número de notificaciones nuevas-->
+                <!--Campo de busqueda-->
 
-                    <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
-                            <i class="mdi mdi-bell-outline"></i>
-                            <span class="badge badge-pill gradient-2">2</span>
-                        </a>
-                    </li>
-
-
-                    <li class="icons dropdown">
-
-                        <!--Imagen del usuario-->
-
-                        <div class="user-img c-pointer position-relative" data-toggle="dropdown">
-                            <span class="activity active"></span>
-                            <img src="{% static 'encuesta/images/user.png'%}" height="40" width="40" alt="">
+                <div class="header-left">
+                    <div class="input-group icons">
+                        <!--Icono-->
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i
+                                    class="mdi mdi-magnify"></i></span>
                         </div>
+                        <!--Input-->
+                        <input type="search" class="form-control" placeholder="Búsqueda" aria-label="Search Dashboard">
+                        <div class="drop-down animated flipInX d-md-none">
+                            <form action="#">
+                                <input type="text" class="form-control" placeholder="Search">
+                            </form>
+                        </div>
+                    </div>
+                </div>
 
-                        <!--Opciones del usuario-->
+                <div class="header-right">
+                    <ul class="clearfix">
 
-                        <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
-                            <div class="dropdown-content-body">
-                                <ul>
-                                    <li>
-                                        <a href=""><i class="icon-user"></i> <span>Cuenta</span></a>
-                                    </li>
-                                    <hr class="my-2">
-                                    <li><form action="{% url 'users:logout' %}" method="POST">
-                                        {% csrf_token %}
-                                        <button class="btn btn-link" type="submit"><i class="icon-key"></i> <span>Cerrar sesión</span></button>
-                                    </form></li>
-                                </ul>
+                        <!--Número de mensajes nuevos-->
+
+                        <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
+                                <i class="mdi mdi-email-outline"></i>
+                                <span class="badge badge-pill gradient-1">1</span>
+                            </a>
+                        </li>
+
+
+                        <!--Número de notificaciones nuevas-->
+
+                        <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
+                                <i class="mdi mdi-bell-outline"></i>
+                                <span class="badge badge-pill gradient-2">2</span>
+                            </a>
+                        </li>
+
+
+                        <li class="icons dropdown">
+
+                            <!--Imagen del usuario-->
+
+                            <div class="user-img c-pointer position-relative" data-toggle="dropdown">
+                                <span class="activity active"></span>
+                                <img src="{% static 'encuesta/images/user.png'%}" height="40" width="40" alt="">
                             </div>
-                        </div>
+
+                            <!--Opciones del usuario-->
+
+                            <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
+                                <div class="dropdown-content-body">
+                                    <ul>
+                                        <li>
+                                            <a href=""><i class="icon-user"></i> <span>Cuenta</span></a>
+                                        </li>
+                                        <hr class="my-2">
+                                        <li>
+                                            <form action="{% url 'users:logout' %}" method="POST">
+                                                {% csrf_token %}
+                                                <button class="btn btn-link" type="submit"><i class="icon-key"></i>
+                                                    <span>Cerrar sesión</span></button>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <!--Barra de navegación lateral EDITAR-->
+
+        <div class="nk-sidebar">
+            <div class="nk-nav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li class="nav-label">Menú Principal</li>
+                    <li>
+                        <a href="/../" aria-expanded="false">
+                            <i class="icon-speedometer menu-icon"></i><span class="nav-text">Home</span>
+                        </a>
                     </li>
+
+                    <li class="nav-label">Actividades</li>
+                    <li>
+                        <a href="/./personalActivities/listaActividades/" aria-expanded="false">
+                            <i class="fa fa-user"></i><span class="nav-text">Actividades Individuales</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./index.html" aria-expanded="false">
+                            <i class="fa fa-users"></i><span class="nav-text">Actividades Grupales</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./index.html" aria-expanded="false">
+                            <i class="icon-grid menu-icon"></i><span class="nav-text">Recomendaciones</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./index.html" aria-expanded="false">
+                            <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Crear Campeonato</span>
+                        </a>
+                    </li>
+                    <li class="nav-label">Mi Perfil</li>
+
+                    <li>
+                        <a href="./index.html" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">Historial de mis
+                                Actividades</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./index.html" aria-expanded="false">
+                            <i class="icon-notebook menu-icon"></i><span class="nav-text">Mi Calendario</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./index.html" aria-expanded="false">
+                            <i class="icon-badge menu-icon"></i><span class="nav-text">Mis Logros</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./index.html" aria-expanded="false">
+                            <i class="icon-graph menu-icon"></i><span class="nav-text">Mi Experiencia</span>
+                        </a>
+                    </li>
+                    <li class="nav-label">Cuenta</li>
+                    <li>
+                        <a href="/../configuracionCuenta.html" aria-expanded="false">
+                            <i class="icon-note menu-icon"></i><span class="nav-text">Configuración de Cuenta</span>
+                        </a>
+                    </li>
+
+
+
+
                 </ul>
             </div>
         </div>
-    </div>
-
-
-   <!--Barra de navegación lateral EDITAR-->
-
-   <div class="nk-sidebar">           
-    <div class="nk-nav-scroll">
-        <ul class="metismenu" id="menu">
-            <li class="nav-label">Menú Principal</li>
-            <li>
-                <a  href="/../" aria-expanded="false">
-                    <i class="icon-speedometer menu-icon"></i><span class="nav-text">Home</span>
-                </a>  
-            </li>
-            
-            <li class="nav-label">Actividades</li>
-            <li>
-                <a  href="/./personalActivities/listaActividades/" aria-expanded="false">
-                    <i class="fa fa-user"></i><span class="nav-text">Actividades Individuales</span>
-                </a>
-            </li>
-            <li>
-                <a  href="./index.html" aria-expanded="false">
-                    <i class="fa fa-users"></i><span class="nav-text">Actividades Grupales</span>
-                </a>
-            </li>
-            <li>
-                <a  href="./index.html" aria-expanded="false">
-                    <i class="icon-grid menu-icon"></i><span class="nav-text">Recomendaciones</span>
-                </a>
-            </li>
-            <li>
-                <a  href="./index.html" aria-expanded="false">
-                    <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Crear Campeonato</span>
-                </a>
-            </li>
-            <li class="nav-label">Mi Perfil</li>
-            
-            <li>
-                <a  href="./index.html" aria-expanded="false">
-                    <i class="icon-menu menu-icon"></i><span class="nav-text">Historial de mis Actividades</span>
-                </a>
-            </li>
-            <li>
-                <a  href="./index.html" aria-expanded="false">
-                    <i class="icon-notebook menu-icon"></i><span class="nav-text">Mi Calendario</span>
-                </a>
-            </li>
-            <li>
-                <a  href="./index.html" aria-expanded="false">
-                    <i class="icon-badge menu-icon"></i><span class="nav-text">Mis Logros</span>
-                </a>
-            </li>
-            <li>
-                <a  href="./index.html" aria-expanded="false">
-                    <i class="icon-graph menu-icon"></i><span class="nav-text">Mi Experiencia</span>
-                </a>
-            </li>
-            <li class="nav-label">Cuenta</li>
-            <li>
-                <a  href="/../configuracionCuenta.html" aria-expanded="false">
-                    <i class="icon-note menu-icon"></i><span class="nav-text">Configuración de Cuenta</span>
-                </a>
-            </li>
-            
-                
-            
-            
-        </ul>
-    </div>
-</div>
 
 
 
         <!--Contenido del cuerpo-->
-    {% load crispy_forms_tags %}
-    {% block content %}
-    {% csrf_token %}
+        {% load crispy_forms_tags %}
+        {% block content %}
+        {% csrf_token %}
         <div class="content-body">
 
             <div class="container-fluid mt-3">
@@ -218,127 +222,141 @@
 
                                 </div>
                             </div>
-                        
+
                         </div>
                     </div>
                 </div>
 
 
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">¿Qué tipo de recurso deseas usar?</h4>
-                            <p class="text-muted">Selecciona una de las siguientes opciones, al elegirla se te asignará una actividad de ese tipo aleatoriamente.</p>
-                            <div class="button-group">
-                                <div class="btn-toolbar">
-                                    <div class="btn-group mr-2 mb-2">
-                                        <input type="button" class="btn btn-primary" id="btnVideo" name="btn" value="video" onclick="cambioRecurso('Video')" >
-                                        <input type="button" class="btn btn-primary" id="btnAudio" name="btn" value="audio" onclick="cambioRecurso('Audio')" >
-                                        <input type="button" class="btn btn-primary" id="btnTexto" name="btn" value="texto" onclick="cambioRecurso('texto')" >
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">¿Qué tipo de recurso deseas usar?</h4>
+                                    <p class="text-muted">Selecciona una de las siguientes opciones, al elegirla se te
+                                        asignará una actividad de ese tipo aleatoriamente.</p>
+                                    <div class="button-group">
+                                        <div class="btn-toolbar">
+                                            <div class="btn-group mr-2 mb-2">
+                                                <input type="button" class="btn btn-primary" id="btnVideo" name="btn"
+                                                    value="video" onclick="cambioRecurso('Video')">
+                                                <input type="button" class="btn btn-primary" id="btnAudio" name="btn"
+                                                    value="audio" onclick="cambioRecurso('Audio')">
+                                                <input type="button" class="btn btn-primary" id="btnTexto" name="btn"
+                                                    value="texto" onclick="cambioRecurso('texto')">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">¿Cuánto tiempo tienes?</h4>
+                                    <p class="text-muted">Desliza la barra para seleccionar el tiempo de duración máximo
+                                        de la actividad.</p>
+                                    <div class="slider-box">
+                                        <div class="slider-time">
+                                            <input class="input-slider" type="range" min="5" max="10" value="7"
+                                                id="sliderTime">
+                                        </div>
+                                        <div class="value">100</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <div class="container-aux">
+                        <button class="btn mb-1 btn-success" id="btnFiltroActividadesInd">Enviar</button>
+                    </div>
+
+                </div>
+                
+            </div>
+            {% include 'personalActivities/personalActivitiesList.html' %}
+        </div>
+
+        {% endblock %}
+
+
+
+        <!-- ======= Footer ======= -->
+        <footer>
+
+            <div class="main-content">
+
+                <div class="left box ">
+                    <h2> Sobre nosotros </h2>
+                    <div class="content">
+                        <p> Te presentamos a Vero, una plataforma que te brinda espacios de ocio individual y en
+                            comunidad en donde podrás permitirte descansar, divertirte, aumentar tus conocimientos o
+                            relacionarte con otras personas de forma desinteresada que tienen tus mismas aficiones, una
+                            experiencia que beneficia el descanso mental para la salud, bienestar y el disfrute de la
+                            cultura.. </p>
+                        <div class="social ">
+                            <a href="https://github.com/SebastianSierrajc/devOcean-Vero "><span
+                                    class="fab fa-github "></span></a>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">¿Cuánto tiempo tienes?</h4>
-                            <p class="text-muted">Desliza la barra para seleccionar el tiempo de duración máximo de la actividad.</p>
-                            <div class="slider-box">
-                            <div class="slider-time">
-                                <input class="input-slider" type="range" min="5" max="10" value="7" id="sliderTime">
-                            </div>
-                            <div class="value">100</div>
-                            </div>
+                <div class="center box ">
+                    <h2> Contáctanos</h2>
+                    <div class="content ">
+                        <div class="email ">
+                            <span class="fas fa-envelope "></span>
+                            <span class="text ">michael.pinilla01@correo.usa.edu.co</span>
+                        </div>
+                        <div class="email ">
+                            <span class="fas fa-envelope "></span>
+                            <span class="text ">jessica.parrado01@correo.usa.edu.co</span>
+                        </div>
+                        <div class="email ">
+                            <span class="fas fa-envelope "></span>
+                            <span class="text ">lady.salazar01@correo.usa.edu.co</span>
+                        </div>
+                        <div class="email ">
+                            <span class="fas fa-envelope "></span>
+                            <span class="text ">luis.vejarano01@correo.usa.edu.co</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right box ">
+                    <h2> Contáctanos</h2>
+                    <div class="content ">
+                        <div class="email ">
+                            <span class="fas fa-envelope "></span>
+                            <span class="text ">juan.sierra01@correo.usa.edu.co</span>
+                        </div>
+                        <div class="email ">
+                            <span class="fas fa-envelope "></span>
+                            <span class="text ">santiago.gutierrez01@correo.usa.edu.co</span>
+                        </div>
+                        <div class="email ">
+                            <span class="fas fa-envelope "></span>
+                            <span class="text ">santiago.canchila01@correo.usa.edu.co</span>
                         </div>
                     </div>
                 </div>
             </div>
-        
-        <div class="container-aux">
-            <button class="btn mb-1 btn-success" id="btnFiltroActividadesInd">Enviar</button>
-        </div>
-                
+            <div class="bottom ">
+                <center>
+                    <span class="credit ">
+                        Creado por <a href="# ">Canchila - Gutierrez - Parrado - Pinilla - Salazar B - Sierra -
+                            Vejarano|</a>
+                    </span>
+                    <span class="far fa-copyright "></span><span> 2021 Todos los Derechos Reservados. </span>
+                </center>
             </div>
+        </footer>
 
-        </div>
-        </div>
-    {% endblock %}
-
-        
-       
-<!-- ======= Footer ======= --> 
-<footer> 
-
-    <div class="main-content"> 
- 
-        <div class="left box "> 
-            <h2> Sobre nosotros </h2> 
-            <div class="content"> 
-                <p> Te presentamos a Vero, una plataforma que te brinda espacios de ocio individual y en comunidad en donde podrás permitirte descansar, divertirte, aumentar tus conocimientos o relacionarte con otras personas de forma desinteresada que tienen tus mismas aficiones, una experiencia que beneficia el descanso mental para la salud, bienestar y el disfrute de la cultura.. </p> 
-                <div class="social "> 
-                    <a href="https://github.com/SebastianSierrajc/devOcean-Vero "><span class="fab fa-github "></span></a> 
-                </div> 
-            </div> 
-        </div> 
- 
-        <div class="center box "> 
-            <h2> Contáctanos</h2> 
-            <div class="content "> 
-                <div class="email "> 
-                    <span class="fas fa-envelope "></span> 
-                    <span class="text ">michael.pinilla01@correo.usa.edu.co</span> 
-                </div> 
-                <div class="email "> 
-                    <span class="fas fa-envelope "></span> 
-                    <span class="text ">jessica.parrado01@correo.usa.edu.co</span> 
-                </div> 
-                <div class="email "> 
-                    <span class="fas fa-envelope "></span> 
-                    <span class="text ">lady.salazar01@correo.usa.edu.co</span> 
-                </div> 
-                <div class="email "> 
-                    <span class="fas fa-envelope "></span> 
-                    <span class="text ">luis.vejarano01@correo.usa.edu.co</span> 
-                </div> 
-            </div> 
-        </div> 
- 
-        <div class="right box "> 
-            <h2> Contáctanos</h2> 
-            <div class="content "> 
-                <div class="email "> 
-                    <span class="fas fa-envelope "></span> 
-                    <span class="text ">juan.sierra01@correo.usa.edu.co</span> 
-                </div> 
-                <div class="email "> 
-                    <span class="fas fa-envelope "></span> 
-                    <span class="text ">santiago.gutierrez01@correo.usa.edu.co</span> 
-                </div> 
-                <div class="email "> 
-                    <span class="fas fa-envelope "></span> 
-                    <span class="text ">santiago.canchila01@correo.usa.edu.co</span> 
-                </div> 
-            </div> 
-        </div> 
-    </div> 
-    <div class="bottom "> 
-        <center> 
-            <span class="credit "> 
-                Creado por <a href="# ">Canchila - Gutierrez - Parrado - Pinilla - Salazar B - Sierra - Vejarano|</a> 
-            </span> 
-            <span class="far fa-copyright "></span><span> 2021 Todos los Derechos Reservados. </span> 
-        </center> 
-    </div> 
-    </footer>
-       
     </div>
-    
+
     <!--Scripts-->
     <script src="{% static 'personalActivities/js/common.min.js' %}"></script>
     <script src="{% static 'personalActivities/js/custom.min.js' %}"></script>
@@ -355,48 +373,48 @@
         const slide = document.querySelector(".input-slider")
         const value = document.querySelector(".value")
         value.textContent = slide.value + " minutos";
-        slide.oninput = function(){
+        slide.oninput = function () {
             value.textContent = this.value + " minutos";
-        }        
+        }
     </script>
 
-<script src="{% static 'personalActivities/js/jquery.js' %}"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('input[type=checkbox]').live('click', function(){
-            var parent = $(this).parent().attr('id');
-            $('#'+parent+' input[type=checkbox]').removeAttr('checked');
-            $(this).attr('checked', 'checked');
+    <script src="{% static 'personalActivities/js/jquery.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('input[type=checkbox]').live('click', function () {
+                var parent = $(this).parent().attr('id');
+                $('#' + parent + ' input[type=checkbox]').removeAttr('checked');
+                $(this).attr('checked', 'checked');
+            });
         });
-    });
-</script>
+    </script>
 
-<script type="text/javascript">
-    datos = {{data|safe}};
-    $("#grupo_actividades").empty();
-    for(var i = 0; i < datos.activities.length; i++){
-        var e = 1;
-        if(i%2==0){
-            var e = 1; 
-        }else{ var e = 2;}
-        actividad = ""; 
-        actividad = '<div class="col-lg-6">'+
-            '<div class="card gradient-'+e+'">'+
-                '<div class="card-body">'+
-                    '<div class="card-act" id="opc">'+
-                        '<h2 class="text-white">'+datos.activities[i]+'</h2>'+
-                        '<input class="check-act" type="checkbox" name="check" value="respiracion">'+
-                    '</div>'+
-                '</div>'+
-            '</div>'+
-        '</div>';   
+    <script type="text/javascript">
+        datos = {{ data | safe }};
+        $("#grupo_actividades").empty();
+        for (var i = 0; i < datos.activities.length; i++) {
+            var e = 1;
+            if (i % 2 == 0) {
+                var e = 1;
+            } else { var e = 2; }
+            actividad = "";
+            actividad = '<div class="col-lg-6">' +
+                '<div class="card gradient-' + e + '">' +
+                '<div class="card-body">' +
+                '<div class="card-act" id="opc">' +
+                '<h2 class="text-white">' + datos.activities[i] + '</h2>' +
+                '<input class="check-act" type="checkbox" name="check" value="respiracion">' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>';
 
-        $("#grupo_actividades").append(actividad);
+            $("#grupo_actividades").append(actividad);
 
-    } 
+        }
 
-    
-</script>
+
+    </script>
 
 </body>
 

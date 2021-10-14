@@ -1,18 +1,18 @@
-{% extends 'home/base.html' %}
-{% block title %}{{ pageTitle }}{% endblock %}
-{% load static %}
+<div>
 
-{% block header %}
-{% endblock %}
-
-{% block content %}
-<h1>Personal Activities</h1>
-<ul>
-  {% for activity in activities %}
-  <li><a href="{% url 'single_activity' activity.id %}">{{ activity.name }}</a></li>
-  {% endfor %}
-</ul>
-{% endblock %}
-
-{% block footer %}
-{% endblock %}
+  <h1>Lista de actividades individuales</h1>
+  <div class="row">
+    {% for activity in activities %}
+    <div class="col-sm-6">
+      <a href="{% url 'single_activity' activity.id %}">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ activity.name }}</h5>
+            <p class="card-text">{{ activity.description}}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>

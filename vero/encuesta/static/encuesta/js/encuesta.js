@@ -26,6 +26,7 @@ document.getElementById('close-image2').onclick = function () {
   return false;
 }
 document.getElementById('close-image3').onclick = function () {
+  alert('boton')
   swal({
     title: "Gracias por la información!",
     text: "Cuenta con nosotros!",

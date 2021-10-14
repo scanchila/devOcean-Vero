@@ -6,8 +6,7 @@ from django.template import loader
 # Create your views here.
 def index(request):
   if(request.user.is_authenticated):
-    # return redirect("personal_activities_list")
-    return redirect("listaActividades")
+    return redirect("personal_activities_list")
   
   context = {
     'pageTitle' : 'Landing'
