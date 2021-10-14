@@ -1,0 +1,168 @@
+{% extends 'menuPrincipal/base.html' %}
+{% block title %}{{ pageTitle }}{% endblock %}
+{% load static %}
+
+{% block header %}
+{% include 'menuPrincipal/header.html' %}
+<link href="{% static 'menuPrincipal/css/styleMenu.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<!-- ======= Menu Section ======= -->
+<section id="menuSection">
+    <h1>
+        Recomendación del momento
+    </h1>
+    <div class="container">
+        <div class="cardMenu">
+            <a href="">
+                <h2>Futbol sala</h2>
+                <h3>Jugaremos fuera</h3>
+                <div class="detail">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fs1.ibtimes.com%2Fsites%2Fwww.ibtimes.com%2Ffiles%2Fstyles%2Ffull%2Fpublic%2F2014%2F11%2F03%2Fgalaxy-soccer-mls.jpg&f=1&nofb=1"
+                        alt="imagen">
+                    <h4>Durante 1h</h4>
+                </div>
+            </a>
+        </div>
+        <div class="cardMenu">
+            <a href="">
+                <h2>Futbol sala2</h2>
+                <h3>Jugaremos fuera</h3>
+                <div class="detail">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fs1.ibtimes.com%2Fsites%2Fwww.ibtimes.com%2Ffiles%2Fstyles%2Ffull%2Fpublic%2F2014%2F11%2F03%2Fgalaxy-soccer-mls.jpg&f=1&nofb=1"
+                        alt="imagen">
+                    <h4>Durante 1h</h4>
+                </div>
+            </a>
+        </div>
+        <div class="cardMenu">
+            <a href="">
+                <h2>Futbol sala2</h2>
+                <h3>Jugaremos fuera</h3>
+                <div class="detail">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fs1.ibtimes.com%2Fsites%2Fwww.ibtimes.com%2Ffiles%2Fstyles%2Ffull%2Fpublic%2F2014%2F11%2F03%2Fgalaxy-soccer-mls.jpg&f=1&nofb=1"
+                        alt="imagen">
+                    <h4>Durante 1h</h4>
+                </div>
+            </a>
+        </div>
+        <div class="cardMenu">
+            <a href="">
+                <h2>Futbol sala2</h2>
+                <h3>Jugaremos fuera</h3>
+                <div class="detail">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fs1.ibtimes.com%2Fsites%2Fwww.ibtimes.com%2Ffiles%2Fstyles%2Ffull%2Fpublic%2F2014%2F11%2F03%2Fgalaxy-soccer-mls.jpg&f=1&nofb=1"
+                        alt="imagen">
+                    <h4>Durante 1h</h4>
+                </div>
+            </a>
+        </div>
+        <div class="cardMenu">
+            <a href="">
+                <h2>Futbol sala2</h2>
+                <h3>Jugaremos fuera</h3>
+                <div class="detail">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fs1.ibtimes.com%2Fsites%2Fwww.ibtimes.com%2Ffiles%2Fstyles%2Ffull%2Fpublic%2F2014%2F11%2F03%2Fgalaxy-soccer-mls.jpg&f=1&nofb=1"
+                        alt="imagen">
+                    <h4>Durante 1h</h4>
+                </div>
+            </a>
+        </div>
+        <div class="cardMenu">
+            <a href="">
+                <h2>Futbol sala2</h2>
+                <h3>Jugaremos fuera</h3>
+                <div class="detail">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fs1.ibtimes.com%2Fsites%2Fwww.ibtimes.com%2Ffiles%2Fstyles%2Ffull%2Fpublic%2F2014%2F11%2F03%2Fgalaxy-soccer-mls.jpg&f=1&nofb=1"
+                        alt="imagen">
+                    <h4>Durante 1h</h4>
+                </div>
+            </a>
+        </div>
+        <div class="cardMenu">
+            <a href="">
+                <h2>Futbol sala2</h2>
+                <h3>Jugaremos fuera</h3>
+                <div class="detail">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fs1.ibtimes.com%2Fsites%2Fwww.ibtimes.com%2Ffiles%2Fstyles%2Ffull%2Fpublic%2F2014%2F11%2F03%2Fgalaxy-soccer-mls.jpg&f=1&nofb=1"
+                        alt="imagen">
+                    <h4> Durante 1h</h4>
+                </div>
+            </a>
+        </div>
+        <!--
+        {% for recomendacion in recomendaciones %}
+            <a href="#">
+            <div class="cardMenu">
+                <h2>{{recomendacion.nombre}}</h2>
+                <h3>{{recomendacion.descripcion}}</h3>
+                <div class="detail">
+                    <img src="{{recomendacion.imagen}}" alt="imagen">
+                    <h3>Durante {{recomendacion.duracion}}</h3>
+                </div>
+            </div>
+            </a>
+        {% endfor %}
+        -->
+    </div>
+    <h1>
+        Hacer de nuevo
+    </h1>
+
+    <div class="container">
+        <div class="cardMenu">
+            <a href="">
+                <h2>Futbol sala</h2>
+                <h3>Jugaremos fuera</h3>
+                <div class="detail">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fs1.ibtimes.com%2Fsites%2Fwww.ibtimes.com%2Ffiles%2Fstyles%2Ffull%2Fpublic%2F2014%2F11%2F03%2Fgalaxy-soccer-mls.jpg&f=1&nofb=1"
+                        alt="imagen">
+                    <h4>Durante 1h</h4>
+                </div>
+            </a>
+        </div>
+        <div class="cardMenu">
+            <a href="">
+                <h2>Futbol sala</h2>
+                <h3>Jugaremos fuera</h3>
+                <div class="detail">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fs1.ibtimes.com%2Fsites%2Fwww.ibtimes.com%2Ffiles%2Fstyles%2Ffull%2Fpublic%2F2014%2F11%2F03%2Fgalaxy-soccer-mls.jpg&f=1&nofb=1"
+                        alt="imagen">
+                    <h4>Durante 1h</h4>
+                </div>
+            </a>
+        </div>
+        <div class="cardMenu">
+            <a href="">
+                <h2>Futbol sala</h2>
+                <h3>Jugaremos fuera</h3>
+                <div class="detail">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fs1.ibtimes.com%2Fsites%2Fwww.ibtimes.com%2Ffiles%2Fstyles%2Ffull%2Fpublic%2F2014%2F11%2F03%2Fgalaxy-soccer-mls.jpg&f=1&nofb=1"
+                        alt="imagen">
+                    <h4>Durante 1h</h4>
+                </div>
+            </a>
+        </div>
+        <!--
+        {% for reciente in recientes %}
+            <a href="#">
+            <div class="cardMenu">
+                <h2>{{reciente.nombre}}</h2>
+                <h3>{{reciente.descripcion}}</h3>
+                <div class="detail">
+                    <img src="{{reciente.imagen}}" alt="imagen">
+                    <h3>Durante {{reciente.duracion}}</h3>
+                </div>
+            </div>
+            </a>
+        {% endfor %}
+        -->
+    </div>
+</section>
+<!-- End Menu -->
+{% endblock %}
+
+{% block footer %}
+{% include 'menuPrincipal/footer.html' %}
+{% endblock %}
