@@ -1,15 +1,21 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
+from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from encuesta.models import Encuesta
 from django.contrib.auth.models import User
 
 # Create your views here.
-def index(request):
-  return render(request,"encuesta/encuestaAntes.html")
+@login_required(login_url='/users/login/')
+def index(request, activity_id):
+  context = {
+    'activity_id' : activity_id
+  }
+  return render(request,"encuesta/encuestaAntes.html", context)
 
+@login_required(login_url='/users/login/')
 def encuestaDespues(request):
   return render(request,"encuesta/encuesta.html")
 
