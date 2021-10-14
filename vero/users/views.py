@@ -32,7 +32,7 @@ def loginUser(request):
             login(request, user)
             response = render(request, "personalActivities/filtroActividadesIndividuales.html")
             response.set_cookie('username', user)
-            return response
+            return redirect('index')
 
 
     else:

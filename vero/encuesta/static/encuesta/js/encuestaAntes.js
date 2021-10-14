@@ -120,5 +120,4 @@ async function responderEncuesta(estado,sentInicial,sentFinal) {
   catch (error) {
     console.log(error);
   }
-
 }

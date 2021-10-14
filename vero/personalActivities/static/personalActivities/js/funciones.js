@@ -10,7 +10,6 @@ function readCookie(name) {
 
 function deleteCookie() {
     document.cookie = "token=; max-age=0; path=/";
-    socket.disconnect();
 }
 
 function cambioRecurso(recursoSelec){
