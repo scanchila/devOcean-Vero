@@ -1,0 +1,28 @@
+{% load static %}
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top d-flex align-items-center">
+  <div class="container d-flex align-items-center justify-content-between">
+    <div class="logo">
+      <a href="{% url 'index' %}"><img src="{% static 'menuPrincipal/img/logo.png' %}" alt="" class="img-fluid"></a>
+    </div>
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a class="nav-link scrollto active" href="#hero">Inicio</a></li>
+        <li><a class="nav-link scrollto" href="#about">Sobre nosotros</a></li>
+        <li><a class="nav-link scrollto" href="#services">Servicios</a></li>
+        {% if not user.is_authenticated %}
+        <li><a class="getstarted scrollto" href="{% url 'users:login' %}">Iniciar Sesión</a></li>
+        {% else %}
+        <li>
+          <form action="{% url 'users:logout' %}" method="POST">
+            {% csrf_token %}
+            <button class="getstarted" type="submit">Salir</button>
+          </form>
+        </li>
+        {% endif %}
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav><!-- .navbar -->
+  </div>
+</header><!-- End Header -->
