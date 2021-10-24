@@ -6,3 +6,6 @@ from django.template import loader
 
 def index(request):
     return render(request,'grupalActivities/grupalActivities.html')
+
+def myactivity(request):
+    return render(request,'grupalActivities/myActivities.html')

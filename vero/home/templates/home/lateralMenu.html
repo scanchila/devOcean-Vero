@@ -1,63 +1,73 @@
 <div class="nk-sidebar">
-  <div class="nk-nav-scroll">
-      <ul class="metismenu" id="menu">
-          <li class="nav-label">Menú Principal</li>
-          <li>
-              <a href="/../" aria-expanded="false">
-                  <i class="icon-speedometer menu-icon"></i><span class="nav-text">Home</span>
-              </a>
-          </li>
+    <div class="nk-nav-scroll">
+        <ul class="metismenu" id="menu">
+            <li class="nav-label">Menú Principal</li>
+            <li>
+                <a href="/../" aria-expanded="false">
+                    <i class="icon-speedometer menu-icon"></i><span class="nav-text">Home</span>
+                </a>
+            </li>
 
-          <li class="nav-label">Actividades</li>
-          <li>
-              <a href="{% url 'personal_activities_list' %}" aria-expanded="false">
-                  <i class="fa fa-user"></i><span class="nav-text">Actividades Individuales</span>
-              </a>
-          </li>
-          <li>
-              <a href="{% url 'grupalActivities' %}" aria-expanded="false">
-                  <i class="fa fa-users"></i><span class="nav-text">Actividades Grupales</span>
-              </a>
-          </li>
-          <li>
-              <a href="./#" aria-expanded="false">
-                  <i class="icon-grid menu-icon"></i><span class="nav-text">Recomendaciones</span>
-              </a>
-          </li>
-          <li>
-              <a href="./#" aria-expanded="false">
-                  <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Crear Campeonato</span>
-              </a>
-          </li>
-          <li class="nav-label">Mi Perfil</li>
+            <li class="nav-label">Actividades</li>
+            <li>
+                <a href="{% url 'personal_activities_list' %}" aria-expanded="false">
+                    <i class="fa fa-user"></i><span class="nav-text">Actividades Individuales</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'personal_activities_list' %}" aria-expanded="false">
+                    <i class="fa fa-users"></i><span class="nav-text">Actividades Grupales</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'grupalActivities' %}" aria-expanded="false">
+                    <i class="fa fa-user-plus"></i><span class="nav-text">Crear Actividad grupal</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'myActivities' %}" aria-expanded="false">
+                    <i class="fa fa-list-alt"></i><span class="nav-text">Mis Actividades grupales</span>
+                </a>
+            </li>
+            <li>
+                <a href="./#" aria-expanded="false">
+                    <i class="icon-grid menu-icon"></i><span class="nav-text">Recomendaciones</span>
+                </a>
+            </li>
+            <li>
+                <a href="./#" aria-expanded="false">
+                    <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Crear Campeonato</span>
+                </a>
+            </li>
+            <li class="nav-label">Mi Perfil</li>
 
-          <li>
-              <a href="./#" aria-expanded="false">
-                  <i class="icon-menu menu-icon"></i><span class="nav-text">Historial de mis
-                      Actividades</span>
-              </a>
-          </li>
-          <li>
-              <a href="./#" aria-expanded="false">
-                  <i class="icon-notebook menu-icon"></i><span class="nav-text">Mi Calendario</span>
-              </a>
-          </li>
-          <li>
-              <a href="./#" aria-expanded="false">
-                  <i class="icon-badge menu-icon"></i><span class="nav-text">Mis Logros</span>
-              </a>
-          </li>
-          <li>
-              <a href="./#" aria-expanded="false">
-                  <i class="icon-graph menu-icon"></i><span class="nav-text">Mi Experiencia</span>
-              </a>
-          </li>
-          <li class="nav-label">Cuenta</li>
-          <li>
-              <a href="{% url 'users:update' %}" aria-expanded="false">
-                  <i class="icon-note menu-icon"></i><span class="nav-text">Configuración de Cuenta</span>
-              </a>
-          </li>
-      </ul>
-  </div>
+            <li>
+                <a href="./#" aria-expanded="false">
+                    <i class="icon-menu menu-icon"></i><span class="nav-text">Historial de mis
+                        Actividades</span>
+                </a>
+            </li>
+            <li>
+                <a href="./#" aria-expanded="false">
+                    <i class="icon-notebook menu-icon"></i><span class="nav-text">Mi Calendario</span>
+                </a>
+            </li>
+            <li>
+                <a href="./#" aria-expanded="false">
+                    <i class="icon-badge menu-icon"></i><span class="nav-text">Mis Logros</span>
+                </a>
+            </li>
+            <li>
+                <a href="./#" aria-expanded="false">
+                    <i class="icon-graph menu-icon"></i><span class="nav-text">Mi Experiencia</span>
+                </a>
+            </li>
+            <li class="nav-label">Cuenta</li>
+            <li>
+                <a href="{% url 'users:update' %}" aria-expanded="false">
+                    <i class="icon-note menu-icon"></i><span class="nav-text">Configuración de Cuenta</span>
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>
