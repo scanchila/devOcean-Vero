@@ -30,6 +30,7 @@ class PersonalActivites(models.Model):
   duration = models.DurationField()
   activityType = models.ForeignKey(ActivityType, on_delete=models.CASCADE)
   categories = models.ManyToManyField(ActivityCategory)
+  experience = models.CharField(max_length=1000000, blank=True)
 
   def wasPublishedRecently(self):
     return self.pub_data >= timezone.now() - datetime.timedelta(days=1)

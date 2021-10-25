@@ -1,0 +1,157 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Vero</title>
+    <link rel="stylesheet" href="{% static 'experience/css/barra_experiencia2.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'experience/img/icono.png' %}" />
+
+
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'experience/img/favicon.png' %}">
+
+    <link href="{% static 'experience/css/footer.css' %}" rel="stylesheet">
+    <link href="{% static 'experience/css/styleExperiencia.css' %}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body>
+
+    <!--Animación de carga inicial-->
+
+    <div id="preloader">
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+            </svg>
+        </div>
+    </div>
+
+
+    <!-- Navegación del header -->
+    <div id="main-wrapper" class="show menu-toggle">
+
+        {% include 'home/headerMain.html' %}
+
+
+        <!--Barra de navegación lateral EDITAR-->
+
+        {% include 'home/lateralMenu.html' %}
+
+        <!--Contenido del cuerpo-->
+
+        <div class="content-body">
+            <!-- CONTENIDO-->
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="titulos">Mi Experiencia</h4>
+                        <div class="container-fluid">
+                            <div class="row" id="grupo_actividades">
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Tu Nivel de Experiencia</h4>
+                                <p class="text-muted">Aquí puedes ver el nivel que llevas en Vero</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">¿Cuánta experiencia llevas de este nivel?</h4>
+                                <p class="text-muted">En la siguiente barra circular podrás saber cuánto te falta para el siguiente nivel</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cambiar el 80%-->
+            <!-- Cambiar el css-->
+        <div id="Porcentaje"><FONT SIZE=1000><center>80%</center></font></div>
+                        
+            <div class="col-lg-5 col-sm-1" id="NivelExp" >
+                <div class="card gradient-1">
+                    <div class="card-body" >
+                        <div  class="card-title text-white"><FONT SIZE=20><center>Estás en el nivel:</center></font></div>
+                            <center><img src="{% static 'experience/img/estrella.png' %} " width="300px" height="300px"></center>
+                            <!-- Cambiar el 5-->
+                            <div  class="card-title text-white" id="NumExp"><FONT SIZE=100><center>5</center></font></div>
+                    </div>
+                </div>
+            </div>       
+            
+
+
+            <div id="BarraExperiencia">
+                </div class="skill">
+                    <div class="outer">
+                    </div class="inner"> 
+                        
+                            
+                            
+                        </div>
+                        
+                    </div>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="500px" height="500px">
+                        <defs>
+                    <linearGradient id="GradientColor">
+                      <stop offset="0%" stop-color="#670578" />
+                      <stop offset="100%" stop-color="#1d47e0" />
+                    </linearGradient>
+                        </defs>
+                        <circle cx="250" cy="250" r="230"  stroke-linecap="round" />
+                        
+                    </svg>
+
+                </div>
+
+
+            </div>
+            
+            
+
+
+
+        <!-- ======= Footer ======= -->
+        {% include 'home/footer.html' %}
+
+    <!--Scripts-->
+
+    <script src="{% static 'experience/js/common.min.js' %}"></script>
+    <script src="{% static 'experience/js/custom.min.js' %}"></script>
+    <script src="{% static 'experience/js/settings.js' %}"></script>
+    <script src="{% static 'experience/js/gleek.js' %}"></script>
+    <script src="{% static 'experience/js/styleSwitcher.js' %}"></script>
+    <script src="{% static 'experience/js/peticiones.js' %}"></script>
+    <script src="{% static 'experience/js/funciones.js' %}"></script>
+    <script src="{% static 'experience/js/actividad.js' %}"></script>
+    <script src="{% static 'experience/js/audio.js' %}"></script>
+   
+
+   
+</body>
+
+</html>
+
