@@ -7,7 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 
 
-from .models import ActivityType, ActivityCategory, PersonalActivites
+from .models import ActivityType, ActivityCategory, PersonalActivites, EventRegisterForm
 
 # Create your views here.
 @login_required(login_url='/users/login/')
@@ -39,5 +39,14 @@ def recibirActividad(request):
     return JsonResponse({"success": True, "respuesta": "siuu"}, status=200)
   return JsonResponse({"success": False, "respuesta": "noou"}, status=400)
 
-
-
+@login_required(login_url='/users/login/')
+def formEvent(request):
+    context = {
+        'pageTitle' : 'CreateEvent',
+    }
+    if request.method == 'POST':
+        form = EventRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+    context['form'] = form
+    return render(request,  'personalActivities/activity.html', context)
