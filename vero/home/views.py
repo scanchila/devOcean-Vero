@@ -11,12 +11,24 @@ from personalActivities.models import PersonalActivites
 # Create your views here.
 def index(request):
   if(request.user.is_authenticated):
-    return redirect("listaActividades")
+    return redirect("menu")
   
   context = {
     'pageTitle' : 'Landing'
   }
   return render(request,"home/landing.html", context)
+
+
+def menu(request):
+  pers = PersonalActivites.objects.all()
+  data = serialize('json', pers)
+  data = json.loads(data)
+  context = {
+    'activities': [[x.name, x.description, x.image_URL, x.duration] for x in pers],
+    'activities2': pers
+  }
+  return render(request, "home/menu.html", context=context)
+
 
 @csrf_exempt
 def traerActividades(request):
@@ -25,5 +37,8 @@ def traerActividades(request):
     pers = PersonalActivites.objects.all()
     data = serialize('json',pers)
     data = json.loads(data)
-    return JsonResponse({"success": True, "respuesta": data}, status=200)
-  return JsonResponse({"success": False, "respuesta": "noou"}, status=400)
+    context = {
+      'activities': data
+    }
+    return render(request, context=context)
+  return render(request, context={'status':400})

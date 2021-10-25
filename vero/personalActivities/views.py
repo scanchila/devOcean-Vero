@@ -1,23 +1,43 @@
-from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
 from django.template import loader
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+import json
+
+
+from .models import ActivityType, ActivityCategory, PersonalActivites
 
 # Create your views here.
-
+@login_required(login_url='/users/login/')
 def main(request):
-  return render(request,"personalActivities/filtroActividadesIndividuales.html")
+  all_activities = PersonalActivites.objects.order_by('-pub_data')
+  act_name = ActivityCategory.objects.all()
+  context = {
+    "pageTitle": "Personal Activities list",
+    "activities": all_activities,
+    "act_name": act_name
+  }
 
-@csrf_exempt
-def actividad(request):
-  return render(request,"personalActivities/actividad.html")
+  return render(request, "personalActivities/filtroActividadesIndividuales.html", context)
 
-@csrf_exempt
+
+@login_required(login_url='/users/login/')
+def singleActivity(request, activity_id):
+  activity = get_object_or_404(PersonalActivites, pk=activity_id)
+  context = {
+    "activity" : activity
+  }
+  return render(request, "personalActivities/actividad.html", context)
+
+
 def recibirActividad(request):
   if request.method == "POST" and request.is_ajax():
     #for x in request.POST:
     #  print(request.POST[x])
     return JsonResponse({"success": True, "respuesta": "siuu"}, status=200)
   return JsonResponse({"success": False, "respuesta": "noou"}, status=400)
+
+
 

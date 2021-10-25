@@ -1,0 +1,17 @@
+.form-control{
+  border-radius: 8%;
+}
+
+.name_drop{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 180px;
+  height: 482px;
+  border-radius: 8%;
+}
+
+.bnt-axu{
+  margin-left: 45px;
+  height: 42px;
+}
