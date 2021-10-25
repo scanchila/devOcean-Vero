@@ -5,6 +5,7 @@ from django.utils import timezone
 
 
 from personalActivities.models import PersonalActivites
+from encuesta.models import Encuesta
 
 # Create your models here.
 
@@ -25,6 +26,8 @@ class User_activity(models.Model):
     date_start = models.DateTimeField('date start', default=timezone.now)
     date_finish = models.DateTimeField('date finish', null=True, blank=True)
     status = models.CharField(max_length=50, default="started")
+    encuesta = models.OneToOneField(
+        Encuesta, related_name="activity", on_delete=models.CASCADE, null=True, default=None)
 
     class Meta:
         verbose_name = ("User_activity")
