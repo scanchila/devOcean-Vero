@@ -13,11 +13,13 @@ from .models import ActivityType, ActivityCategory, PersonalActivites
 @login_required(login_url='/users/login/')
 def main(request):
   all_activities = PersonalActivites.objects.order_by('-pub_data')
-  act_name = ActivityType.objects.all()
+  act_cat = ActivityCategory.objects.all()
+  act_type = ActivityType.objects.all()
   context = {
     "pageTitle": "Personal Activities list",
     "activities": all_activities,
-    "act_name": act_name
+    "act_type": act_type,
+    "act_cat": act_cat
   }
 
   return render(request, "personalActivities/filtroActividadesIndividuales.html", context)
