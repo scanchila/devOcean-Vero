@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
                 ('pub_data', models.DateTimeField(verbose_name='date published')),
                 ('duration', models.DurationField(max_length=255)),
                 ('activityType', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='personalActivities.activitytype')),
-                ('experience', models.CharField(max_length=255)),
+                ('experience', models.CharField(max_length=255))
             ],
         ),
     ]
