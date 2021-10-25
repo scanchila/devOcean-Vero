@@ -53,10 +53,13 @@
                             <h4 class="title_principal">Actividades individuales</h4>
                             <div class="container-fluid">
                                 <div class="row" id="grupo_actividades">
+                                    <form method="POST" action={% url 'recibirActividad' %}>
+                                        {% csrf_token %}
                                     {% include 'personalActivities/personalActivitiesFilter.html' %}
                                     <div class="name_drop2">
-                                        <button class="btn mb-1 btn-success bnt-axu" id="btnFiltroActividadesInd">Aplicar</button>
-                                    </div>    
+                                        <input type="submit" class="btn mb-1 btn-success bnt-axu" id="btnFiltro">Aplicar</input>
+                                    </div>
+                                    </form>
                                 </div>
                             </div>
 

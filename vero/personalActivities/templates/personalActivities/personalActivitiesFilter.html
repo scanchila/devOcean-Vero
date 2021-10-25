@@ -27,8 +27,8 @@
     </div>
 
     <div class="card-body">
-        <span>Categoria:</span> <br><br>
-        <select name="resource" class="form-control">
+        <span>Tipo:</span> <br><br>
+        <select name="act_type" class="form-control">
             <option value = "any" selected>Cualquiera</option>
             {% for activity in act_name %}
             <option value={{ activity.name }}>{{ activity.name }}</option>
