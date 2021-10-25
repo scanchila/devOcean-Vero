@@ -39,7 +39,7 @@ def recibirActividad(request):
 
     actTime = None
     actType = None
-    actResource = None
+    actCategory = None
     if request.POST["time"] != "any":
       args = request.POST["time"].split(",")
       query = f"select * from personalActivities_personalactivites " \
@@ -54,44 +54,40 @@ def recibirActividad(request):
       actType = PersonalActivites.objects.raw(query)
 
     if request.POST["category"] != "any":
-      a_resou = request.POST["category"]
-      query = ""
-      #actResource = PersonalActivites.objects.raw(query)
+      a_cat = request.POST["category"]
+      query = "select personalActivities_personalactivites.id, personalActivities_personalactivites.name, " \
+              "personalActivities_personalactivites.description, personalActivities_personalactivites.image_URL, " \
+              "personalActivities_personalactivites.lecture, personalActivities_personalactivites.pub_data, " \
+              "personalActivities_personalactivites.duration, personalActivities_personalactivites.activityType_id, " \
+              "personalActivities_personalactivites.video_URL " \
+              "from personalActivities_personalactivites, personalActivities_personalactivites_categories, " \
+              "personalActivities_activitycategory " \
+              "where personalActivities_personalactivites.id = personalActivities_personalactivites_categories.personalactivites_id " \
+              f"and personalActivities_personalactivites_categories.activitycategory_id = (select id from personalActivities_activitycategory where name = '{a_cat}');"
+      actCategory = PersonalActivites.objects.raw(query)
 
 
 
     if request.POST["category"] == "any" and request.POST["time"] == "any" and request.POST["act_type"] == "any":
       activities = PersonalActivites.objects.order_by('-pub_data')
     else:
-      if actTime and actType and actResource:
-        activities = set(actTime).intersection(set(actType)).intersection(actResource)
+      if actTime and actType and actCategory:
+        activities = set(actTime).intersection(set(actType)).intersection(actCategory)
       if actTime and actType:
         activities = set(actTime).intersection(set(actType))
-      elif actTime and actResource:
-        activities = set(actTime).intersection(set(actResource))
-      elif actType and actResource:
-        activities = set(actType).intersection(set(actResource))
+      elif actTime and actCategory:
+        activities = set(actTime).intersection(set(actCategory))
+      elif actType and actCategory:
+        activities = set(actType).intersection(set(actCategory))
       elif actTime:
         activities = actTime
       elif actType:
         activities = actType
-      elif actResource:
-        activities = actResource
+      elif actCategory:
+        activities = actCategory
 
 
-    '''if request.POST["resource"] == "any" and request.POST["time"] == "any" and request.POST["act_type"] == "any":
-      activities = PersonalActivites.objects.order_by('-pub_data')
-    elif request.POST["resource"] == "any" and request.POST["time"] == "any" and request.POST["act_type"] != "any":
-      act_type = request.POST["act_type"]
-      query = f"select * from personalActivities_personalactivites " \
-              f"where (select id from personalActivities_activitytype " \
-              f"where name = '{act_type}') = activityType_id"
-      activities = PersonalActivites.objects.raw(query)
-    elif request.POST["resource"] == "any" and request.POST["time"] != "any" and request.POST["act_type"] == "any":
-      args = request.POST["time"].split(",")
-      query = f"select * from personalActivities_personalactivites " \
-              f"where duration <= {int(args[1])*1000000} and duration >= {int(args[0])*1000000}"
-      activities = PersonalActivites.objects.raw(query)'''
+
 
 
     act_cat = ActivityCategory.objects.all()
