@@ -20,7 +20,9 @@ def index(request, activity_id):
     try:  # el usuario ya inicio la actividad pero no la ha finalizado
         user_activity = User_activity.objects.get(
             user=user_profile, activity=activity, status='started')
-    except Exception as e:
+
+    except User_activity.DoesNotExist as e:
+        print(e)
         encuesta = Encuesta(sentimientoInicial="", sentimientoFinal="")
         encuesta.save()
         user_activity = User_activity(
