@@ -5,7 +5,6 @@ from .forms import eventRegisterForm
 from django.contrib.auth.decorators import login_required
 from .models import GroupActivity
 from django.views.decorators.csrf import csrf_exempt
-from django.contrib.auth.models import GroupActivity
 # Create your views here.
 
 
@@ -40,16 +39,13 @@ def index(request):
         context['form'] = form
         return render(request,  'grupalActivities/grupalActivities.html', context)
 
-def myactivity(request):
-    return render(request,'grupalActivities/myActivities.html')
-
 @csrf_exempt
-def misActividades(request):
+def myactivity(request):
   if request.method == 'GET':
     print("my_activities")
-    my_activities = GroupActivity.objects.filter(creator=request.session['_auth_user_id'])
+    my_activities = GroupActivity.objects.filter(creator=request.user)
     context = {
       'my_activities': my_activities
     }
-    return render(request, context=context)
-  return render(request, context={'status':400})
+    return render(request, 'grupalActivities/myActivities.html', context=context)
+  return render(request, 'grupalActivities/myActivities.html')
