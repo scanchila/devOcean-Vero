@@ -6,7 +6,7 @@ from django.utils import timezone
 
 from personalActivities.models import PersonalActivites
 from encuesta.models import Encuesta
-
+from grupalActivities.models import GroupActivity
 # Create your models here.
 
 
@@ -15,6 +15,7 @@ class User_profile(models.Model):
     experience = models.IntegerField(default=0)
     activities = models.ManyToManyField(
         PersonalActivites, through='User_activity')
+    group_activities = models.ManyToManyField(GroupActivity)
 
     def __str__(self):
         return self.user.username
