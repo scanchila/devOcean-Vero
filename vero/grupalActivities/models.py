@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class GroupActivity(models.Model):
-  name = models.CharField(max_length=255, unique=True)
+  name = models.CharField(max_length=255)
   description = models.CharField(max_length=254)
   type = models.CharField(max_length=254)
   duration = models.CharField(max_length=255)
@@ -13,6 +13,6 @@ class GroupActivity(models.Model):
   hour = models.CharField(max_length=255)
   address =  models.CharField(max_length=254)
   contact = models.CharField(max_length=254)
-  creator = models.OneToOneField(User, on_delete=models.CASCADE)
+  creator = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
