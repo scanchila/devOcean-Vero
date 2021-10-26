@@ -37,8 +37,12 @@
     <div id="main-wrapper" class="show menu-toggle">
 
         {% include 'home/headerMain.html' %}
+
+
         <!--Barra de navegación lateral EDITAR-->
+
         {% include 'home/lateralMenu.html' %}
+
         <!--Contenido del cuerpo-->
 
         <div class="content-body">
@@ -49,8 +53,7 @@
                     <!-- CONTENIDO-->
                     <section class="contenedor">
                         <h4 class="d-inline">¿Cómo te sientes?</h4>
-                        <p class="text-muted">Selecciona uno de los estados animicos que encuentras a continuacion
-                        </p>
+                        <p class="text-muted">Selecciona uno de los estados animicos que encuentras a continuacion</p>
                         <div class="row">
                             <div class="col-lg-3 col-sm-6">
                                 <div class="card">
@@ -60,9 +63,9 @@
                                                 class="rounded-circle" alt="">
                                             <br>
                                             <br>
-                                            <button id="close-image7" type="button"
-                                                class="btn mb-1 btn-outline-primary">Me siento feliz</button>
-                                            <!-- <a href="javascript:void()" class="btn btn-sm btn-warning">Send Message</a> -->
+                                            <button onClick="confirmFeeling('feliz', {{ activity_id }}, {{before}})"
+                                                id="close-image7" type="button" class="btn mb-1 btn-outline-primary">Me
+                                                siento feliz</button>
                                         </div>
                                     </div>
                                 </div>
@@ -75,9 +78,9 @@
                                                 class="rounded-circle" alt="">
                                             <br>
                                             <br>
-                                            <button id="close-image1" type="button"
-                                                class="btn mb-1 btn-outline-primary">Me siento enérgico</button>
-                                            <!-- <a href="javascript:void()" class="btn btn-sm btn-warning">Send Message</a> -->
+                                            <button onClick="confirmFeeling('enérgico', {{ activity_id }}, {{before}})"
+                                                id="close-image1" type="button" class="btn mb-1 btn-outline-primary">Me
+                                                siento enérgico</button>
                                         </div>
                                     </div>
                                 </div>
@@ -90,9 +93,9 @@
                                                 class="rounded-circle" alt="">
                                             <br>
                                             <br>
-                                            <button id="close-image8" type="button"
-                                                class="btn mb-1 btn-outline-primary">Me siento amigable</button>
-                                            <!-- <a href="javascript:void()" class="btn btn-sm btn-warning">Send Message</a> -->
+                                            <button onClick="confirmFeeling('amigable', {{ activity_id }}, {{before}})"
+                                                id="close-image8" type="button" class="btn mb-1 btn-outline-primary">Me
+                                                siento amigable</button>
                                         </div>
                                     </div>
                                 </div>
@@ -105,9 +108,9 @@
                                                 class="rounded-circle" alt="">
                                             <br>
                                             <br>
-                                            <button id="close-image3" type="button"
-                                                class="btn mb-1 btn-outline-primary">Me siento cansado</button>
-                                            <!-- <a href="javascript:void()" class="btn btn-sm btn-warning">Send Message</a> -->
+                                            <button onClick="confirmFeeling('cansado', {{ activity_id }}, {{before}})"
+                                                id="close-image3" type="button" class="btn mb-1 btn-outline-primary">Me
+                                                siento cansado</button>
                                         </div>
                                     </div>
                                 </div>
@@ -120,9 +123,9 @@
                                                 class="rounded-circle" alt="">
                                             <br>
                                             <br>
-                                            <button id="close-image4" type="button"
-                                                class="btn mb-1 btn-outline-primary">Me siento asustado</button>
-                                            <!-- <a href="javascript:void()" class="btn btn-sm btn-warning">Send Message</a> -->
+                                            <button onClick="confirmFeeling('asustado', {{ activity_id }}, {{before}})"
+                                                id="close-image4" type="button" class="btn mb-1 btn-outline-primary">Me
+                                                siento asustado</button>
                                         </div>
                                     </div>
                                 </div>
@@ -135,9 +138,9 @@
                                                 class="rounded-circle" alt="">
                                             <br>
                                             <br>
-                                            <button id="close-image2" type="button"
-                                                class="btn mb-1 btn-outline-primary">Me siento estresado</button>
-                                            <!-- <a href="javascript:void()" class="btn btn-sm btn-warning">Send Message</a> -->
+                                            <button onClick="confirmFeeling('estresado', {{ activity_id }}, {{before}})"
+                                                id="close-image2" type="button" class="btn mb-1 btn-outline-primary">Me
+                                                siento estresado</button>
                                         </div>
                                     </div>
                                 </div>
@@ -150,9 +153,9 @@
                                                 class="rounded-circle" alt="">
                                             <br>
                                             <br>
-                                            <button id="close-image5" type="button"
-                                                class="btn mb-1 btn-outline-primary">Me siento enojado</button>
-                                            <!-- <a href="javascript:void()" class="btn btn-sm btn-warning">Send Message</a> -->
+                                            <button onClick="confirmFeeling('enojado', {{ activity_id }}, {{before}})"
+                                                id="close-image5" type="button" class="btn mb-1 btn-outline-primary">Me
+                                                siento enojado</button>
                                         </div>
                                     </div>
                                 </div>
@@ -165,9 +168,9 @@
                                                 class="rounded-circle" alt="">
                                             <br>
                                             <br>
-                                            <button id="close-image6" type="button"
-                                                class="btn mb-1 btn-outline-primary">Me siento triste</button>
-                                            <!-- <a href="javascript:void()" class="btn btn-sm btn-warning">Send Message</a> -->
+                                            <button onClick="confirmFeeling('triste', {{ activity_id }}, {{before}})"
+                                                id="close-image6" type="button" class="btn mb-1 btn-outline-primary">Me
+                                                siento triste</button>
                                         </div>
                                     </div>
                                 </div>
@@ -192,12 +195,9 @@
                         <h2> Sobre nosotros </h2>
                         <div class="content">
                             <p> Te presentamos a Vero, una plataforma que te brinda espacios de ocio individual y en
-                                comunidad en donde podrás permitirte descansar, divertirte, aumentar tus
-                                conocimientos o
-                                relacionarte con otras personas de forma desinteresada que tienen tus mismas
-                                aficiones,
-                                una experiencia que beneficia el descanso mental para la salud, bienestar y el
-                                disfrute
+                                comunidad en donde podrás permitirte descansar, divertirte, aumentar tus conocimientos o
+                                relacionarte con otras personas de forma desinteresada que tienen tus mismas aficiones,
+                                una experiencia que beneficia el descanso mental para la salud, bienestar y el disfrute
                                 de la cultura.. </p>
                             <div class="social ">
                                 <a href="https://github.com/SebastianSierrajc/devOcean-Vero "><span

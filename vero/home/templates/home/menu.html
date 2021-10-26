@@ -48,7 +48,7 @@
             <div class="container">
                 {% for activity in activities2 %}
                 <div class="cardMenu">
-                    <a href="{% url 'encuestaAntes' activity.id %}">
+                    <a href="{% url 'single_activity_selection' activity.id %}">
                         <h2>{{activity.name}}</h2>
                         <h3>{{activity.description}}</h3>
                         <div class="detail">
