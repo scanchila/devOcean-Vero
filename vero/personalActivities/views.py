@@ -5,13 +5,16 @@ from django.template import loader
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
-
+from django.contrib.auth.models import User
 
 from .models import ActivityType, ActivityCategory, PersonalActivites
 
 # Create your views here.
 @login_required(login_url='/users/login/')
 def main(request):
+  print(request.session.keys())
+  print(request.session['_auth_user_id'])
+  print(User.objects.filter(id=request.session['_auth_user_id']))
   all_activities = PersonalActivites.objects.order_by('-pub_data')
   f = open('personalActivities/ActivityGroup.json',)
   data = json.load(f)

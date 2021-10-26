@@ -1,0 +1,258 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Vero - Actividades individuales</title>
+    <link href="./plugins/jquery-steps/css/jquery.steps.css" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'grupalActivities/img/fav-icono.png' %}">
+    <link href="{% static 'grupalActivities/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'grupalActivities/css/footer.css' %}" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body>
+
+    <!--Animación de carga inicial-->
+
+    <div id="preloader">
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+            </svg>
+        </div>
+    </div>
+
+
+    <!-- Navegación del header -->
+    <div id="main-wrapper" class="show menu-toggle">
+
+        {% include 'home/headerMain.html' %}
+
+
+        <!--Barra de navegación lateral EDITAR-->
+
+        {% include 'home/lateralMenu.html' %}
+
+
+
+        <!--Contenido del cuerpo-->
+        {% load crispy_forms_tags %}
+        {% block content %}
+        {% csrf_token %}
+        <div class="content-body">
+
+            <div class="container-fluid mt-3">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="title_principal">Agregar evento de actividades grupales </h4>
+                            <div class="container-fluid">
+                                <div class="row" id="grupo_actividades">
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="form-validation">
+                                        <form class="form-valide" action="#" method="post">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="val-username">Nombre de la actividad<span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control" id="val-username" name="val-username" placeholder="Enter a name for the activity..">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="val-skill">Tipo de actividad<span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <select class="form-control" id="val-skill" name="val-skill">
+                                                        <option value="">Please select</option>
+                                                        <option value="deportiva">Deportiva</option>
+                                                        <option value="css">Cocina</option>
+                                                        <option value="javascript">Juagos</option>
+                                                        <option value="angular">Danza</option>
+                                                        <option value="angular">Musica</option>
+                                                        <option value="vuejs">Yoga</option>
+                                                        <option value="ruby">Arte</option>
+                                                        <option value="php">Cine</option>
+                                                        <option value="asp">Lectura</option>
+                                                        <option value="python">Educación</option>
+                                                        <option value="mysql">Otro</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="val-suggestions">Descripción <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <textarea class="form-control" id="val-suggestions" name="val-suggestions" rows="5" placeholder="What would you like to do?"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="val-password">Duración <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="password" class="form-control" id="val-password" name="val-password" placeholder="Enter the duration of the activity ..">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="val-password">Fecha <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="date" class="form-control" id="val-terms" name="val-terms">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="val-password">Hora <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="time" class="form-control" id="val-terms" name="val-terms">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="val-confirm-password">Número maximo de personas <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="password" class="form-control" id="val-confirm-password" name="val-confirm-password" placeholder="Number of people...">
+                                                </div>
+                                            </div>
+
+
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="val-currency">Dirección donde se desarrollara la actividad <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control" id="val-currency" name="val-currency" placeholder="Carrera20 #5-08">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="val-website">Correo de contacto <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control" id="val-website" name="val-website" placeholder="correo@gmail.com">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-lg-8 ml-auto">
+                                                    <button type="button"
+                                                    class="btn mb-1 btn-outline-primary" id="closeEnterActivity">Submit</button>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                
+
+
+
+        {% endblock %}
+
+
+
+        <!-- ======= Footer ======= -->
+        <footer>
+
+            <div class="main-content">
+
+                <div class="left box ">
+                    <h2> Sobre nosotros </h2>
+                    <div class="content">
+                        <p> Te presentamos a Vero, una plataforma que te brinda espacios de ocio individual y en
+                            comunidad en donde podrás permitirte descansar, divertirte, aumentar tus conocimientos o
+                            relacionarte con otras personas de forma desinteresada que tienen tus mismas aficiones, una
+                            experiencia que beneficia el descanso mental para la salud, bienestar y el disfrute de la
+                            cultura.. </p>
+                        <div class="social ">
+                            <a href="https://github.com/SebastianSierrajc/devOcean-Vero "><span
+                                    class="fab fa-github "></span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="center box ">
+                    <h2> Contáctanos</h2>
+                    <div class="content ">
+                        <div class="email ">
+                            <span class="fas fa-envelope "></span>
+                            <span class="text ">michael.pinilla01@correo.usa.edu.co</span>
+                        </div>
+                        <div class="email ">
+                            <span class="fas fa-envelope "></span>
+                            <span class="text ">jessica.parrado01@correo.usa.edu.co</span>
+                        </div>
+                        <div class="email ">
+                            <span class="fas fa-envelope "></span>
+                            <span class="text ">lady.salazar01@correo.usa.edu.co</span>
+                        </div>
+                        <div class="email ">
+                            <span class="fas fa-envelope "></span>
+                            <span class="text ">luis.vejarano01@correo.usa.edu.co</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right box ">
+                    <h2> Contáctanos</h2>
+                    <div class="content ">
+                        <div class="email ">
+                            <span class="fas fa-envelope "></span>
+                            <span class="text ">juan.sierra01@correo.usa.edu.co</span>
+                        </div>
+                        <div class="email ">
+                            <span class="fas fa-envelope "></span>
+                            <span class="text ">santiago.gutierrez01@correo.usa.edu.co</span>
+                        </div>
+                        <div class="email ">
+                            <span class="fas fa-envelope "></span>
+                            <span class="text ">santiago.canchila01@correo.usa.edu.co</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom ">
+                <center>
+                    <span class="credit ">
+                        Creado por <a href="# ">Canchila - Gutierrez - Parrado - Pinilla - Salazar B - Sierra -
+                            Vejarano|</a>
+                    </span>
+                    <span class="far fa-copyright "></span><span> 2021 Todos los Derechos Reservados. </span>
+                </center>
+            </div>
+        </footer>
+
+    </div>
+
+        <!--Scripts-->
+        <script src="{% static 'grupalActivities/js/grupalActivities.js' %}"></script>
+        <script src="{% static 'grupalActivities/js/common.min.js' %}"></script>
+        <script src="{% static 'grupalActivities/js/custom.min.js' %}"></script>
+        <script src="{% static 'grupalActivities/js/settings.js' %}"></script>
+        <script src="{% static 'grupalActivities/js/gleek.js' %}"></script>
+        <script src="{% static 'grupalActivities/js/styleSwitcher.js' %}"></script>
+
+    </div>
+</body>
+
+</html>
