@@ -15,7 +15,7 @@
             <option value = "15,30">15 min a 30 min</option>
             <option value = "30,60">30 min a 60 min</option>
             <option value = "60,120">1 hora a 2 horas</option>
-            <option value = "120,300">2 horas o más</option>
+            <option value = "120,600">2 horas o más</option>
         </select>
     </div>
 
@@ -24,7 +24,7 @@
         <select name="act_type" class="form-control">
             <option value = "any" selected>Cualquiera</option>
             {% for t in act_type %}
-            <option value={{ t.name }}>{{ t.name }}</option>
+            <option value={{ t.id }}>{{ t.name }}</option>
             {% endfor %}
         </select>
     </div>
@@ -34,7 +34,7 @@
         <select name="category" class="form-control">
             <option value = "any" selected>Cualquiera</option>
             {% for activity in act_cat %}
-            <option value={{ activity.name }}>{{ activity.name }}</option>
+            <option value={{ activity.id }}>{{ activity.name }}</option>
             {% endfor %}
         </select>
     </div>

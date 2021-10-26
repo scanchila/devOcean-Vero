@@ -5,7 +5,7 @@ from django.template import loader
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
-
+import datetime
 
 from .models import ActivityType, ActivityCategory, PersonalActivites
 
@@ -42,32 +42,21 @@ def recibirActividad(request):
     actTime = None
     actType = None
     actCategory = None
+
     if request.POST["time"] != "any":
       args = request.POST["time"].split(",")
-      query = f"select * from personalActivities_personalactivites " \
-              f"where duration <= {int(args[1]) * 1000000} and duration >= {int(args[0]) * 1000000}"
-      actTime = PersonalActivites.objects.raw(query)
+      actTime = PersonalActivites.objects.filter(duration__gte=datetime.timedelta(minutes=int(args[0])),
+                                                 duration__lte=datetime.timedelta(minutes=int(args[1])))
 
     if request.POST["act_type"] != "any":
       a_type = request.POST["act_type"]
-      query = f"select * from personalActivities_personalactivites " \
-              f"where (select id from personalActivities_activitytype " \
-              f"where name = '{a_type}') = activityType_id"
-      actType = PersonalActivites.objects.raw(query)
+      tipo = ActivityType.objects.get(id=a_type)
+      actType = tipo.personalactivites_set.all()
 
     if request.POST["category"] != "any":
       a_cat = request.POST["category"]
-      query = "select personalActivities_personalactivites.id, personalActivities_personalactivites.name, " \
-              "personalActivities_personalactivites.description, personalActivities_personalactivites.image_URL, " \
-              "personalActivities_personalactivites.lecture, personalActivities_personalactivites.pub_data, " \
-              "personalActivities_personalactivites.duration, personalActivities_personalactivites.activityType_id, " \
-              "personalActivities_personalactivites.video_URL " \
-              "from personalActivities_personalactivites, personalActivities_personalactivites_categories, " \
-              "personalActivities_activitycategory " \
-              "where personalActivities_personalactivites.id = personalActivities_personalactivites_categories.personalactivites_id " \
-              f"and personalActivities_personalactivites_categories.activitycategory_id = (select id from personalActivities_activitycategory where name = '{a_cat}');"
-      actCategory = PersonalActivites.objects.raw(query)
-
+      category = ActivityCategory.objects.get(id=a_cat)
+      actCategory = category.personalactivites_set.all()
 
 
     if request.POST["category"] == "any" and request.POST["time"] == "any" and request.POST["act_type"] == "any":
@@ -87,10 +76,6 @@ def recibirActividad(request):
         activities = actType
       elif actCategory:
         activities = actCategory
-
-
-
-
 
     act_cat = ActivityCategory.objects.all()
     act_type = ActivityType.objects.all()
