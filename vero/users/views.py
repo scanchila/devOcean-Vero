@@ -5,6 +5,10 @@ from django.template import RequestContext
 from .forms import UserLoginForm, UserRegisterForm, UserUpdateForm
 import datetime
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
+import json
+from django.core.serializers import serialize
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -71,3 +75,15 @@ def update(request):
     }
 
     return render(request, 'users/update.html', context)
+
+@csrf_exempt
+def userInfo(request):
+  if request.method == 'GET':
+    print("user_info")
+    usuario = User.objects.get(id=request.user.id)
+    usuario_perfil = usuario.user_profile
+    context = {
+      'user_info': usuario_perfil
+    }
+    return render(request, context=context)
+  return render(request, context={'status':400})

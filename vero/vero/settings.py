@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'encuesta.apps.EncuestaConfig',
-    'experience.apps.ExperienceConfig'
+    'experience.apps.ExperienceConfig',
+    'grupalActivities.apps.GrupalactivitiesConfig'
+
 ]
 
 

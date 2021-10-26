@@ -4,7 +4,6 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 from django.utils import timezone
 
-
 from .models import ActivityType, ActivityCategory, PersonalActivites
 from users.models import User_activity
 from encuesta.models import Encuesta
