@@ -18,7 +18,7 @@ def myactivity(request):
 def misActividades(request):
   if request.method == 'GET':
     print("my_activities")
-    my_activities = GrupalActivites.objects.filter(User=request.session['_auth_user_id'])
+    my_activities = groupActivity.objects.filter(User=request.session['_auth_user_id'])
     context = {
       'my_activities': my_activities
     }
