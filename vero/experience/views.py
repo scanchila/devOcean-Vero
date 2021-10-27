@@ -21,20 +21,21 @@ def experience(request):
         level=0
 
         for i in range(len(niveles.get("ranges")))[::-1]:
-            if usuario_perfil.experience>=int(niveles.get("ranges")[i]):
+            if usuario_perfil.experience>=float(niveles.get("ranges")[i]):
 
                 level = niveles.get("niveles")[niveles.get('ranges')[i]]
                 if i>=len(niveles.get("ranges"))-1:
                     porc = 0
                 else:
-                    porc = (usuario_perfil.experience-int(niveles.get("ranges")[i]))/int(niveles.get("ranges")[i+1])
+                    porc = (usuario_perfil.experience-float(niveles.get("ranges")[i]))/float(niveles.get("ranges")[i+1])
                 break
 
 
         context = {
           'user_info': usuario_perfil,
           'level':level,
-          'porc':porc
+          'porc':round(porc*100,2),
+          'anim': 1440-1440*porc
         }
         return render(request, 'experience/experience.html' ,context=context)
     return render(request, 'experience/experience.html' ,context={'status':400})

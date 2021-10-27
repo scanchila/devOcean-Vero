@@ -88,7 +88,7 @@
 
             <!-- Cambiar el 80%-->
             <!-- Cambiar el css-->
-        <div id="Porcentaje"><FONT SIZE=1000><center>{{user_info.experience}}</center></font></div>
+        <div id="Porcentaje"><FONT SIZE=1000><center>{{porc}}%</center></font></div>
                         
             <div class="col-lg-5 col-sm-1" id="NivelExp" >
                 <div class="card gradient-1">
@@ -96,7 +96,7 @@
                         <div  class="card-title text-white"><FONT SIZE=20><center>Estás en el nivel:</center></font></div>
                             <center><img src="{% static 'experience/img/estrella.png' %} " width="300px" height="300px"></center>
                             <!-- Cambiar el 5-->
-                            <div  class="card-title text-white" id="NumExp"><FONT SIZE=100><center>5</center></font></div>
+                            <div  class="card-title text-white" id="NumExp"><FONT SIZE=100><center>{{level}}</center></font></div>
                     </div>
                 </div>
             </div>       
@@ -151,7 +151,7 @@
    
     <script type="text/javascript">
         var style = document.styleSheets[0];
-            style.insertRule("@keyframes anim{  100%{    stroke-dashoffset: "+{{user_info.experience|safe}}+";  }}");
+            style.insertRule("@keyframes anim{  100%{    stroke-dashoffset: "+{{anim|safe}}+";  }}");
     </script>     
    
 </body>
