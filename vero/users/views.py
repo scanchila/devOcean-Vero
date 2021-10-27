@@ -5,6 +5,10 @@ from django.template import RequestContext
 from .forms import UserLoginForm, UserRegisterForm, UserUpdateForm
 import datetime
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
+import json
+from django.core.serializers import serialize
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -71,3 +75,4 @@ def update(request):
     }
 
     return render(request, 'users/update.html', context)
+
