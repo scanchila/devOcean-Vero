@@ -8,6 +8,7 @@ from .models import ActivityType, ActivityCategory, PersonalActivites
 from users.models import User_activity
 from encuesta.models import Encuesta
 
+
 # Create your views here.
 
 
@@ -64,6 +65,19 @@ def recibirActividad(request):
     actType = None
     actCategory = None
 
+
+@login_required(login_url='/users/login/')
+def formEvent(request):
+    context = {
+        'pageTitle' : 'CreateEvent',
+    }
+    if request.method == 'POST':
+        form = EventRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+    context['form'] = form
+    return render(request,  'personalActivities/activity.html', context)
+
     if request.POST["time"] != "any":
       args = request.POST["time"].split(",")
       actTime = PersonalActivites.objects.filter(duration__gte=datetime.timedelta(minutes=int(args[0])),
@@ -107,7 +121,7 @@ def recibirActividad(request):
       "act_cat": act_cat
     }
 
-  return render(request, "personalActivities/filtroActividadesIndividuales.html", context)
+    return render(request, "personalActivities/filtroActividadesIndividuales.html", context)
 
 
 
@@ -123,3 +137,4 @@ def singleActivity_finish(request, activity_id):
         print(e)
 
     return redirect('encuesta', activity_id=user_activity.id)
+
