@@ -112,7 +112,14 @@ def dashboard(request):
             'finish': most_view_activities('finish')[:5]
         },
         'types': {
-
+            'all': groupby_type(),
+            'started': groupby_type('started'),
+            'finish': groupby_type('finish')
+        },
+        'categories': {
+            'all': groupby_category(),
+            'started': groupby_category('started'),
+            'finish': groupby_category('finish')
         }
     }
     return render(request, 'personalActivities/dashboard.html', context)

@@ -20,6 +20,6 @@ def groupby_type(status=""):
 
 def groupby_category(status=""):
     if not status:
-        return ActivityCategory.objects.annotate(num_ua=Count('personalactivites__user_activity'))
+        return ActivityCategory.objects.annotate(num_ua=Count('personalactivites__user_activity')).filter(num_ua__gt=0).order_by('-num_ua')
     else:
-        return ActivityCategory.objects.filter(personalactivites__user_activity__status=status).annotate(num_ua=Count('personalactivites__user_activity'))
+        return ActivityCategory.objects.filter(personalactivites__user_activity__status=status).annotate(num_ua=Count('personalactivites__user_activity')).filter(num_ua__gt=0).order_by('-num_ua')

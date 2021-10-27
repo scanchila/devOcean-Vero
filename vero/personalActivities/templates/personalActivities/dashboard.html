@@ -42,30 +42,85 @@
             <div class="dashboard-contianer">
                 <h1>Dashboard Actividades individuales</h1>
 
-                <h2>
-                    Actividades más realizadas
-                </h2>
+                <div>
+                    <h2>
+                        Actividades más realizadas
+                    </h2>
 
-                <h3>Top 5 actividades mas realizadas</h3>
-                <ul>
-                    {%  for activity in activities.all %}
-                    <li> {{ activity.name }} : {{activity.num_ua}}</li>
-                    {% endfor %}
-                </ul>
+                    <h3>Top 5 actividades mas realizadas</h3>
+                    <ul>
+                        {%  for activity in activities.all %}
+                        <li> {{ activity.name }} : {{activity.num_ua}}</li>
+                        {% endfor %}
+                    </ul>
 
-                <h3>Top 5 mas realizadas terminadas</h3>
-                <ul>
-                    {%  for activity in activities.finish %}
-                    <li> {{ activity.name }} : {{activity.num_ua}}</li>
-                    {% endfor %}
-                </ul>
+                    <h3>Top 5 mas realizadas terminadas</h3>
+                    <ul>
+                        {%  for activity in activities.finish %}
+                        <li> {{ activity.name }} : {{activity.num_ua}}</li>
+                        {% endfor %}
+                    </ul>
 
-                <h3>Top 5 mas realizadas sin terminar</h3>
-                <ul>
-                    {%  for activity in activities.started %}
-                    <li> {{ activity.name }} : {{activity.num_ua}}</li>
-                    {% endfor %}
-                </ul>
+                    <h3>Top 5 mas realizadas sin terminar</h3>
+                    <ul>
+                        {%  for activity in activities.started %}
+                        <li> {{ activity.name }} : {{activity.num_ua}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div>
+                    <h2>
+                        Tipos de actividad mas visitados
+                    </h2>
+
+                    <h3>Top 5 tipos de actividades mas realizadas</h3>
+                    <ul>
+                        {%  for activity in types.all %}
+                        <li> {{ activity.name }} : {{activity.num_ua}}</li>
+                        {% endfor %}
+                    </ul>
+
+                    <h3>Top 5 tipos de actividades terminadas</h3>
+                    <ul>
+                        {%  for activity in types.finish %}
+                        <li> {{ activity.name }} : {{activity.num_ua}}</li>
+                        {% endfor %}
+                    </ul>
+
+                    <h3>Top 5 tipos de actividades terminar</h3>
+                    <ul>
+                        {%  for activity in types.started %}
+                        <li> {{ activity.name }} : {{activity.num_ua}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div>
+                    <h2>
+                        categorias de actividad mas visitados
+                    </h2>
+
+                    <h3>Top 5 categorias de actividades mas realizadas</h3>
+                    <ul>
+                        {%  for activity in categories.all %}
+                        <li> {{ activity.name }} : {{activity.num_ua}}</li>
+                        {% endfor %}
+                    </ul>
+
+                    <h3>Top 5 categorias de actividades terminadas</h3>
+                    <ul>
+                        {%  for activity in categories.finish %}
+                        <li> {{ activity.name }} : {{activity.num_ua}}</li>
+                        {% endfor %}
+                    </ul>
+
+                    <h3>Top 5 categorias de actividades terminar</h3>
+                    <ul>
+                        {%  for activity in categories.started %}
+                        <li> {{ activity.name }} : {{activity.num_ua}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
         </div>
 
