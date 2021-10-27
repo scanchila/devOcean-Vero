@@ -122,3 +122,8 @@ def singleActivity_finish(request, activity_id):
         print(e)
 
     return redirect('encuesta', activity_id=user_activity.id)
+
+
+def dashboard_admin(request):
+
+    return render(request, "personalActivities/dashboard.html")

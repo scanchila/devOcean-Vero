@@ -85,17 +85,9 @@
                                                     <div class="col-lg-6">
                                                         <select class="form-control" id="tipo" name="tipo">
                                                             <option value="">Please select</option>
-                                                            <option value="deportiva">Deportiva</option>
-                                                            <option value="cocina">Cocina</option>
-                                                            <option value="juegos">Juegos</option>
-                                                            <option value="danza">Danza</option>
-                                                            <option value="musica">Musica</option>
-                                                            <option value="yoga">Yoga</option>
-                                                            <option value="arte">Arte</option>
-                                                            <option value="cine">Cine</option>
-                                                            <option value="lectura">Lectura</option>
-                                                            <option value="educacion">Educación</option>
-                                                            <option value="otro">Otro</option>
+                                                            {% for t in act_type %}
+                                                                <option value={{ t.id }}>{{ t.name }}</option>
+                                                            {% endfor %}
                                                         </select>
                                                     </div>
                                                 </div>
