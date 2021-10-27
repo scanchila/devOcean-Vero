@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.utils import timezone
 import datetime
 
-from .models import ActivityType, ActivityCategory, PersonalActivites, EventRegisterForm
+from .models import ActivityType, ActivityCategory, PersonalActivites
 from users.models import User_activity
 from encuesta.models import Encuesta
 
@@ -65,7 +65,7 @@ def recibirActividad(request):
     actType = None
     actCategory = None
 
-<<<<<<< HEAD
+
 @login_required(login_url='/users/login/')
 def formEvent(request):
     context = {
@@ -77,7 +77,7 @@ def formEvent(request):
             form.save()
     context['form'] = form
     return render(request,  'personalActivities/activity.html', context)
-=======
+
     if request.POST["time"] != "any":
       args = request.POST["time"].split(",")
       actTime = PersonalActivites.objects.filter(duration__gte=datetime.timedelta(minutes=int(args[0])),
@@ -121,7 +121,7 @@ def formEvent(request):
       "act_cat": act_cat
     }
 
-  return render(request, "personalActivities/filtroActividadesIndividuales.html", context)
+    return render(request, "personalActivities/filtroActividadesIndividuales.html", context)
 
 
 
@@ -137,4 +137,4 @@ def singleActivity_finish(request, activity_id):
         print(e)
 
     return redirect('encuesta', activity_id=user_activity.id)
->>>>>>> origin/Michael33
+
