@@ -39,35 +39,43 @@
                     <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Crear Campeonato</span>
                 </a>
             </li>
+
+            {% if user.is_staff %}
+            <li class="nav-label">Stats</li>
+            <li>
+                <a href="{% url 'dashboard' %}" aria-expanded="false">
+                    <i class="icon-graph menu-icon"></i><span class="nav-text">Dashboard</span>
+                </a>
+            </li>
+            {% endif %}
             <li class="nav-label">Mi Perfil</li>
 
-          <li>
-              <a href="./#" aria-expanded="false">
-                  <i class="icon-menu menu-icon"></i><span class="nav-text">Historial de mis
-                      Actividades</span>
-              </a>
-          </li>
-          <li>
-              <a href="./#" aria-expanded="false">
-                  <i class="icon-notebook menu-icon"></i><span class="nav-text">Mi Calendario</span>
-              </a>
-          </li>
-          <li>
-              <a href="./#" aria-expanded="false">
-                  <i class="icon-badge menu-icon"></i><span class="nav-text">Mis Logros</span>
-              </a>
-          </li>
-          <li>
-              <a href="{% url 'experience' %}" aria-expanded="false">
-                  <i class="icon-graph menu-icon"></i><span class="nav-text">Mi Experiencia</span>
-              </a>
-          </li>
-          <li class="nav-label">Cuenta</li>
-          <li>
-              <a href="{% url 'users:update' %}" aria-expanded="false">
-                  <i class="icon-note menu-icon"></i><span class="nav-text">Configuración de Cuenta</span>
-              </a>
-          </li>
-      </ul>
-  </div>
+            <li>
+                <a href="./#" aria-expanded="false">
+                    <i class="icon-menu menu-icon"></i><span class="nav-text">Historial de mis Actividades</span>
+                </a>
+            </li>
+            <li>
+                <a href="./#" aria-expanded="false">
+                    <i class="icon-notebook menu-icon"></i><span class="nav-text">Mi Calendario</span>
+                </a>
+            </li>
+            <li>
+                <a href="./#" aria-expanded="false">
+                    <i class="icon-badge menu-icon"></i><span class="nav-text">Mis Logros</span>
+                </a>
+            </li>
+            <li>
+                <a href="{% url 'experience' %}" aria-expanded="false">
+                    <i class="icon-graph menu-icon"></i><span class="nav-text">Mi Experiencia</span>
+                </a>
+            </li>
+            <li class="nav-label">Cuenta</li>
+            <li>
+                <a href="{% url 'users:update' %}" aria-expanded="false">
+                    <i class="icon-note menu-icon"></i><span class="nav-text">Configuración de Cuenta</span>
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>

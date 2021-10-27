@@ -10,4 +10,5 @@ urlpatterns = [
          views.singleActivity_finish, name='single_activity_finish'),
     path('', views.main, name='personal_activities_list'),
     path('recibirActividad/', views.recibirActividad, name='recibirActividad'),
+    path('dashboard/', views.dashboard, name='dashboard'),
 ]

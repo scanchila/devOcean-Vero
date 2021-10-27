@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.utils import timezone
@@ -100,6 +101,7 @@ def singleActivity_finish(request, activity_id):
     return redirect('encuesta', activity_id=user_activity.id)
 
 
-def dashboard_admin(request):
-
-    return render(request, "personalActivities/dashboard.html")
+@login_required(login_url='/users/login/')
+@staff_member_required
+def dashboard(request):
+    return render(request, 'personalActivities/dashboard.html')
