@@ -10,6 +10,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'personalActivities/img/fav-icono.png' %}">
     <link href="{% static 'personalActivities/css/style.css' %}" rel="stylesheet">
     <link href="{% static 'personalActivities/css/footer.css' %}" rel="stylesheet">
+    <link href="{% static 'personalActivities/css/dropbox.css' %}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
 </head>
 
@@ -52,7 +53,10 @@
                             <h4 class="title_principal">Actividades individuales</h4>
                             <div class="container-fluid">
                                 <div class="row" id="grupo_actividades">
-
+                                    {% include 'personalActivities/personalActivitiesFilter.html' %}
+                                    <div class="name_drop2">
+                                        <button class="btn mb-1 btn-success bnt-axu" id="btnFiltroActividadesInd">Aplicar</button>
+                                    </div>    
                                 </div>
                             </div>
 
@@ -61,56 +65,17 @@
                 </div>
 
 
-                <div class="container-fluid">
+                <div class="container-fluid  mt-3">
                     <div class="row">
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title">¿Qué tipo de recurso deseas usar?</h4>
-                                    <p class="text-muted">Selecciona una de las siguientes opciones, al elegirla se te
-                                        asignará una actividad de ese tipo aleatoriamente.</p>
-                                    <div class="button-group">
-                                        <div class="btn-toolbar">
-                                            <div class="btn-group mr-2 mb-2">
-                                                <input type="button" class="btn btn-primary" id="btnVideo" name="btn"
-                                                    value="video" onclick="cambioRecurso('Video')">
-                                                <input type="button" class="btn btn-primary" id="btnAudio" name="btn"
-                                                    value="audio" onclick="cambioRecurso('Audio')">
-                                                <input type="button" class="btn btn-primary" id="btnTexto" name="btn"
-                                                    value="texto" onclick="cambioRecurso('texto')">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title">¿Cuánto tiempo tienes?</h4>
-                                    <p class="text-muted">Desliza la barra para seleccionar el tiempo de duración máximo
-                                        de la actividad.</p>
-                                    <div class="slider-box">
-                                        <div class="slider-time">
-                                            <input class="input-slider" type="range" min="5" max="10" value="7"
-                                                id="sliderTime">
-                                        </div>
-                                        <div class="value">100</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="container-fluid">
+                        {% include 'personalActivities/personalActivitiesList.html' %}
                     </div>
-
-                    <div class="container-aux">
-                        <button class="btn mb-1 btn-success" id="btnFiltroActividadesInd">Enviar</button>
                     </div>
 
                 </div>
                 
             </div>
-            {% include 'personalActivities/personalActivitiesList.html' %}
+            
         </div>
 
         {% endblock %}
@@ -199,55 +164,6 @@
     <script src="{% static 'personalActivities/js/peticiones.js' %}"></script>
     <script src="{% static 'personalActivities/js/funciones.js' %}"></script>
     <script src="{% static 'personalActivities/js/actividad2.js' %}"></script>
-    <script src="{% static 'personalActivities/js/actividad2.js' %}"></script>
-
-
-    <script>
-        const slide = document.querySelector(".input-slider")
-        const value = document.querySelector(".value")
-        value.textContent = slide.value + " minutos";
-        slide.oninput = function () {
-            value.textContent = this.value + " minutos";
-        }
-    </script>
-
-    <script src="{% static 'personalActivities/js/jquery.js' %}"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('input[type=checkbox]').live('click', function () {
-                var parent = $(this).parent().attr('id');
-                $('#' + parent + ' input[type=checkbox]').removeAttr('checked');
-                $(this).attr('checked', 'checked');
-            });
-        });
-    </script>
-
-    <script type="text/javascript">
-        datos = {{ data | safe }};
-        $("#grupo_actividades").empty();
-        for (var i = 0; i < datos.activities.length; i++) {
-            var e = 1;
-            if (i % 2 == 0) {
-                var e = 1;
-            } else { var e = 2; }
-            actividad = "";
-            actividad = '<div class="col-lg-6">' +
-                '<div class="card gradient-' + e + '">' +
-                '<div class="card-body">' +
-                '<div class="card-act" id="opc">' +
-                '<h2 class="text-white">' + datos.activities[i] + '</h2>' +
-                '<input class="check-act" type="checkbox" name="check" value="respiracion">' +
-                '</div>' +
-                '</div>' +
-                '</div>' +
-                '</div>';
-
-            $("#grupo_actividades").append(actividad);
-
-        }
-
-
-    </script>
 
 </body>
 

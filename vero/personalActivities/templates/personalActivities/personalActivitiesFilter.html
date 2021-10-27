@@ -1,0 +1,40 @@
+<div>
+    <div class="row">
+    <div class="card-body">
+      <div class="name_drop2"> 
+        <h5 class="card-title">Filtros:</h5>
+      </div>   
+    </div>
+
+    <div class="card-body">
+        <span>Duración:</span> <br><br>
+        <select name="time" class="form-control">
+            <option value = "any" selected>Cualquiera</option>
+            <option value = "sort" class="option">1 min a 5 min</option>
+            <option value = "medium">5 min a 10 min</option>
+            <option value = "long">10 min a 15 min</option>
+        </select>
+    </div>
+
+    <div class="card-body">
+        <span>Recurso:</span> <br><br>
+        <select name="resource" class="form-control">
+            <option value = "any" selected>Cualquiera</option>
+            <option value = "audio">Audio</option>
+            <option value = "text">Texto</option>
+            <option value = "video">Video</option>
+        </select>
+    </div>
+
+    <div class="card-body">
+        <span>Categoria:</span> <br><br>
+        <select name="resource" class="form-control">
+            <option value = "any" selected>Cualquiera</option>
+            {% for activity in act_name %}
+            <option value={{ activity.name }}>{{ activity.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    </div>
+
+  </div>
