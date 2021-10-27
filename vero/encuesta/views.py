@@ -49,12 +49,10 @@ def answerEncuesta(request, activity_id, feeling="", before=0):
     encuesta.save()
 
     if aux_experience:
-
-        user_profile = User_profile.objects.get(id=user_activity.user.id)
-        experience = user_profile.experience
-        print(experience)
-        personalActivites = PersonalActivites.objects.get(id=user_activity.activity.id)
-        user_profile.experience = experience + int(personalActivites.experience)
+        user_profile = request.user.user_profile
+        print(user_profile.experience)
+        personalActivy = user_activity.activity
+        user_profile.experience += int(personalActivy.experience)
         print(user_profile.experience)
 
         user_profile.save()

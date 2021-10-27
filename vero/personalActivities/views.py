@@ -59,44 +59,20 @@ def singleActivity_selection(request, activity_id):
 def recibirActividad(request):
     context = {}
     if request.method == "POST":
-        activities = set()
-        actTime = None
-        actType = None
-        actCategory = None
+        activities = PersonalActivites.objects.all()
 
         if request.POST["time"] != "any":
             args = request.POST["time"].split(",")
-            actTime = PersonalActivites.objects.filter(duration__gte=datetime.timedelta(minutes=int(args[0])),
-                                                       duration__lte=datetime.timedelta(minutes=int(args[1])))
+            activities = activities.filter(duration__gte=datetime.timedelta(
+                minutes=int(args[0])), duration__lte=datetime.timedelta(minutes=int(args[1])))
 
         if request.POST["act_type"] != "any":
             a_type = request.POST["act_type"]
-            tipo = ActivityType.objects.get(id=a_type)
-            actType = tipo.personalactivites_set.all()
+            activities = activities.filter(activityType_id=a_type)
 
         if request.POST["category"] != "any":
             a_cat = request.POST["category"]
-            category = ActivityCategory.objects.get(id=a_cat)
-            actCategory = category.personalactivites_set.all()
-
-        if request.POST["category"] == "any" and request.POST["time"] == "any" and request.POST["act_type"] == "any":
-            activities = PersonalActivites.objects.order_by('-pub_data')
-        else:
-            if actTime and actType and actCategory:
-                activities = set(actTime).intersection(
-                    set(actType)).intersection(actCategory)
-            if actTime and actType:
-                activities = set(actTime).intersection(set(actType))
-            elif actTime and actCategory:
-                activities = set(actTime).intersection(set(actCategory))
-            elif actType and actCategory:
-                activities = set(actType).intersection(set(actCategory))
-            elif actTime:
-                activities = actTime
-            elif actType:
-                activities = actType
-            elif actCategory:
-                activities = actCategory
+            activities = activities.filter(categories__in=[a_cat])
 
     act_cat = ActivityCategory.objects.all()
     act_type = ActivityType.objects.all()
