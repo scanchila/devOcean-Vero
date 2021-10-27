@@ -76,14 +76,3 @@ def update(request):
 
     return render(request, 'users/update.html', context)
 
-@csrf_exempt
-def userInfo(request):
-  if request.method == 'GET':
-    print("user_info")
-    usuario = User.objects.get(id=request.user.id)
-    usuario_perfil = usuario.user_profile
-    context = {
-      'user_info': usuario_perfil
-    }
-    return render(request, context=context)
-  return render(request, context={'status':400})
