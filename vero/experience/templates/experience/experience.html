@@ -149,7 +149,10 @@
     <script src="{% static 'experience/js/actividad.js' %}"></script>
     <script src="{% static 'experience/js/audio.js' %}"></script>
    
-
+    <script type="text/javascript">
+        var style = document.styleSheets[0];
+            style.insertRule("@keyframes anim{  100%{    stroke-dashoffset: "+{{user_info.experience|safe}}+";  }}");
+    </script>     
    
 </body>
 

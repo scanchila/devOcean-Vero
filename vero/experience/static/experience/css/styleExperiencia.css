@@ -14787,11 +14787,7 @@ svg{
   top: 480%;
   left: 63%;
 }
-@keyframes anim{
-  100%{
-    stroke-dashoffset: 288;
-  }
-}
+
 #Porcentaje{
 margin-left: 53%;
 margin-top: 13%;
