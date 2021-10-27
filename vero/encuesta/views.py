@@ -7,7 +7,7 @@ from django.http import JsonResponse
 
 from django.contrib.auth.models import User
 from encuesta.models import Encuesta
-from users.models import User_activity
+from users.models import User_activity, User_profile
 from personalActivities.models import PersonalActivites
 
 # Create your views here.
@@ -35,6 +35,7 @@ def encuestaDespues(request, activity_id):
 def answerEncuesta(request, activity_id, feeling="", before=0):
     user_activity = User_activity.objects.get(pk=activity_id)
     encuesta = user_activity.encuesta
+    aux_experience = 0
     if before:
         print("se recibe la respuesta de la encuesta antes")
         encuesta.sentimientoInicial = feeling
@@ -43,7 +44,19 @@ def answerEncuesta(request, activity_id, feeling="", before=0):
         print("se recibe la respuesta de la encuesta despues")
         encuesta.sentimientoFinal = feeling
         r = redirect('menu')
+        aux_experience = 1
 
     encuesta.save()
+
+    if aux_experience:
+
+        user_profile = User_profile.objects.get(id=user_activity.user.id)
+        experience = user_profile.experience
+        print(experience)
+        personalActivites = PersonalActivites.objects.get(id=user_activity.activity.id)
+        user_profile.experience = experience + int(personalActivites.experience)
+        print(user_profile.experience)
+
+        user_profile.save()
 
     return r
