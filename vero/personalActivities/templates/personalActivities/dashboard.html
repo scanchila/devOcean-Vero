@@ -9,8 +9,6 @@
     <title>Vero</title>
     <link rel="icon" type="image/png" href="{% static 'personalActivities/img/icono.png' %}" />
 
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'personalActivities/img/favicon.png' %}" />
-
     <link href="{% static 'personalActivities/css/footer.css' %}" rel="stylesheet" />
     <link href="{% static 'personalActivities/css/styleActividad.css' %}" rel="stylesheet" />
     <link href="{% static 'personalActivities/css/audio.css' %}" rel="stylesheet" />
@@ -43,6 +41,31 @@
         <div class="content-body">
             <div class="dashboard-contianer">
                 <h1>Dashboard Actividades individuales</h1>
+
+                <h2>
+                    Actividades más realizadas
+                </h2>
+
+                <h3>Top 5 actividades mas realizadas</h3>
+                <ul>
+                    {%  for activity in activities.all %}
+                    <li> {{ activity.name }} : {{activity.num_ua}}</li>
+                    {% endfor %}
+                </ul>
+
+                <h3>Top 5 mas realizadas terminadas</h3>
+                <ul>
+                    {%  for activity in activities.finish %}
+                    <li> {{ activity.name }} : {{activity.num_ua}}</li>
+                    {% endfor %}
+                </ul>
+
+                <h3>Top 5 mas realizadas sin terminar</h3>
+                <ul>
+                    {%  for activity in activities.started %}
+                    <li> {{ activity.name }} : {{activity.num_ua}}</li>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
 

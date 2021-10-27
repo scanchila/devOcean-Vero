@@ -8,6 +8,7 @@ import datetime
 from .models import ActivityType, ActivityCategory, PersonalActivites
 from users.models import User_activity
 from encuesta.models import Encuesta
+from .dashboard import *
 
 
 # Create your views here.
@@ -104,4 +105,14 @@ def singleActivity_finish(request, activity_id):
 @login_required(login_url='/users/login/')
 @staff_member_required
 def dashboard(request):
-    return render(request, 'personalActivities/dashboard.html')
+    context = {
+        'activities': {
+            'all': most_view_activities()[:5],
+            'started': most_view_activities('started')[:5],
+            'finish': most_view_activities('finish')[:5]
+        },
+        'types': {
+
+        }
+    }
+    return render(request, 'personalActivities/dashboard.html', context)

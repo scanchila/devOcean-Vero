@@ -25,7 +25,7 @@ def menu(request):
     data = json.loads(data)
     context = {
         'activities': [[x.name, x.description, x.image_URL, x.duration] for x in pers],
-        'activities2': pers
+        'activities2': pers[:4]
     }
     return render(request, "home/menu.html", context=context)
 
