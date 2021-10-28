@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'selenium',
     'home.apps.HomeConfig', # landing y pagina principal
     'users.apps.UsersConfig', # usuarios y autenticacion
     'personalActivities.apps.PersonalactivitiesConfig', # actividades individuales
