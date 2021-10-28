@@ -11,4 +11,5 @@ urlpatterns = [
     path('', views.main, name='personal_activities_list'),
     path('recibirActividad/', views.recibirActividad, name='recibirActividad'),
     path('dashboard/', views.dashboard, name='dashboard'),
+    path('dashboard/info/<chart>', views.dashboard_charts, name='dashboard_info')
 ]

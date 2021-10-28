@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
-from django.shortcuts import render, get_object_or_404, redirect
-from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import render, redirect
+from django.http import JsonResponse
 from django.utils import timezone
 import datetime
 
@@ -106,20 +106,70 @@ def singleActivity_finish(request, activity_id):
 @staff_member_required
 def dashboard(request):
     context = {
-        'activities': {
-            'all': most_view_activities()[:5],
-            'started': most_view_activities('started')[:5],
-            'finish': most_view_activities('finish')[:5]
-        },
-        'types': {
-            'all': groupby_type(),
-            'started': groupby_type('started'),
-            'finish': groupby_type('finish')
-        },
-        'categories': {
-            'all': groupby_category(),
-            'started': groupby_category('started'),
-            'finish': groupby_category('finish')
-        }
+        'pageTitle': 'dashboard'
     }
     return render(request, 'personalActivities/dashboard.html', context)
+
+
+@login_required(login_url='/users/login/')
+@staff_member_required
+def dashboard_charts(request, chart):
+
+    context = {}
+    if chart == 'activities':
+        context = {
+            'title': 'Actividades mas realizadas',
+            'data': {
+                'labels': [c.name[:25] for c in most_view_activities()],
+                'datasets': [{
+                    'label': 'Total',
+                    'data': [{'x': c.name[:25], 'y': c.num_ua} for c in most_view_activities()],
+                }, {
+                    'label': 'Sin terminar',
+                    'data': [{'x': c.name[:25], 'y': c.num_ua} for c in most_view_activities('started')],
+                }, {
+                    'label': 'Terminadas',
+                    'data': [{'x': c.name[:25], 'y': c.num_ua} for c in most_view_activities('finish')]
+                }]
+            }
+        }
+
+    elif chart == 'types':
+        context = {
+            'title': 'Tipos de actividades mas realizadas',
+            'data': {
+                'labels': [c.name for c in groupby_type()],
+                'datasets': [{
+                    'label': 'Total',
+                    'data': [{'x': c.name, 'y': c.num_ua} for c in groupby_type()],
+                }, {
+                    'label': 'Sin terminar',
+                    'data': [{'x': c.name, 'y': c.num_ua} for c in groupby_type('started')],
+                }, {
+                    'label': 'Terminadas',
+                    'data': [{'x': c.name, 'y': c.num_ua} for c in groupby_type('finish')]
+                }]
+            }
+        }
+
+        print([{'x': c.name, 'y': c.num_ua} for c in groupby_type('started')])
+
+    elif chart == 'categories':
+        context = {
+            'title': 'Categorias de actividades mas realizadas',
+            'data': {
+                'labels': [c.name for c in groupby_category()],
+                'datasets': [{
+                    'label': 'Total',
+                    'data': [{'x': c.name, 'y': c.num_ua} for c in groupby_category()],
+                }, {
+                    'label': 'Sin terminar',
+                    'data': [{'x': c.name, 'y': c.num_ua} for c in groupby_category('started')],
+                }, {
+                    'label': 'Terminadas',
+                    'data': [{'x': c.name, 'y': c.num_ua} for c in groupby_category('finish')]
+                }]
+            }
+        }
+
+    return JsonResponse(context)
