@@ -1,0 +1,196 @@
+{% extends 'home/base.html' %}
+{% block title %}{{ pageTitle }}{% endblock %}
+{% load static %}
+
+{% block style %}
+<link href="{% static 'personalActivities/css/styleActividad.css' %}" rel="stylesheet" />
+{{ block.super }}
+<link rel="icon" type="image/png" href="{% static 'personalActivities/img/icono.png' %}" />
+<link href="{% static 'personalActivities/css/footer.css' %}" rel="stylesheet" />
+<link href="{% static 'personalActivities/css/audio.css' %}" rel="stylesheet" />
+<link rel="stylesheet" href="{% static 'personalActivities/css/charts.css' %}">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+{% endblock %}
+<!--Animación de carga inicial-->
+
+<div id="preloader">
+    <div class="loader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+        </svg>
+    </div>
+</div>
+
+{% block content %}
+<!-- Navegación del header -->
+<div id="main-wrapper" class="show menu-toggle">
+    {% include 'home/headerMain.html' %}
+
+    <!--Barra de navegación lateral EDITAR-->
+
+    {% include 'home/lateralMenu.html' %}
+
+    <!--Contenido del cuerpo-->
+
+    <div class="content-body">
+        <div class="dashboard-container">
+            <h1 class="dashboard-title">Dashboard Actividades individuales</h1>
+
+            <div class="dashboard-chart">
+                <h2>
+                    Actividades más realizadas
+                </h2>
+                <div class="chart-options">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="activities-hideTotal" checked>
+                        <label class="form-check-label" for="activities-hideTotal">Total</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="activities-hideTerminadas"
+                            checked>
+                        <label class="form-check-label" for="activities-hideTerminadas" checked>Terminadas</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="activities-hideSinTerminar"
+                            checked>
+                        <label class="activities-hideSinTerminadr" for="activities-hideTerminadas">Sin terminar</label>
+                    </div>
+                </div>
+                <canvas id="chart-activities"></canvas>
+            </div>
+            <div class="dashboard-chart">
+                <h2>
+                    Tipos de actividad mas visitados
+                </h2>
+                <div class="chart-options">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="types-hideTotal" checked>
+                        <label class="form-check-label" for="types-hideTotal">Total</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="types-hideTerminadas" checked>
+                        <label class="form-check-label" for="types-hideTerminadas" checked>Terminadas</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="types-hideSinTerminar"
+                            checked>
+                        <label class="types-hideSinTerminadr" for="types-hideTerminadas">Sin terminar</label>
+                    </div>
+                </div>
+                <canvas id="chart-types"></canvas>
+            </div>
+
+            <div class="dashboard-chart">
+                <h2>
+                    Categorias de actividad mas visitados
+                </h2>
+                <div class="chart-options">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="categories-hideTotal" checked>
+                        <label class="form-check-label" for="categories-hideTotal">Total</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="categories-hideTerminadas"
+                            checked>
+                        <label class="form-check-label" for="categories-hideTerminadas" checked>Terminadas</label>
+                    </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="categories-hideSinTerminar"
+                            checked>
+                        <label class="categories-hideSinTerminadr" for="categories-hideTerminadas">Sin terminar</label>
+                    </div>
+                </div>
+                <canvas id="chart-categories"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======= Footer ======= -->
+    <footer>
+        <div class="main-content">
+            <div class="left box">
+                <h2>Sobre nosotros</h2>
+                <div class="content">
+                    <p>
+                        Te presentamos a Vero, una plataforma que te
+                        brinda espacios de ocio individual y en
+                        comunidad en donde podrás permitirte descansar,
+                        divertirte, aumentar tus conocimientos o
+                        relacionarte con otras personas de forma
+                        desinteresada que tienen tus mismas aficiones,
+                        una experiencia que beneficia el descanso mental
+                        para la salud, bienestar y el disfrute de la
+                        cultura..
+                    </p>
+                    <div class="social">
+                        <a href="https://github.com/SebastianSierrajc/devOcean-Vero "><span
+                                class="fab fa-github"></span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="center box">
+                <h2>Contáctanos</h2>
+                <div class="content">
+                    <div class="email">
+                        <span class="fas fa-envelope"></span>
+                        <span class="text">michael.pinilla01@correo.usa.edu.co</span>
+                    </div>
+                    <div class="email">
+                        <span class="fas fa-envelope"></span>
+                        <span class="text">jessica.parrado01@correo.usa.edu.co</span>
+                    </div>
+                    <div class="email">
+                        <span class="fas fa-envelope"></span>
+                        <span class="text">lady.salazar01@correo.usa.edu.co</span>
+                    </div>
+                    <div class="email">
+                        <span class="fas fa-envelope"></span>
+                        <span class="text">luis.vejarano01@correo.usa.edu.co</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right box">
+                <h2>Contáctanos</h2>
+                <div class="content">
+                    <div class="email">
+                        <span class="fas fa-envelope"></span>
+                        <span class="text">juan.sierra01@correo.usa.edu.co</span>
+                    </div>
+                    <div class="email">
+                        <span class="fas fa-envelope"></span>
+                        <span class="text">santiago.gutierrez01@correo.usa.edu.co</span>
+                    </div>
+                    <div class="email">
+                        <span class="fas fa-envelope"></span>
+                        <span class="text">santiago.canchila01@correo.usa.edu.co</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <center>
+                <span class="credit">
+                    Creado por
+                    <a href="# ">Canchila - Gutierrez - Parrado - Pinilla -
+                        Salazar B - Sierra - Vejarano|</a>
+                </span>
+                <span class="far fa-copyright"></span><span> 2021 Todos los Derechos Reservados. </span>
+            </center>
+        </div>
+    </footer>
+</div>
+
+{% endblock %}
+<!--Scripts-->
+
+{% block javascript %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{% static 'personalActivities/js/common.min.js' %}"></script>
+<script src="{% static 'personalActivities/js/custom.min.js' %}"></script>
+<script src="{% static 'personalActivities/js/settings.js' %}"></script>
+<script src="{% static 'personalActivities/js/gleek.js' %}"></script>
+<script src="{% static 'personalActivities/js/styleSwitcher.js' %}"></script>
+<script src="{% static 'personalActivities/js/charts.js' %}"></script>
+{% endblock %}

@@ -7,8 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Vero</title>
-    <link rel="stylesheet" type="text/css" href="css/styleActividad.css">
+    <title>Vero</title>z
     <link rel="icon" type="image/png" href="{% static 'personalActivities/img/icono.png' %}" />
 
 
@@ -98,7 +97,7 @@
                         </div>
 
                         <!-- Video/texto/audio-->
-                        <button id="BotonFinalizarSesion" type="button" class="btn mb-1 btn-primary">Finalizar
+                        <button id="BotonFinalizarSesion" onClick="endSession({{user_activity_id}})"type="button" class="btn mb-1 btn-primary">Finalizar
                             Sesión</button>
                     </div>
                 </div>
@@ -200,7 +199,7 @@
     <script src="{% static 'personalActivities/js/audio.js' %}"></script>
 
     <script>
-        window.onload = verActividadIndividual();
+        {% comment %} window.onload = verActividadIndividual(); {% endcomment %}
        //window.onload = mostrarActividadIndividual(124,"Meditación guiada para relajar cuerpo y mente en 10 minutos.", "actividad", "Video", "https://www.youtube.com/embed/WjO_098iXOw");
     </script>
 
