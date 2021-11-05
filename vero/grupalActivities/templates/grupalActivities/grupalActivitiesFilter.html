@@ -1,0 +1,43 @@
+<div>
+    <div class="row">
+    <div class="card-body">
+      <div class="name_drop2"> 
+        <h5 class="card-title">Filtros:</h5>
+      </div>   
+    </div>
+
+    <div class="card-body">
+        <span>Duración:</span> <br><br>
+        <select name="time" class="form-control">
+            <option value = "any" selected>Cualquiera</option>
+            <option value = "1,5" class="option">1 min a 5 min</option>
+            <option value = "5,15">5 min a 15 min</option>
+            <option value = "15,30">15 min a 30 min</option>
+            <option value = "30,60">30 min a 60 min</option>
+            <option value = "60,120">1 hora a 2 horas</option>
+            <option value = "120,600">2 horas o más</option>
+        </select>
+    </div>
+
+    <div class="card-body">
+        <span>Tipo:</span> <br><br>
+        <select name="act_type" class="form-control">
+            <option value = "any" selected>Cualquiera</option>
+            {% for t in act_type %}
+            <option value={{ t.id }}>{{ t.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="card-body">
+        <span>Categoría:</span> <br><br>
+        <select name="category" class="form-control">
+            <option value = "any" selected>Cualquiera</option>
+            {% for activity in act_cat %}
+            <option value={{ activity.id }}>{{ activity.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    </div>
+
+  </div>
