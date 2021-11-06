@@ -14736,17 +14736,17 @@ iframe{
 }
 
 .skill{
-  width: 460px;
   height: 460px;
+  width: 460px;
   position: relative;
 }
 
 .outer{
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 63%;
-  height: 460px;
-  width: 460px;
+  height: 260px;
+  width: 260px;
   border-radius: 50%;
   padding: 20px;
   box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
@@ -14784,22 +14784,22 @@ circle{
 } 
 svg{
   position: absolute;
-  top: 480%;
-  left: 63%;
+  top: 420%;
+  left: 61%;
 }
 
 #Porcentaje{
-margin-left: 53%;
-margin-top: 13%;
+margin-left: 45%;
+margin-top: 8%;
 
 }
 #NivelExp{
   position: absolute;
-  top: 43%;
+  top: 50%;
   left: 8%;
 }
 #NumExp{
   position: absolute;
   top: 50%;
-  left: 48%;
+  left: 40%;
 }

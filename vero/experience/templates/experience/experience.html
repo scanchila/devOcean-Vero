@@ -70,7 +70,7 @@
                             <div class="card-body">
                                 <h4 class="card-title">Tu Nivel de Experiencia</h4>
                                 <p class="text-muted">Aquí puedes ver el nivel que llevas en Vero</p>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -78,8 +78,9 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">¿Cuánta experiencia llevas de este nivel?</h4>
-                                <p class="text-muted">En la siguiente barra circular podrás saber cuánto te falta para el siguiente nivel</p>
-                                
+                                <p class="text-muted">En la siguiente barra circular podrás saber cuánto te falta para
+                                    el siguiente nivel</p>
+
                             </div>
                         </div>
                     </div>
@@ -88,54 +89,117 @@
 
             <!-- Cambiar el 80%-->
             <!-- Cambiar el css-->
-        <div id="Porcentaje"><FONT SIZE=1000><center>{{porc}}%</center></font></div>
-                        
-            <div class="col-lg-5 col-sm-1" id="NivelExp" >
+            <div id="Porcentaje">
+                <FONT SIZE=1000>
+                    <center>{{porc}}%</center>
+                </font>
+            </div>
+
+            <div class="col-lg-5 col-sm-1" id="NivelExp">
                 <div class="card gradient-1">
-                    <div class="card-body" >
-                        <div  class="card-title text-white"><FONT SIZE=20><center>Estás en el nivel:</center></font></div>
-                            <center><img src="{% static 'experience/img/estrella.png' %} " width="300px" height="300px"></center>
-                            <!-- Cambiar el 5-->
-                            <div  class="card-title text-white" id="NumExp"><FONT SIZE=100><center>{{level}}</center></font></div>
+                    <div class="card-body">
+                        <div class="card-title text-white">
+                            <FONT SIZE=20>
+                                <center>Estás en el nivel:</center>
+                            </font>
+                        </div>
+                        <center><img src="{% static 'experience/img/estrella.png' %} " width="300px" height="300px">
+                        </center>
+                        <!-- Cambiar el 5-->
+                        <div class="card-title text-white" id="NumExp">
+                            <FONT SIZE=100>
+                                <center>{{level}}</center>
+                            </font>
+                        </div>
                     </div>
                 </div>
-            </div>       
-            
+            </div>
+
 
 
             <div id="BarraExperiencia">
-                </div class="skill">
-                    <div class="outer">
-                    </div class="inner"> 
-                        
-                            
-                            
+            </div class="skill">
+            <div class="outer">
+            </div class="inner">
+
+
+
+        </div>
+
+    </div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="340px" height="340px">
+        <defs>
+            <linearGradient id="GradientColor">
+                <stop offset="0%" stop-color="#670578" />
+                <stop offset="100%" stop-color="#1d47e0" />
+            </linearGradient>
+        </defs>
+        <circle cx="160" cy="160" r="140" stroke-linecap="round" />
+
+    </svg>
+
+    </div>
+
+
+    </div>
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-lg-3 col-sm-6">
+                <div class="card gradient-1">
+                    <div class="card-body">
+                        <h3 class="card-title text-white">lecturas realizadas</h3>
+                        <div class="d-inline-block">
+                            <h2 class="text-white">6</h2>
+                            <p class="text-white mb-0">Jan - March 2019</p>
                         </div>
-                        
+                        <span class="float-right display-5 opacity-5"><i class="fas fa-trophy"></i></span>
                     </div>
-
-                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="500px" height="500px">
-                        <defs>
-                    <linearGradient id="GradientColor">
-                      <stop offset="0%" stop-color="#670578" />
-                      <stop offset="100%" stop-color="#1d47e0" />
-                    </linearGradient>
-                        </defs>
-                        <circle cx="250" cy="250" r="230"  stroke-linecap="round" />
-                        
-                    </svg>
-
                 </div>
-
-
             </div>
-            
-            
+            <div class="col-lg-3 col-sm-6">
+                <div class="card gradient-2">
+                    <div class="card-body">
+                        <h3 class="card-title text-white">Videos Vistos</h3>
+                        <div class="d-inline-block">
+                            <h2 class="text-white">9</h2>
+                            <p class="text-white mb-0">Jan - March 2019</p>
+                        </div>
+                        <span class="float-right display-5 opacity-5"><i class="fas fa-shield-alt"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card gradient-3">
+                    <div class="card-body">
+                        <h3 class="card-title text-white">Audios escuchados</h3>
+                        <div class="d-inline-block">
+                            <h2 class="text-white">5</h2>
+                            <p class="text-white mb-0">Jan - March 2019</p>
+                        </div>
+                        <span class="float-right display-5 opacity-5"><i class="fas fa-hand-sparkles"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card gradient-4">
+                    <div class="card-body">
+                        <h3 class="card-title text-white">Grupos unidos</h3>
+                        <div class="d-inline-block">
+                            <h2 class="text-white">3</h2>
+                            <p class="text-white mb-0">Jan - March 2019</p>
+                        </div>
+                        <span class="float-right display-5 opacity-5"><i class="fa fa-heart"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
-        <!-- ======= Footer ======= -->
-        {% include 'home/footer.html' %}
+    <!-- ======= Footer ======= -->
+    {% include 'home/footer.html' %}
 
     <!--Scripts-->
 
@@ -148,13 +212,12 @@
     <script src="{% static 'experience/js/funciones.js' %}"></script>
     <script src="{% static 'experience/js/actividad.js' %}"></script>
     <script src="{% static 'experience/js/audio.js' %}"></script>
-   
+
     <script type="text/javascript">
         var style = document.styleSheets[0];
-            style.insertRule("@keyframes anim{  100%{    stroke-dashoffset: "+{{anim|safe}}+";  }}");
-    </script>     
-   
+        style.insertRule("@keyframes anim{  100%{    stroke-dashoffset: " + {{ anim| safe}}+";  }}");
+    </script>
+
 </body>
 
 </html>
-
