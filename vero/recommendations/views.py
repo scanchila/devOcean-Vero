@@ -4,7 +4,7 @@ from django.template import loader
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
-
+from .models import Recommendations
 from django.contrib.auth.models import User
 from encuesta.models import Encuesta
 from users.models import User_activity, User_profile
@@ -15,8 +15,10 @@ from personalActivities.models import PersonalActivites
 
 @login_required(login_url='/users/login/')
 def recommendations(request):
-    
-    return render(request, "recommendations/recommendations.html")
+    context = {
+        'my_recommendations': Recommendations.objects.all()
+    }
+    return render(request, "recommendations/recommendations.html",context)
 
 @login_required(login_url='/users/login/')
 def filterRecommendations(request):
@@ -26,14 +28,14 @@ def filterRecommendations(request):
 
 @login_required(login_url='/users/login/')
 def makeRecommendations(request):
-    context = {
-        'pageTitle': 'CreateEvent',
-    }
     if request.method == 'POST':
-        form = None #eventRegisterForm(request.POST) #
-        if form.is_valid():
-            pass
-            #Nombre tipo Género imagen descripcion
+        recom = Recommendations(name=request.POST["nombre"],
+                                type=request.POST["tipo"],
+                                description=request.POST["descripcion"],
+                                gender=request.POST["genero"])
+        recom.save()
 
-
-    return render(request)
+    context = {
+        'my_recommendations': Recommendations.objects.all()
+    }
+    return render(request, "recommendations/recommendations.html", context)
