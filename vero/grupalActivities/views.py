@@ -73,10 +73,6 @@ def recibirActividadInteres(request):
             a_type = request.POST["act_type"]
             activities = activities.filter(activityType_id=a_type)
 
-        if request.POST["category"] != "any":
-            a_cat = request.POST["category"]
-            activities = activities.filter(categories__in=[a_cat])
-
     act_cat = ActivityCategory.objects.all()
     act_type = GroupActivity.objects.all()
     context = {
