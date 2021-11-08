@@ -59,7 +59,7 @@ def myactivity(request):
     return render(request, 'grupalActivities/myActivities.html')
 
 @login_required(login_url='/users/login/')
-def recibirActividadInteres(request):
+def recibirActividadGrupal(request):
     context = {}
     if request.method == "POST":
         activities = GroupActivity.objects.all()
@@ -82,4 +82,10 @@ def recibirActividadInteres(request):
         "act_cat": act_cat
     }
 
-    return render(request, "personalActivities/filtroActividadesIndividuales.html", context)
+    return render(request, "grupalActivities/filtroActividadesgrupales.html", context)
+
+
+def grupal(request):
+    
+    return render(request, "grupalActivities/filtroActividadesgrupales.html")
+
