@@ -3,5 +3,6 @@ from . import views
 
 urlpatterns = [
     path('recommendations/', views.recommendations, name='recommendations'),
-    path('filterRecommendations/', views.filterRecommendations, name='filterRecommendations')
+    path('filterRecommendations/', views.filterRecommendations, name='filterRecommendations'),
+    path('formRecomendations', views.makeRecommendations, name='formRecommendations')
 ]

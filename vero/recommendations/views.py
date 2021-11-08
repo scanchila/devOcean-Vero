@@ -22,3 +22,18 @@ def recommendations(request):
 def filterRecommendations(request):
     
     return render(request, "recommendations/formularioRecomendaciones.html")
+
+
+@login_required(login_url='/users/login/')
+def makeRecommendations(request):
+    context = {
+        'pageTitle': 'CreateEvent',
+    }
+    if request.method == 'POST':
+        form = None #eventRegisterForm(request.POST) #
+        if form.is_valid():
+            pass
+            #Nombre tipo Género imagen descripcion
+
+
+    return render(request)

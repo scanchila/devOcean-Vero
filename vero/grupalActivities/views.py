@@ -56,3 +56,14 @@ def myactivity(request):
         }
         return render(request, 'grupalActivities/myActivities.html', context=context)
     return render(request, 'grupalActivities/myActivities.html')
+
+
+
+def grupal(request):
+    
+    return render(request, "grupalActivities/filtroActividadesgrupales.html")
+
+
+@login_required(login_url='/users/login/')
+def recibirActividadGrupal(request):
+    return render(request, "grupalActivities/filtroActividadesgrupales.html")
