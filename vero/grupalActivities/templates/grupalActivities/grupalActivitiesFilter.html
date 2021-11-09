@@ -29,15 +29,7 @@
         </select>
     </div>
 
-    <div class="card-body">
-        <span>Categoría:</span> <br><br>
-        <select name="category" class="form-control">
-            <option value = "any" selected>Cualquiera</option>
-            {% for activity in act_cat %}
-            <option value={{ activity.id }}>{{ activity.name }}</option>
-            {% endfor %}
-        </select>
-    </div>
+
     </div>
 
   </div>

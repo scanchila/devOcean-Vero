@@ -71,21 +71,26 @@ def recibirActividadGrupal(request):
 
         if request.POST["act_type"] != "any":
             a_type = request.POST["act_type"]
-            activities = activities.filter(activityType_id=a_type)
+            print(a_type)
+            activities = activities.filter(type_id=a_type)
 
-    act_cat = ActivityCategory.objects.all()
-    act_type = GroupActivity.objects.all()
+    act_type = ActivityCategory.objects.all()
     context = {
-        "pageTitle": "Personal Activities list",
+        "pageTitle": "Grupal Activities list",
         "activities": activities,
-        "act_type": act_type,
-        "act_cat": act_cat
+        "act_type": act_type
     }
 
     return render(request, "grupalActivities/filtroActividadesgrupales.html", context)
 
 
 def grupal(request):
-    
-    return render(request, "grupalActivities/filtroActividadesgrupales.html")
+    act_type = ActivityCategory.objects.all()
+    activities = GroupActivity.objects.all()
+    context = {
+        "pageTitle": "Grupal Activities list",
+        "activities": activities,
+        "act_type": act_type
+    }
+    return render(request, "grupalActivities/filtroActividadesgrupales.html", context)
 
