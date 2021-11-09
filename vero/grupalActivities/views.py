@@ -5,6 +5,7 @@ from .forms import eventRegisterForm
 from django.contrib.auth.decorators import login_required
 from .models import GroupActivity
 from django.views.decorators.csrf import csrf_exempt
+import datetime
 from personalActivities.models import ActivityCategory
 # Create your views here.
 
@@ -57,13 +58,39 @@ def myactivity(request):
         return render(request, 'grupalActivities/myActivities.html', context=context)
     return render(request, 'grupalActivities/myActivities.html')
 
+@login_required(login_url='/users/login/')
+def recibirActividadGrupal(request):
+    context = {}
+    if request.method == "POST":
+        activities = GroupActivity.objects.all()
+
+        if request.POST["time"] != "any":
+            args = request.POST["time"].split(",")
+            activities = activities.filter(duration__gte=datetime.timedelta(
+                minutes=int(args[0])), duration__lte=datetime.timedelta(minutes=int(args[1])))
+
+        if request.POST["act_type"] != "any":
+            a_type = request.POST["act_type"]
+            print(a_type)
+            activities = activities.filter(type_id=a_type)
+
+    act_type = ActivityCategory.objects.all()
+    context = {
+        "pageTitle": "Grupal Activities list",
+        "activities": activities,
+        "act_type": act_type
+    }
+
+    return render(request, "grupalActivities/filtroActividadesgrupales.html", context)
 
 
 def grupal(request):
-    
-    return render(request, "grupalActivities/filtroActividadesgrupales.html")
+    act_type = ActivityCategory.objects.all()
+    activities = GroupActivity.objects.all()
+    context = {
+        "pageTitle": "Grupal Activities list",
+        "activities": activities,
+        "act_type": act_type
+    }
+    return render(request, "grupalActivities/filtroActividadesgrupales.html", context)
 
-
-@login_required(login_url='/users/login/')
-def recibirActividadGrupal(request):
-    return render(request, "grupalActivities/filtroActividadesgrupales.html")
