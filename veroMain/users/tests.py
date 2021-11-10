@@ -151,40 +151,4 @@ class UserLogin(StaticLiveServerTestCase):
 
     time.sleep(2)
 
-
-
-
-    '''Ingresar a Recomendaciones'''
-
-    driver.get(self.live_server_url+'/recommendations/recommendations/')
-    submit = driver.find_element_by_id('BotonFinalizarSesion')
-    time.sleep(2)
-    submit.click()
-    time.sleep(2)
-
-    '''Ingresar a formulario recomendaciones'''
-    
-
-    nombre = driver.find_element_by_id('nombre')
-    select = Select(driver.find_element_by_id('tipo'))
-
-    # select by visible text
-    select.select_by_visible_text('Película')
-
-    # select by value 
-    select.select_by_value('film')
-
-    
-    descripcion = driver.find_element_by_id('descripcion')
-    Genero =driver.find_element_by_id('genero')
-    submit = driver.find_element_by_id('boton')
-
-    nombre.send_keys('Lágrimas de Ángeles')
-    descripcion.send_keys('Linda Película')
-    Genero.send_keys('Drama')
-    time.sleep(2)
-    submit.send_keys(Keys.RETURN)
-    time.sleep(2)
-    
-    time.sleep(5)
     assert 'Recomendación del momento' in driver.page_source
