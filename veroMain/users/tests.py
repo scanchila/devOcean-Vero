@@ -41,7 +41,11 @@ class CreateUser(StaticLiveServerTestCase):
 class UserAlreadyCreated(StaticLiveServerTestCase):
 
   def testFailCreate(self):
+<<<<<<< HEAD
     driver = webdriver.Chrome(executable_path="C:\\ll\\chromedriver.exe")
+=======
+    driver = webdriver.Chrome(executable_path="C:\\chromedriver_win32\\chromedriver.exe")
+>>>>>>> origin/Jessica4
     print(self.live_server_url)
     driver.get(self.live_server_url+'/users/register/')
     assert 'user with that username already' not in driver.page_source
@@ -90,7 +94,11 @@ class UserAlreadyCreated(StaticLiveServerTestCase):
 class IncorrectEmail(StaticLiveServerTestCase):
 
   def testFailCreate(self):
+<<<<<<< HEAD
     driver = webdriver.Chrome(executable_path="C:\\ll\\chromedriver.exe")
+=======
+    driver = webdriver.Chrome(executable_path="C:\\chromedriver_win32\\chromedriver.exe")
+>>>>>>> origin/Jessica4
     print(self.live_server_url)
     driver.get(self.live_server_url+'/users/register/')
     username = driver.find_element_by_id('id_username')
@@ -118,7 +126,11 @@ class IncorrectEmail(StaticLiveServerTestCase):
 class UserLogin(StaticLiveServerTestCase):
 
   def testLogin(self):
+<<<<<<< HEAD
     driver = webdriver.Chrome(executable_path="C:\\ll\\chromedriver.exe")
+=======
+    driver = webdriver.Chrome(executable_path="C:\\chromedriver_win32\\chromedriver.exe")
+>>>>>>> origin/Jessica4
     print(self.live_server_url)
     driver.get(self.live_server_url+'/users/register/')
     username = driver.find_element_by_id('id_username')
@@ -149,4 +161,8 @@ class UserLogin(StaticLiveServerTestCase):
 
     time.sleep(2)
 
+<<<<<<< HEAD
     assert 'Recomendación del momento' in driver.page_source
+=======
+    assert 'Recomendación del momento' in driver.page_source
+>>>>>>> origin/Jessica4
