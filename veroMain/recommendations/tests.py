@@ -11,7 +11,7 @@ from selenium.webdriver.support.ui import Select
 class UserLogin(StaticLiveServerTestCase):
 
   def testLogin(self):
-    driver = webdriver.Chrome(executable_path="C:\\chromedriver_win32\\chromedriver.exe")
+    driver = webdriver.Chrome(executable_path="C:\\ll\\chromedriver.exe")
     print(self.live_server_url)
     driver.get(self.live_server_url+'/users/register/')
     username = driver.find_element_by_id('id_username')
