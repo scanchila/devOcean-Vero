@@ -58,22 +58,23 @@ class ActivityGrupal(StaticLiveServerTestCase):
 
 
     activitiName.send_keys('Danza Forclorica')
-    
+    time.sleep(2)
     activitiType.select_by_visible_text('folclor')
-    
+    time.sleep(2)
     activitiDescription.send_keys('Danza muy divertida')
-    
+    time.sleep(2)
     activitiDuration.send_keys('00:30:00')
-    
-    activitiDate.send_keys('2021-12-12')
-    
+    time.sleep(2)
+    activitiDate.send_keys('10/11/2021')
+    time.sleep(2)
     activitihour.send_keys('07:02a. m.')
-    
+    time.sleep(2)
     activitimax.send_keys('10')
-    
+    time.sleep(2)
     activitiaddres.send_keys('Carrera 60')
-    
+    time.sleep(2)
     activitiemail.send_keys('pepito@perez.com')
+    time.sleep(2)
     
     submit2.send_keys(Keys.RETURN)
     time.sleep(2)
