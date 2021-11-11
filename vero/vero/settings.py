@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,9 +32,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'home.apps.HomeConfig', # landing y pagina principal
-    'users.apps.UsersConfig', # usuarios y autenticacion
-    'personalActivities.apps.PersonalactivitiesConfig', # actividades individuales
+    'home.apps.HomeConfig',  # landing y pagina principal
+    'users.apps.UsersConfig',  # usuarios y autenticacion
+    'personalActivities.apps.PersonalactivitiesConfig',  # actividades individuales
     'crispy_forms',
     'corsheaders',
     'django.contrib.admin',
@@ -135,5 +136,6 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-ALLOWED_HOSTS=['*']
+ALLOWED_HOSTS = ['*']
 CORS_ORIGIN_ALLOW_ALL = True
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
