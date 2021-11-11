@@ -4,12 +4,13 @@ from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.utils import timezone
 import datetime
-
+from Achievements import achievements
+from Achievements.models import Achievement
 from .models import ActivityType, ActivityCategory, PersonalActivites
 from users.models import User_activity
 from encuesta.models import Encuesta
 from .dashboard import *
-
+from users.models import User_achievements
 
 # Create your views here.
 
@@ -98,7 +99,21 @@ def singleActivity_finish(request, activity_id):
         user_activity.save()
     except User_activity.DoesNotExist as e:
         print(e)
+    #=========================
+    achievs = Achievement.objects.all()
+    for ac in achievs:
+        check = eval("achievements."+ac.condition)(request.user)
+        if check:
+            try:
+                ua = User_achievements(user=request.user, achievement=ac)
+                ua.save()
+            except:
+                pass #User already has achievement
 
+
+
+
+    #=========================
     return redirect('encuesta', activity_id=user_activity.id)
 
 

@@ -6,6 +6,7 @@ from django.utils import timezone
 
 from personalActivities.models import PersonalActivites
 from encuesta.models import Encuesta
+from Achievements.models import Achievement
 from grupalActivities.models import GroupActivity
 # Create your models here.
 
@@ -19,6 +20,14 @@ class User_profile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+
+    
+
+class User_achievements(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    achievement = models.OneToOneField(Achievement, on_delete=models.CASCADE)
+    date_achieved = models.DateTimeField('date achieved', default=timezone.now)
 
 
 class User_activity(models.Model):
