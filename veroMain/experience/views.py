@@ -4,7 +4,7 @@ from django.template import loader
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 import json
-
+from users.models import User_achievements
 
 
 @login_required(login_url='/users/login/')
@@ -19,7 +19,9 @@ def experience(request):
         niveles = json.load(f)
         f.close()
         level=0
+        achievements = User_achievements.objects.filter(user=request.user)
 
+        print(achievements)
         for i in range(len(niveles.get("ranges")))[::-1]:
             if usuario_perfil.experience>=float(niveles.get("ranges")[i]):
 
@@ -33,6 +35,7 @@ def experience(request):
 
         context = {
           'user_info': usuario_perfil,
+          'achievements':achievements.count(),
           'level':level,
           'porc':round(porc*100,2),
           'anim': 1440-1440*porc

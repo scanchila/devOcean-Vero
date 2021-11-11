@@ -10,3 +10,9 @@ def achievement_user_complete_activity(user):
     if activities:
         return True
     return False
+
+def achievement_user_complete_3_activity(user):
+    activities = user.user_profile.activities.all()
+    if activities.count()>=3:
+        return True
+    return False

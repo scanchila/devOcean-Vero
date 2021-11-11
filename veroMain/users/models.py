@@ -26,8 +26,11 @@ class User_profile(models.Model):
 
 class User_achievements(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    achievement = models.OneToOneField(Achievement, on_delete=models.CASCADE)
+    achievement = models.ForeignKey(Achievement, on_delete=models.CASCADE)
     date_achieved = models.DateTimeField('date achieved', default=timezone.now)
+
+    class Meta:
+        unique_together = ('user','achievement')
 
 
 class User_activity(models.Model):
