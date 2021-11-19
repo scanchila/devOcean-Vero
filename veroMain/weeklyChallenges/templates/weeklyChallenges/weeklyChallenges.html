@@ -1,0 +1,232 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Vero</title>
+    <link rel="stylesheet" href="{% static 'weeklyChallenges/css/styleChallenges.css' %}">
+    <link rel="icon" type="image/png" href="{% static 'weeklyChallenges/img/icono.png' %}" />
+
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'weeklyChallenges/img/favicon.png' %}">
+
+    <link href="{% static 'weeklyChallenges/css/footer.css' %}" rel="stylesheet">
+    <link href="{% static 'weeklyChallenges/css/styleExperiencia.css' %}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body>
+
+    <!--Animación de carga inicial-->
+
+    <div id="preloader">
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+            </svg>
+        </div>
+    </div>
+
+
+    <!-- Navegación del header -->
+    <div id="main-wrapper" class="show menu-toggle">
+
+        {% include 'home/headerMain.html' %}
+
+
+        <!--Barra de navegación lateral-->
+
+        {% include 'home/lateralMenu.html' %}
+
+        <!--Contenido del cuerpo-->
+
+        <div class="content-body">
+            <!-- CONTENIDO-->
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="titulos_aux">Desafíos semanales</h1>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Días seguidos contectados</h4>
+                                <p class="text-muted">Mira cuantos días llevas participando en Vero ¡Al completar el 7° día obtendras una recompensa!</p>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Tus desafíos</h4>
+                                <p class="text-muted">Mira acá los desafiós que tienes esta semana, cuando hayas completado una no se te olvide darle en "Recompensa" y así ganar nuevas funciones</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                <div id="diasConectado">
+                
+                    <div class="rt-container">
+                        <div class="col-rt-12">
+                            <div class="Scriptcontent">
+                            
+                                <!-- partial:index.partial.html -->
+                                <div class="progressbar-con">
+                                  <div class="progress">
+                                    <div class="barOverflow">
+                                      <div class="bar"></div>
+                                      <br><br><br>
+                                      <span>13</span>%
+                                      <br><br>
+                                      <p class="text-muted">Días consecutivos conectado <br> Meta de la semana: 7</p>
+                                    </div>
+                                    
+                                  </div>
+                        
+   
+                                  <br>
+                                    <ul class="coco">
+                                        <li> <button type="submit" class="btn mb-1 bnt-tow" id="btnFiltro">Recompensa</button>
+                                    </ul>
+                                     
+                                    </div>
+                                    <br><br><br><br><br>
+                              
+                         
+                          </div>
+                      </div>
+                  </div>
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                <div id="diasConectado">
+                
+                    <div class="rt-container">
+                        <div class="col-rt-12">
+                            <div class="Scriptcontent">
+                            
+                                <!-- partial:index.partial.html -->
+                                <div class="progressbar-con">
+                                  <div class="progress">
+                                    <div class="barOverflow">
+                                      <div class="bar"></div>
+                                      <br><br><br>
+                                      <span>60</span>%
+                                      <br><br>
+                                      <p class="text-muted">Videos vistos <br> Meta de la semana: 7</p>
+                                    </div>
+                                    
+                                  </div>
+                        
+              
+                                  <div class="progress">
+                                    <div class="barOverflow">
+                                      <div class="bar"></div>
+                                      <br><br><br>
+                                    <span>34</span>%
+                                    <br><br>
+                                      <p class="text-muted">Textos leidos <br> Meta de la semana: 7</p>
+                                      
+                                    </div>
+                                                                        
+                                  </div>
+              
+                                  <div class="progress">
+                                    <div class="barOverflow">
+                                      <div class="bar"></div>
+                                      <br><br><br>
+                                    <span>56.5</span>%
+                                    <br><br>
+                                      <p class="text-muted">Audios escuchados <br> Meta de la semana: 7</p>
+                                    
+                                    </div>
+                                    
+                            
+                                  </div>
+                                  <br>
+                                    <ul class="coco">
+                                        <li> <button type="submit" class="btn mb-1 bnt-tow" id="btnFiltro">Recompensa</button>
+                                        <li><button type="submit" class="btn mb-1 bnt-tow" id="btnFiltro">Recompensa</button>
+                                        <li><button type="submit" class="btn mb-1 bnt-tow" id="btnFiltro">Recompensa</button>
+                                    </ul>
+                                     
+                                    </div>
+                              
+                         
+                          </div>
+                      </div>
+                  </div>
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+                    </div>
+            </div>
+            </div>
+
+            
+
+
+
+
+
+        </div>   
+            
+            
+
+
+
+        <!-- ======= Footer ======= -->
+        {% include 'home/footer.html' %}
+
+    <!--Scripts-->
+
+    <script src="{% static 'experience/js/common.min.js' %}"></script>
+    <script src="{% static 'experience/js/custom.min.js' %}"></script>
+    <script src="{% static 'experience/js/settings.js' %}"></script>
+    <script src="{% static 'experience/js/gleek.js' %}"></script>
+    <script src="{% static 'experience/js/styleSwitcher.js' %}"></script>
+    <script src="{% static 'experience/js/peticiones.js' %}"></script>
+    <script src="{% static 'experience/js/funciones.js' %}"></script>
+    <script src="{% static 'experience/js/actividad.js' %}"></script>
+    <script src="{% static 'experience/js/audio.js' %}"></script>
+    <script src="{% static 'weeklyChallenges/js/script.js' %}"></script>
+   
+</body>
+
+</html>
+

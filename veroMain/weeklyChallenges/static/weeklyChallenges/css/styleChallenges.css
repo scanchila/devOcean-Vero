@@ -1,0 +1,51 @@
+.Scriptcontent .progress{
+    position: relative;
+    margin: 4px;
+    float:left;
+    text-align: center;
+    height: 110px;
+    background-color: #fff;
+    margin-left: 6%;
+  }
+.Scriptcontent .barOverflow{ /* Wraps the rotating .bar */
+    position: relative;
+    overflow: hidden; /* Comment this line to understand the trick */
+    width: 180px; height: 390px; /* Half circle (overflow) */
+    margin-bottom: -14px; /* bring the numbers up */
+  }
+.Scriptcontent .bar{
+    position: absolute;
+    top: 0; left: 0;
+    width: 180px; height: 180px; /* full circle! */
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 10px solid #ccc;     /* half gray, */
+    border-bottom-color: #0bf;  /* half azure */
+    border-right-color: #0bf;
+  }
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900');
+.titulos_aux{
+	font-family: "brandon-grotesque", "Brandon Grotesque", "Source Sans Pro", "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    color: #6a4aed;
+    font-size: 28px;
+    font-weight: 700;
+    margin-left: 42%;
+    line-height: normal;
+}
+
+.btn-tow{
+  background-color: grey;
+  border-color: grey;
+}
+
+.coco li
+{
+ display: inline-block;
+ vertical-align: middle;
+ font-size: 14px;
+ padding: 10px 20px;
+ margin-left: 8.5%;
+}

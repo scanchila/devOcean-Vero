@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'experience.apps.ExperienceConfig',
     'grupalActivities.apps.GrupalactivitiesConfig',
     'recommendations.apps.RecommendationsConfig',
-
+    'weeklyChallenges.apps.WeeklyChallengesConfig'
 ]
 
 
