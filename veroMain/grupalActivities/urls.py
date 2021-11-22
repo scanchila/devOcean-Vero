@@ -3,9 +3,11 @@ from . import views
 
 
 urlpatterns = [
+    path('grupalActivity/<int:activity_id>/',
+         views.GrupalActivity_selection, name='grupal_activity_selection'),
     path('grupalActivities/', views.index, name='grupalActivities'),
     path('myActivities/', views.myactivity, name='myActivities'),
     path('filtroActividadesgrupales/', views.grupal, name='filtroActividadesgrupales'),
-    path('recibirActividadGrupal/', views.recibirActividadGrupal, name='recibirActividadGrupal'),
-    path('DetalleActividad/', views.DetalleActividad, name='DetalleActividad')
+    path('recibirActividadGrupal/', views.recibirActividadGrupal, name='recibirActividadGrupal')
+    
 ]
