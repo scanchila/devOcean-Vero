@@ -16,6 +16,21 @@
 @import url(../plugins/metismenu/css/metisMenu.min.css);
 @import url(../plugins/bootstrap-select/dist/css/bootstrap-select.min.css);
 
+
+@font-face {
+  font-family: ff_title;
+  src: url(../recursos/fuentes/Sofia-Regular.ttf);
+}
+    
+.card-body .title_principal {
+  font-size: 3.6rem;
+  font-family: ff_title;
+  color: #212529;
+  text-align: center;
+}
+
+
+
 .gradient-1, .dropdown-mega-menu .ext-link.link-1 a, .morris-hover, .datamaps-hoverover {
   background-image: linear-gradient(230deg, #759bff, #843cf6); }
 

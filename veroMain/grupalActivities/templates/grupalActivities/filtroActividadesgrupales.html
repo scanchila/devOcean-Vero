@@ -55,10 +55,11 @@
                                 <div class="row" id="grupo_actividades">
                                     <form method="POST" action={% url 'recibirActividadGrupal' %}>
                                         {% csrf_token %}
-                                    {% include 'grupalActivities/grupalActivitiesFilter.html' %}
-                                    <div class="name_drop2">
-                                        <button type="submit" class="btn mb-1 btn-success bnt-axu" id="btnFiltro">Aplicar</button>
-                                    </div>
+                                        {% include 'grupalActivities/grupalActivitiesFilter.html' %}
+                                        <div class="name_drop2">
+                                            <button type="submit" class="btn mb-1 btn-success bnt-axu"
+                                                id="btnFiltro">Aplicar</button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -71,92 +72,24 @@
                 <div class="container-fluid  mt-3">
                     <div class="row">
                         <div class="container-fluid">
-                        {% include 'grupalActivities/grupalActivitiesList.html' %}
-                    </div>
+                            {% include 'grupalActivities/grupalActivitiesList.html' %}
+                        </div>
                     </div>
 
                 </div>
-                
+
             </div>
-            
+
         </div>
-
-        {% endblock %}
-
-
-
-        <!-- ======= Footer ======= -->
-        <footer>
-
-            <div class="main-content">
-
-                <div class="left box ">
-                    <h2> Sobre nosotros </h2>
-                    <div class="content">
-                        <p> Te presentamos a Vero, una plataforma que te brinda espacios de ocio individual y en
-                            comunidad en donde podrás permitirte descansar, divertirte, aumentar tus conocimientos o
-                            relacionarte con otras personas de forma desinteresada que tienen tus mismas aficiones, una
-                            experiencia que beneficia el descanso mental para la salud, bienestar y el disfrute de la
-                            cultura.. </p>
-                        <div class="social ">
-                            <a href="https://github.com/SebastianSierrajc/devOcean-Vero "><span
-                                    class="fab fa-github "></span></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="center box ">
-                    <h2> Contáctanos</h2>
-                    <div class="content ">
-                        <div class="email ">
-                            <span class="fas fa-envelope "></span>
-                            <span class="text ">michael.pinilla01@correo.usa.edu.co</span>
-                        </div>
-                        <div class="email ">
-                            <span class="fas fa-envelope "></span>
-                            <span class="text ">jessica.parrado01@correo.usa.edu.co</span>
-                        </div>
-                        <div class="email ">
-                            <span class="fas fa-envelope "></span>
-                            <span class="text ">lady.salazar01@correo.usa.edu.co</span>
-                        </div>
-                        <div class="email ">
-                            <span class="fas fa-envelope "></span>
-                            <span class="text ">luis.vejarano01@correo.usa.edu.co</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="right box ">
-                    <h2> Contáctanos</h2>
-                    <div class="content ">
-                        <div class="email ">
-                            <span class="fas fa-envelope "></span>
-                            <span class="text ">juan.sierra01@correo.usa.edu.co</span>
-                        </div>
-                        <div class="email ">
-                            <span class="fas fa-envelope "></span>
-                            <span class="text ">santiago.gutierrez01@correo.usa.edu.co</span>
-                        </div>
-                        <div class="email ">
-                            <span class="fas fa-envelope "></span>
-                            <span class="text ">santiago.canchila01@correo.usa.edu.co</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="bottom ">
-                <center>
-                    <span class="credit ">
-                        Creado por <a href="# ">Canchila - Gutierrez - Parrado - Pinilla - Salazar B - Sierra -
-                            Vejarano|</a>
-                    </span>
-                    <span class="far fa-copyright "></span><span> 2021 Todos los Derechos Reservados. </span>
-                </center>
-            </div>
-        </footer>
-
     </div>
+    {% endblock %}
+
+
+
+    <!-- ======= Footer ======= -->
+    {% include 'home/footer.html' %}
+
+
 
     <!--Scripts-->
     <script src="{% static 'grupalActivities/js/common.min.js' %}"></script>
