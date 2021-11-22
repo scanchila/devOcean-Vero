@@ -7,6 +7,8 @@ from .models import GroupActivity
 from django.views.decorators.csrf import csrf_exempt
 import datetime
 from personalActivities.models import ActivityCategory
+from encuesta.models import Encuesta
+
 # Create your views here.
 
 
@@ -94,3 +96,19 @@ def grupal(request):
     }
     return render(request, "grupalActivities/filtroActividadesgrupales.html", context)
 
+@login_required(login_url='/users/login/')
+def grupalActivity_selection(request, activity_id):
+    activity = GroupActivity.objects.get(id=activity_id)
+    user_profile = request.user.user_profile
+    try:  # el usuario ya inicio la actividad pero no la ha finalizado
+        User_grupal_activity = User_grupal_activity.objects.get(
+            user=user_profile, activity=activity, status='started')
+
+    except User_grupal_activity.DoesNotExist as e:
+        encuesta = Encuesta(sentimientoInicial="", sentimientoFinal="")
+        encuesta.save()
+        User_grupal_activity = User_grupal_activity(
+            user=user_profile, activity=activity, encuesta=encuesta)
+        User_grupal_activity.save()
+
+    return redirect('encuestaAntes', activity_id=User_grupal_activity.id)
