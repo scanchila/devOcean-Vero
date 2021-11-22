@@ -97,22 +97,15 @@ def grupal(request):
     return render(request, "grupalActivities/filtroActividadesgrupales.html", context)
 
 @login_required(login_url='/users/login/')
-def grupalActivity_selection(request, activity_id):
-    activity = GroupActivity.objects.get(id=activity_id)
+def grupalActivity_inscribir(request, activity_id):
+    activity = GroupActivity.objects.get(pk=activity_id)
+    print(activity)
     user_profile = request.user.user_profile
-    try:  # el usuario ya inicio la actividad pero no la ha finalizado
-        User_grupal_activity = User_grupal_activity.objects.get(
-            user=user_profile, activity=activity, status='started')
+    user_profile.group_activities.add(activity)
+    user_profile.save()
 
-    except User_grupal_activity.DoesNotExist as e:
-        encuesta = Encuesta(sentimientoInicial="", sentimientoFinal="")
-        encuesta.save()
-        User_grupal_activity = User_grupal_activity(
-            user=user_profile, activity=activity, encuesta=encuesta)
-        User_grupal_activity.save()
+    return render(request, 'grupalActivities/filtroActividadesgrupales.html')
 
-    return redirect('encuestaAntes', activity_id=User_grupal_activity.id)
-'''
 @login_required(login_url='/users/login/')
 def GrupalActivity_selection(request, activity_id):
     activity = GroupActivity.objects.get(pk=activity_id)
@@ -120,4 +113,3 @@ def GrupalActivity_selection(request, activity_id):
         "activity": activity
     }
     return render(request,'grupalActivities/Activity.html', context)
-'''
