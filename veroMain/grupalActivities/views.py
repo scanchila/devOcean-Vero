@@ -6,9 +6,9 @@ from django.contrib.auth.decorators import login_required
 from .models import GroupActivity
 from django.views.decorators.csrf import csrf_exempt
 import datetime
-from personalActivities.models import ActivityCategory
-from encuesta.models import Encuesta
-
+from personalActivities.models import ActivityCategory, PersonalActivites
+from .models import GroupActivity
+from users.models import User_activity
 # Create your views here.
 
 
@@ -112,3 +112,12 @@ def grupalActivity_selection(request, activity_id):
         User_grupal_activity.save()
 
     return redirect('encuestaAntes', activity_id=User_grupal_activity.id)
+'''
+@login_required(login_url='/users/login/')
+def GrupalActivity_selection(request, activity_id):
+    activity = GroupActivity.objects.get(pk=activity_id)
+    context = {
+        "activity": activity
+    }
+    return render(request,'grupalActivities/Activity.html', context)
+'''
