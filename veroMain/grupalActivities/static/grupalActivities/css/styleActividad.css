@@ -14734,3 +14734,14 @@ iframe{
 #botonlateralcerrarsesion{
   width: 500%;
 }
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900');
+.titulos_aux{
+	font-family: "brandon-grotesque", "Brandon Grotesque", "Source Sans Pro", "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    color: #6a4aed;
+    font-size: 55px;
+    font-weight: 700;
+    margin-left: 28%;
+    line-height: normal;
+}

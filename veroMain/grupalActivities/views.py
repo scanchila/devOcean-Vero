@@ -94,3 +94,5 @@ def grupal(request):
     }
     return render(request, "grupalActivities/filtroActividadesgrupales.html", context)
 
+def DetalleActividad(request):
+    return render(request, "grupalActivities/Activity.html")
