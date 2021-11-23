@@ -11,6 +11,7 @@ from users.models import User_activity
 from encuesta.models import Encuesta
 from .dashboard import *
 from users.models import User_achievements
+from weeklyChallenges.models import Challenges
 
 # Create your views here.
 
@@ -43,6 +44,31 @@ def singleActivity(request, activity_id):
 @login_required(login_url='/users/login/')
 def singleActivity_selection(request, activity_id):
     activity = PersonalActivites.objects.get(id=activity_id)
+
+    # Weekly Challenges
+    try:
+        ans = Challenges.objects.get(user=request.user)
+        if activity.activityType_id == 1:
+            ans.num_video += 1
+            ans.save()
+        elif activity.activityType_id == 2:
+            ans.num_reading += 1
+            ans.save()
+        elif activity.activityType_id == 3:
+            ans.num_audio += 1
+            ans.save()
+    except:
+        ans = Challenges(user=request.user, days=1)
+        if activity.activityType_id == 1:
+            ans.num_video += 1
+        elif activity.activityType_id == 2:
+            ans.num_reading += 1
+        elif activity.activityType_id == 3:
+            ans.num_audio += 1
+        ans.save()
+
+    ####
+
     user_profile = request.user.user_profile
     try:  # el usuario ya inicio la actividad pero no la ha finalizado
         user_activity = User_activity.objects.get(
