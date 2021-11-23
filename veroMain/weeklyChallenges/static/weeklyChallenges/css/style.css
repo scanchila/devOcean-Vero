@@ -14636,3 +14636,14 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
   [data-theme-version="dark"] .faq-tab-panel .nav-pills .nav-link.active {
     background-color: #7571f9; }
 
+@font-face {
+  font-family: ff_title;
+  src: url(../recursos/fuentes/Sofia-Regular.ttf);
+}
+
+.card-body .title_principal {
+  font-size: 3.6rem;
+  font-family: ff_title;
+  color: #212529;
+  text-align: center;
+}
