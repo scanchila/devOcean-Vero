@@ -75,7 +75,8 @@
                                                         Nombre de la actividad<span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Enter a name for the activity..">
+                                                        <input type="text" class="form-control" id="nombre"
+                                                            name="nombre" placeholder="Enter a name for the activity..">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -86,7 +87,7 @@
                                                         <select class="form-control" id="tipo" name="tipo">
                                                             <option value="">Please select</option>
                                                             {% for t in act_type %}
-                                                                <option value={{ t.id }}>{{ t.name }}</option>
+                                                            <option value={{ t.id }}>{{ t.name }}</option>
                                                             {% endfor %}
                                                             <option value="14">folclor</option>
                                                         </select>
@@ -97,7 +98,9 @@
                                                         Descripción <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <textarea class="form-control" id="descripcion" name="descripcion" rows="5" placeholder="What would you like to do?"></textarea>
+                                                        <textarea class="form-control" id="descripcion"
+                                                            name="descripcion" rows="5"
+                                                            placeholder="What would you like to do?"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -105,7 +108,9 @@
                                                         Duración <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="form-control" id="duracion" name="duracion" placeholder="Enter the duration of the activity ..">
+                                                        <input type="text" class="form-control" id="duracion"
+                                                            name="duracion"
+                                                            placeholder="Enter the duration of the activity ..">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -129,17 +134,20 @@
                                                         Número maximo de personas <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="form-control" id="maximo" name="maximo" placeholder="Number of people...">
+                                                        <input type="text" class="form-control" id="maximo"
+                                                            name="maximo" placeholder="Number of people...">
                                                     </div>
                                                 </div>
 
 
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label" for="direccion">
-                                                        Dirección donde se desarrollara la actividad <span class="text-danger">*</span>
+                                                        Dirección donde se desarrollara la actividad <span
+                                                            class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Carrera20 #5-08">
+                                                        <input type="text" class="form-control" id="direccion"
+                                                            name="direccion" placeholder="Carrera20 #5-08">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -147,15 +155,14 @@
                                                         Correo de contacto <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="form-control" id="email" name="email" placeholder="correo@gmail.com">
+                                                        <input type="text" class="form-control" id="email" name="email"
+                                                            placeholder="correo@gmail.com">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <div class="col-lg-8 ml-auto">
-                                                        <button type="button"
-                                                                class="btn mb-1 btn-outline-primary" value="Submit">
-                                                        </button>
-                                                        <input type="submit" value="Submit" id="SubmitCreate">
+                                                        <input class="btn mb-1 btn-outline-primary" type="submit"
+                                                            value="Submit" id="SubmitCreate">
                                                     </div>
                                                 </div>
 
@@ -167,93 +174,14 @@
                         </div>
                     </div>
                 </form>
+            </div>
+        </div>
+        {% endblock %}
+
+        <!-- ======= Footer ======= -->
+        {% include 'home/footer.html' %}
 
 
-
-
-
-
-                    {% endblock %}
-
-
-
-                    <!-- ======= Footer ======= -->
-                    <footer>
-
-                        <div class="main-content">
-
-                            <div class="left box ">
-                                <h2> Sobre nosotros </h2>
-                                <div class="content">
-                                    <p>
-                                        Te presentamos a Vero, una plataforma que te brinda espacios de ocio individual y en
-                                        comunidad en donde podrás permitirte descansar, divertirte, aumentar tus conocimientos o
-                                        relacionarte con otras personas de forma desinteresada que tienen tus mismas aficiones, una
-                                        experiencia que beneficia el descanso mental para la salud, bienestar y el disfrute de la
-                                        cultura..
-                                    </p>
-                                    <div class="social ">
-                                        <a href="https://github.com/SebastianSierrajc/devOcean-Vero ">
-                                            <span class="fab fa-github "></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="center box ">
-                                <h2> Contáctanos</h2>
-                                <div class="content ">
-                                    <div class="email ">
-                                        <span class="fas fa-envelope "></span>
-                                        <span class="text ">michael.pinilla01@correo.usa.edu.co</span>
-                                    </div>
-                                    <div class="email ">
-                                        <span class="fas fa-envelope "></span>
-                                        <span class="text ">jessica.parrado01@correo.usa.edu.co</span>
-                                    </div>
-                                    <div class="email ">
-                                        <span class="fas fa-envelope "></span>
-                                        <span class="text ">lady.salazar01@correo.usa.edu.co</span>
-                                    </div>
-                                    <div class="email ">
-                                        <span class="fas fa-envelope "></span>
-                                        <span class="text ">luis.vejarano01@correo.usa.edu.co</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="right box ">
-                                <h2> Contáctanos</h2>
-                                <div class="content ">
-                                    <div class="email ">
-                                        <span class="fas fa-envelope "></span>
-                                        <span class="text ">juan.sierra01@correo.usa.edu.co</span>
-                                    </div>
-                                    <div class="email ">
-                                        <span class="fas fa-envelope "></span>
-                                        <span class="text ">santiago.gutierrez01@correo.usa.edu.co</span>
-                                    </div>
-                                    <div class="email ">
-                                        <span class="fas fa-envelope "></span>
-                                        <span class="text ">santiago.canchila01@correo.usa.edu.co</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bottom ">
-                            <center>
-                                <span class="credit ">
-                                    Creado por <a href="# ">
-                                        Canchila - Gutierrez - Parrado - Pinilla - Salazar B - Sierra -
-                                        Vejarano|
-                                    </a>
-                                </span>
-                                <span class="far fa-copyright "></span><span> 2021 Todos los Derechos Reservados. </span>
-                            </center>
-                        </div>
-                    </footer>
-
-</div>
 
         <!--Scripts-->
         <script src="{% static 'grupalActivities/js/grupalActivities.js' %}"></script>
@@ -263,7 +191,7 @@
         <script src="{% static 'grupalActivities/js/gleek.js' %}"></script>
         <script src="{% static 'grupalActivities/js/styleSwitcher.js' %}"></script>
 
-    </div>
+
 </body>
 
 </html>

@@ -42,9 +42,11 @@
         <!--Contenido del cuerpo-->
         {% block content %}
         <section id="menuSection">
-            <h1>
-                Eventos sugeridos
-            </h1>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="title_principal">Eventos sugeridos</h4>
+                </div>
+            </div>
             <div class="container">
                 {% for activity in activities2 %}
                 <div class="cardMenu">
@@ -60,9 +62,14 @@
 
                 {% endfor %}
             </div>
-            <h1>
-                Recomendación del momento
-            </h1>
+            
+            <br>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="title_principal">Recomendación del momento</h4>
+                </div>
+            </div>
+
             <div class="container">
                 {% for activity in activities2 %}
                 <div class="cardMenu">
@@ -78,9 +85,11 @@
 
                 {% endfor %}
             </div>
-            <h1>
-                Hacer de nuevo
-            </h1>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="title_principal">Hacer de nuevo</h4>
+                </div>
+            </div>
 
             <div class="container">
 
