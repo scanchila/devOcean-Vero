@@ -5,15 +5,19 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 import json
 from weeklyChallenges.models import Challenges
+from datetime import datetime
 
 def weeklyChallenges(request):
-
-
+    hoy = str(datetime.now().day)
     try:
         ans = Challenges.objects.get(user=request.user)
-        print(ans)
+        ans.name += " " + hoy
+        ans.name = set(ans.name.split())
+        ans.days = len(ans.name)
+        ans.name = " ".join(list(ans.name))
+        ans.save()
     except:
-            ans = Challenges(user=request.user, days=1)
+            ans = Challenges(user=request.user, days=1, name=hoy)
             ans.save()
 
     context = {

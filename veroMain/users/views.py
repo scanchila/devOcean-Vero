@@ -9,6 +9,8 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 from django.core.serializers import serialize
 from django.contrib.auth.models import User
+from weeklyChallenges.models import Challenges
+from datetime import datetime
 
 # Create your views here.
 
@@ -33,6 +35,20 @@ def registerUser(request):
 
 def loginUser(request):
     if request.user.is_authenticated:
+        ### Weekly Challenge
+        hoy = str(datetime.now().day)
+        try:
+            ans = Challenges.objects.get(user=request.user)
+            ans.name += " " + hoy
+            ans.name = set(ans.name.split())
+            ans.days = len(ans.name)
+            ans.name = " ".join(list(ans.name))
+            ans.save()
+        except:
+            ans = Challenges(user=request.user, days=1,name=hoy)
+            ans.save()
+
+        ###
         return redirect('personal_activities_list')
     if request.method == 'POST':
         form = UserLoginForm(data=request.POST)
