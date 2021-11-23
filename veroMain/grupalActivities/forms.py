@@ -1,4 +1,7 @@
 from django import forms
+from django.forms import ModelForm
+from .models import EspecialEvent
+
 
 class eventRegisterForm(forms.Form):
     nombre = forms.Field()
@@ -10,3 +13,10 @@ class eventRegisterForm(forms.Form):
     tipo = forms.Field()
     direccion = forms.Field()
     email = forms.EmailField()
+
+
+class EspecialEventForm(ModelForm):
+    class Meta:
+        model = EspecialEvent
+        fields = ['name', 'description', 'categoriy',
+                  'dateTime', 'address', 'contact', 'creator', 'capacity']
