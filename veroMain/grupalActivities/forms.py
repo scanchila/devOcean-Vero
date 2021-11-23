@@ -18,5 +18,5 @@ class eventRegisterForm(forms.Form):
 class EspecialEventForm(ModelForm):
     class Meta:
         model = EspecialEvent
-        fields = ['name', 'description', 'categoriy',
+        fields = ['name', 'description', 'category',
                   'dateTime', 'address', 'contact', 'creator', 'capacity']

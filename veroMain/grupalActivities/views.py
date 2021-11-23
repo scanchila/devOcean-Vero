@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import loader
-from .forms import eventRegisterForm
+from .forms import eventRegisterForm, EspecialEventForm
 from django.contrib.auth.decorators import login_required
 from .models import GroupActivity
 from django.views.decorators.csrf import csrf_exempt
@@ -58,6 +58,7 @@ def myactivity(request):
         return render(request, 'grupalActivities/myActivities.html', context=context)
     return render(request, 'grupalActivities/myActivities.html')
 
+
 @login_required(login_url='/users/login/')
 def recibirActividadGrupal(request):
     context = {}
@@ -94,3 +95,25 @@ def grupal(request):
     }
     return render(request, "grupalActivities/filtroActividadesgrupales.html", context)
 
+
+def insertEspecialEvent(request):
+    context = {
+        'pageTitle': 'Admin | creacion de eventos especiales'
+    }
+
+    if request.method == "POST":
+        data = request.POST.copy()
+        data['creator'] = request.user.id
+        form = EspecialEventForm(data)
+        if form.is_valid():
+            form.save()
+            context['form_status'] = True
+            context['form_message'] = "Evento creado exitosamente."
+        else:
+            context['form_status'] = True
+            context['form_message'] = "No se pudo crear el evento, intente de nuevo."
+
+    act_cat = ActivityCategory.objects.all()
+    context['act_type'] = act_cat
+
+    return render(request, "grupalActivities/especialEventsForm.html", context)

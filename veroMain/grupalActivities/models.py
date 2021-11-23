@@ -19,9 +19,9 @@ class GroupActivity(models.Model):
 
 
 class EspecialEvent(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, unique=True)
     description = models.CharField(max_length=254)
-    categoriy = models.ForeignKey(ActivityCategory, on_delete=models.CASCADE)
+    category = models.ForeignKey(ActivityCategory, on_delete=models.CASCADE)
     dateTime = models.DateTimeField()
     address = models.CharField(max_length=254)
     contact = models.CharField(max_length=254)

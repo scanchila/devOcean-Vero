@@ -1,0 +1,160 @@
+{% extends 'home/base.html' %}
+{% block title %}{{ pageTitle }}{% endblock %}
+{% load static %}
+
+{% block style %}
+<link href="{% static 'personalActivities/css/styleActividad.css' %}" rel="stylesheet" />
+{{ block.super }}
+<link rel="icon" type="image/png" href="{% static 'personalActivities/img/icono.png' %}" />
+<link href="{% static 'personalActivities/css/footer.css' %}" rel="stylesheet" />
+<link href="{% static 'personalActivities/css/audio.css' %}" rel="stylesheet" />
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+{% endblock %}
+
+
+{% block content %}
+<div id="preloader">
+    <div class="loader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+        </svg>
+    </div>
+</div>
+
+<div id="main-wrapper" class="show menu-toggle">
+    {% include 'home/headerMain.html' %}
+
+    <!--Barra de navegación lateral EDITAR-->
+
+    {% include 'home/lateralMenu.html' %}
+
+    <!--Contenido del cuerpo-->
+
+    <div class="content-body">
+
+        <div class="container-fluid mt-3">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="title_principal" style="text-align: center;">Creación envento especial</h4>
+                    </div>
+                </div>
+            </div>
+
+            {% if form_status %}
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <p style="text-align: center;">{{form_message}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            <form action="" method="post">
+
+                <div class="container-fluid row justify-content-center">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <form class="form-valide" method="post">
+                                    {% csrf_token %}
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="name">
+                                            Nombre
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" id="name" name="name"
+                                                placeholder="Enter a name for the activity.">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="category">
+                                            Categoria del evento
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <select class="form-select" id="category" name="category">
+                                                <option value="">Please select</option>
+                                                {% for t in act_type %}
+                                                <option value="{{ t.id }}">{{ t.name }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="description">
+                                            Descripción
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <textarea class="form-control" id="description" name="description" rows="3"
+                                                placeholder="Descripción"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="dateTime">
+                                            Fecha
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <input type="datetime-local" class="form-control" id="dateTime"
+                                                name="dateTime">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="capacity">
+                                            Capacidad del evento
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <input type="number" class="form-control" id="capacity" name="capacity"
+                                                placeholder="Number of people...">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="address">
+                                            Lugar del evento
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" id="address" name="address"
+                                                placeholder="Carrera20 #5-08">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="contact">
+                                            Correo de contacto <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="col-lg-6">
+                                            <input type="email" class="form-control" id="contact" name="contact"
+                                                placeholder="correo@gmail.com">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-8 ml-auto">
+                                            <input type="submit" class="btn btn-outline-primary" value="Submit"
+                                                id="SubmitCreate">
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- ======= Footer ======= -->
+{% block footer %}
+{% include 'home/footer.html' %}
+{% endblock %}
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static 'personalActivities/js/common.min.js' %}"></script>
+<script src="{% static 'personalActivities/js/custom.min.js' %}"></script>
+<script src="{% static 'personalActivities/js/settings.js' %}"></script>
+<script src="{% static 'personalActivities/js/gleek.js' %}"></script>
+<script src="{% static 'personalActivities/js/styleSwitcher.js' %}"></script>
+{% endblock %}
