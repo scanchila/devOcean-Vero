@@ -43,6 +43,24 @@
         {% block content %}
         <section id="menuSection">
             <h1>
+                Eventos sugeridos
+            </h1>
+            <div class="container">
+                {% for activity in activities2 %}
+                <div class="cardMenu">
+                    <a href="{% url 'single_activity_selection' activity.id %}">
+                        <h2>{{activity.name}}</h2>
+                        <h3>{{activity.description}}</h3>
+                        <div class="detail">
+                            <img src="{{activity.image_URL}}" alt="imagen">
+                            <h3>Durante {{activity.duration}}</h3>
+                        </div>
+                    </a>
+                </div>
+
+                {% endfor %}
+            </div>
+            <h1>
                 Recomendación del momento
             </h1>
             <div class="container">
