@@ -52,7 +52,8 @@
                 <div class="container-fluid">
                     <!-- CONTENIDO-->
                     <section class="contenedor">
-                        <h4 class="d-inline">¿Cómo te sientes?</h4>
+                        <div class="card-body"><h4 class="title_principal">¿Cómo te sientes?</h4></div>
+                        
                         <p class="text-muted">Selecciona uno de los estados animicos que encuentras a continuacion</p>
                         <div class="row">
                             <div class="col-lg-3 col-sm-6">
@@ -183,101 +184,34 @@
             </div>
 
 
-
-
-
-            <!-- ======= Footer ======= -->
-            <footer>
-
-                <div class="main-content">
-
-                    <div class="left box ">
-                        <h2> Sobre nosotros </h2>
-                        <div class="content">
-                            <p> Te presentamos a Vero, una plataforma que te brinda espacios de ocio individual y en
-                                comunidad en donde podrás permitirte descansar, divertirte, aumentar tus conocimientos o
-                                relacionarte con otras personas de forma desinteresada que tienen tus mismas aficiones,
-                                una experiencia que beneficia el descanso mental para la salud, bienestar y el disfrute
-                                de la cultura.. </p>
-                            <div class="social ">
-                                <a href="https://github.com/SebastianSierrajc/devOcean-Vero "><span
-                                        class="fab fa-github "></span></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="center box ">
-                        <h2> Contáctanos</h2>
-                        <div class="content ">
-                            <div class="email ">
-                                <span class="fas fa-envelope "></span>
-                                <span class="text ">michael.pinilla01@correo.usa.edu.co</span>
-                            </div>
-                            <div class="email ">
-                                <span class="fas fa-envelope "></span>
-                                <span class="text ">jessica.parrado01@correo.usa.edu.co</span>
-                            </div>
-                            <div class="email ">
-                                <span class="fas fa-envelope "></span>
-                                <span class="text ">lady.salazar01@correo.usa.edu.co</span>
-                            </div>
-                            <div class="email ">
-                                <span class="fas fa-envelope "></span>
-                                <span class="text ">luis.vejarano01@correo.usa.edu.co</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="right box ">
-                        <h2> Contáctanos</h2>
-                        <div class="content ">
-                            <div class="email ">
-                                <span class="fas fa-envelope "></span>
-                                <span class="text ">juan.sierra01@correo.usa.edu.co</span>
-                            </div>
-                            <div class="email ">
-                                <span class="fas fa-envelope "></span>
-                                <span class="text ">santiago.gutierrez01@correo.usa.edu.co</span>
-                            </div>
-                            <div class="email ">
-                                <span class="fas fa-envelope "></span>
-                                <span class="text ">santiago.canchila01@correo.usa.edu.co</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="bottom ">
-                    <center>
-                        <span class="credit ">
-                            Creado por <a href="# ">Canchila - Gutierrez - Parrado - Pinilla - Salazar B - Sierra -
-                                Vejarano|</a>
-                        </span>
-                        <span class="far fa-copyright "></span><span> 2021 Todos los Derechos Reservados. </span>
-                    </center>
-                </div>
-            </footer>
-
         </div>
-
-        <!--Scripts-->
-        <script src="{% static 'encuesta/js/encuesta.js' %}"></script>
-        <script src="{% static 'encuesta/js/common.min.js' %}"></script>
-        <script src="{% static 'encuesta/js/custom.min.js' %}"></script>
-        <script src="{% static 'encuesta/js/settings.js' %}"></script>
-        <script src="{% static 'encuesta/js/gleek.js' %}"></script>
-        <script src="{% static 'encuesta/js/styleSwitcher.js' %}"></script>
-
-
-
-        <script>
-            const slide = document.querySelector(".input-slider")
-            const value = document.querySelector(".value")
-            value.textContent = slide.value + " minutos";
-            slide.oninput = function () {
-                value.textContent = this.value + " minutos";
-            }
-        </script>
     </div>
+    
+
+    <!-- ======= Footer ======= -->
+    {% include 'home/footer.html' %}
+
+
+
+    <!--Scripts-->
+    <script src="{% static 'encuesta/js/encuesta.js' %}"></script>
+    <script src="{% static 'encuesta/js/common.min.js' %}"></script>
+    <script src="{% static 'encuesta/js/custom.min.js' %}"></script>
+    <script src="{% static 'encuesta/js/settings.js' %}"></script>
+    <script src="{% static 'encuesta/js/gleek.js' %}"></script>
+    <script src="{% static 'encuesta/js/styleSwitcher.js' %}"></script>
+
+
+
+    <script>
+        const slide = document.querySelector(".input-slider")
+        const value = document.querySelector(".value")
+        value.textContent = slide.value + " minutos";
+        slide.oninput = function () {
+            value.textContent = this.value + " minutos";
+        }
+    </script>
+
 </body>
 
 </html>

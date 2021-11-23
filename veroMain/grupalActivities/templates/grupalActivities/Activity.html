@@ -1,0 +1,207 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Vero - Actividades individuales</title>
+    <link href="./plugins/jquery-steps/css/jquery.steps.css" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'grupalActivities/img/fav-icono.png' %}">
+    <link href="{% static 'grupalActivities/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'grupalActivities/css/footer.css' %}" rel="stylesheet">
+    <link href="{% static 'grupalActivities/css/styleActividad.css' %}" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body>
+
+    <!--Animación de carga inicial-->
+
+    <div id="preloader">
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+            </svg>
+        </div>
+    </div>
+
+
+    <!-- Navegación del header -->
+    <div id="main-wrapper" class="show menu-toggle">
+
+        {% include 'home/headerMain.html' %}
+
+
+        <!--Barra de navegación lateral EDITAR-->
+
+        {% include 'home/lateralMenu.html' %}
+
+
+
+        <!--Contenido del cuerpo-->
+        {% load crispy_forms_tags %}
+        {% block content %}
+        {% csrf_token %}
+        <div class="content-body">
+
+            <div class="container-fluid mt-3">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="title_principal">Información de la Actividad</h4>
+                            <div class="container-fluid">
+                                <div class="row" id="grupo_actividades">
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="Detalle">
+                    <div class="col-lg-8" style="left: 15%;">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="media align-items-center mb-4">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-pin-map-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8l3-4z"/>
+                                        <path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"/>
+                                      </svg>
+                                    <div class="media-body">
+                                        <h3 class="mb-0">{{activity.name}}</h3>
+                                        <p class="text-muted mb-0">{{activity.type}}</p>
+                                   
+                                    </div>
+                                </div>
+                                
+                                <div class="row mb-5">
+                                    
+                                    <div class="col">
+                                        <div class="card card-profile text-center">
+                                            <span class="mb-1 text-warning"><i class="icon-user-follow"></i></span>
+                                            <h3 class="mb-0">{{activity.participants}}</h3>
+                                            <p class="text-muted">Recuerda que este es un evento grupal</p>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <center>
+                                <h4>Descripción</h4>
+                                <p class="text-muted">{{activity.description}}</p>
+                                <ul class="card-profile__info">
+                                    <li class="mb-1"><strong class="text-dark mr-4">Dia</strong>
+                                        <span>{{activity.date}}</span></li>
+                                    <li><strong class="text-dark mr-4">Hora</strong> <span>{{activity.hour}}</span></li>
+                                    <li><strong class="text-dark mr-4">Lugar</strong> <span>{{activity.address}}</span></li>
+                                    <li><strong class="text-dark mr-4">Correo de contacto</strong> <span>{{activity.contact}}</span></li>
+                                </ul>
+                                <br>
+                                <a class="btn mb-1 btn-primary" href="{% url 'grupalActivity_inscribir' activity.id %}">Inscribirme</a>
+                            </center>
+                            </div>
+                        </div> 
+                    </div>
+                
+                </div>
+            
+
+
+
+
+
+                {% endblock %}
+
+
+
+                <!-- ======= Footer ======= -->
+                <footer>
+
+                    <div class="main-content">
+
+                        <div class="left box ">
+                            <h2> Sobre nosotros </h2>
+                            <div class="content">
+                                <p> Te presentamos a Vero, una plataforma que te brinda espacios de ocio individual y en
+                                    comunidad en donde podrás permitirte descansar, divertirte, aumentar tus
+                                    conocimientos o
+                                    relacionarte con otras personas de forma desinteresada que tienen tus mismas
+                                    aficiones, una
+                                    experiencia que beneficia el descanso mental para la salud, bienestar y el disfrute
+                                    de la
+                                    cultura.. </p>
+                                <div class="social ">
+                                    <a href="https://github.com/SebastianSierrajc/devOcean-Vero "><span
+                                            class="fab fa-github "></span></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="center box ">
+                            <h2> Contáctanos</h2>
+                            <div class="content ">
+                                <div class="email ">
+                                    <span class="fas fa-envelope "></span>
+                                    <span class="text ">michael.pinilla01@correo.usa.edu.co</span>
+                                </div>
+                                <div class="email ">
+                                    <span class="fas fa-envelope "></span>
+                                    <span class="text ">jessica.parrado01@correo.usa.edu.co</span>
+                                </div>
+                                <div class="email ">
+                                    <span class="fas fa-envelope "></span>
+                                    <span class="text ">lady.salazar01@correo.usa.edu.co</span>
+                                </div>
+                                <div class="email ">
+                                    <span class="fas fa-envelope "></span>
+                                    <span class="text ">luis.vejarano01@correo.usa.edu.co</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="right box ">
+                            <h2> Contáctanos</h2>
+                            <div class="content ">
+                                <div class="email ">
+                                    <span class="fas fa-envelope "></span>
+                                    <span class="text ">juan.sierra01@correo.usa.edu.co</span>
+                                </div>
+                                <div class="email ">
+                                    <span class="fas fa-envelope "></span>
+                                    <span class="text ">santiago.gutierrez01@correo.usa.edu.co</span>
+                                </div>
+                                <div class="email ">
+                                    <span class="fas fa-envelope "></span>
+                                    <span class="text ">santiago.canchila01@correo.usa.edu.co</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom ">
+                        <center>
+                            <span class="credit ">
+                                Creado por <a href="# ">Canchila - Gutierrez - Parrado - Pinilla - Salazar B - Sierra -
+                                    Vejarano|</a>
+                            </span>
+                            <span class="far fa-copyright "></span><span> 2021 Todos los Derechos Reservados. </span>
+                        </center>
+                    </div>
+                </footer>
+
+            </div>
+
+            <!--Scripts-->
+            <script src="{% static 'grupalActivities/js/grupalActivities.js' %}"></script>
+            <script src="{% static 'grupalActivities/js/common.min.js' %}"></script>
+            <script src="{% static 'grupalActivities/js/custom.min.js' %}"></script>
+            <script src="{% static 'grupalActivities/js/settings.js' %}"></script>
+            <script src="{% static 'grupalActivities/js/gleek.js' %}"></script>
+            <script src="{% static 'grupalActivities/js/styleSwitcher.js' %}"></script>
+
+        </div>
+</body>
+
+</html>

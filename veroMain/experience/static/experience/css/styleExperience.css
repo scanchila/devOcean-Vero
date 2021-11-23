@@ -519,7 +519,10 @@ pre {
   display: flex;
   flex-wrap: wrap;
   margin-right: -15px;
-  margin-left: -15px; }
+  margin-left: -15px; 
+  align-items: center;
+  justify-content: center;
+}
 
 .no-gutters {
   margin-right: 0;
@@ -904,7 +907,8 @@ pre {
     max-width: 41.66667%; }
   .col-lg-6 {
     flex: 0 0 50%;
-    max-width: 50%; }
+    max-width: 50%; 
+    height: 50%;}
   .col-lg-7 {
     flex: 0 0 58.33333%;
     max-width: 58.33333%; }
@@ -11514,7 +11518,7 @@ table.dataTable thead .sorting::after {
     stroke: #ffa700; } }
 
 .progress-bar {
-  background-color: transparent; }
+  background-color: #8993fd; }
 
 .progress-bar-primary {
   background-color: #7571f9; }
@@ -14734,72 +14738,14 @@ iframe{
 #botonlateralcerrarsesion{
   width: 500%;
 }
-
-.skill{
-  height: 460px;
-  width: 460px;
-  position: relative;
+@font-face {
+  font-family: ff_title;
+  src: url(../recursos/fuentes/Sofia-Regular.ttf);
 }
 
-.outer{
-  position: absolute;
-  top: 50%;
-  left: 63%;
-  height: 260px;
-  width: 260px;
-  border-radius: 50%;
-  padding: 20px;
-  box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
-              -6px -6px 10px -1px rgba(255,255,255,0.7)
-}
-.inner{
-  width: 420px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,2),
-              inset -4px -4px 6px -1px rgba(255,255,255,0.7),
-              -0.5px -0.5px 0px rgba(255,255,255,1),
-              0.5px 0.5px 0px rgba(0,0,0,0.15),
-              0px 12px 10px -10px rgba(0,0,0,0.05);
-}
-
-#number{
-  position: absolute;
-  top: 3%;
-  left: 30%;
-  font-weight: 600;
-  color: #555;
-  background: red;
-}
-
-circle{
-  fill: none;
-  stroke: url(#GradientColor);
-  stroke-width: 30px ;
-  stroke-dasharray: 1440;
-  stroke-dashoffset: 1440;
-  animation: anim 2s linear forwards;
-} 
-svg{
-  position: absolute;
-  top: 420%;
-  left: 61%;
-}
-
-#Porcentaje{
-margin-left: 45%;
-margin-top: 8%;
-
-}
-#NivelExp{
-  position: absolute;
-  top: 50%;
-  left: 8%;
-}
-#NumExp{
-  position: absolute;
-  top: 50%;
-  left: 40%;
+.card-body .title_principal {
+  font-size: 3.6rem;
+  font-family: ff_title;
+  color: #212529;
+  text-align: center;
 }

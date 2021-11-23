@@ -6,7 +6,9 @@ from django.contrib.auth.decorators import login_required
 from .models import GroupActivity
 from django.views.decorators.csrf import csrf_exempt
 import datetime
-from personalActivities.models import ActivityCategory
+from personalActivities.models import ActivityCategory, PersonalActivites
+from .models import GroupActivity
+from users.models import User_activity
 # Create your views here.
 
 
@@ -94,3 +96,20 @@ def grupal(request):
     }
     return render(request, "grupalActivities/filtroActividadesgrupales.html", context)
 
+@login_required(login_url='/users/login/')
+def grupalActivity_inscribir(request, activity_id):
+    activity = GroupActivity.objects.get(pk=activity_id)
+    print(activity)
+    user_profile = request.user.user_profile
+    user_profile.group_activities.add(activity)
+    user_profile.save()
+
+    return render(request, 'grupalActivities/filtroActividadesgrupales.html')
+
+@login_required(login_url='/users/login/')
+def GrupalActivity_selection(request, activity_id):
+    activity = GroupActivity.objects.get(pk=activity_id)
+    context = {
+        "activity": activity
+    }
+    return render(request,'grupalActivities/Activity.html', context)
