@@ -108,7 +108,7 @@ def grupalActivity_inscribir(request, activity_id):
     user_profile.group_activities.add(activity)
     user_profile.save()
 
-    return render(request, 'grupalActivities/filtroActividadesgrupales.html')
+    return redirect('filtroActividadesgrupales')
 
 
 @login_required(login_url='/users/login/')

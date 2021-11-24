@@ -61,25 +61,28 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="Detalle">
                     <div class="col-lg-8" style="left: 15%;">
                         <div class="card">
                             <div class="card-body">
                                 <div class="media align-items-center mb-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-pin-map-fill" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8l3-4z"/>
-                                        <path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z"/>
-                                      </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor"
+                                        class="bi bi-pin-map-fill" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M3.1 11.2a.5.5 0 0 1 .4-.2H6a.5.5 0 0 1 0 1H3.75L1.5 15h13l-2.25-3H10a.5.5 0 0 1 0-1h2.5a.5.5 0 0 1 .4.2l3 4a.5.5 0 0 1-.4.8H.5a.5.5 0 0 1-.4-.8l3-4z" />
+                                        <path fill-rule="evenodd"
+                                            d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999z" />
+                                    </svg>
                                     <div class="media-body">
                                         <h3 class="mb-0">{{activity.name}}</h3>
                                         <p class="text-muted mb-0">{{activity.type}}</p>
-                                   
+
                                     </div>
                                 </div>
-                                
+
                                 <div class="row mb-5">
-                                    
+
                                     <div class="col">
                                         <div class="card card-profile text-center">
                                             <span class="mb-1 text-warning"><i class="icon-user-follow"></i></span>
@@ -87,27 +90,38 @@
                                             <p class="text-muted">Recuerda que este es un evento grupal</p>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                                 <center>
-                                <h4>Descripción</h4>
-                                <p class="text-muted">{{activity.description}}</p>
-                                <ul class="card-profile__info">
-                                    <li class="mb-1"><strong class="text-dark mr-4">Dia</strong>
-                                        <span>{{activity.date}}</span></li>
-                                    <li><strong class="text-dark mr-4">Hora</strong> <span>{{activity.hour}}</span></li>
-                                    <li><strong class="text-dark mr-4">Lugar</strong> <span>{{activity.address}}</span></li>
-                                    <li><strong class="text-dark mr-4">Correo de contacto</strong> <span>{{activity.contact}}</span></li>
-                                </ul>
-                                <br>
-                                <a class="btn mb-1 btn-primary" href="{% url 'grupalActivity_inscribir' activity.id %}">Inscribirme</a>
-                            </center>
+                                    <h4>Descripción</h4>
+                                    <p class="text-muted">{{activity.description}}</p>
+                                    <ul class="card-profile__info">
+                                        <li class="mb-1"><strong class="text-dark mr-4">Dia</strong>
+                                            <span>{{activity.date}}</span>
+                                        </li>
+                                        <li><strong class="text-dark mr-4">Hora</strong> <span>{{activity.hour}}</span>
+                                        </li>
+                                        <li><strong class="text-dark mr-4">Lugar</strong>
+                                            <span>{{activity.address}}</span>
+                                        </li>
+                                        <li><strong class="text-dark mr-4">Correo de contacto</strong>
+                                            <span>{{activity.contact}}</span>
+                                        </li>
+                                    </ul>
+                                    <br>
+                                    {% if activity in user.user_profile.group_activities.all %}
+                                    <button class="btn mb-1 btn-primary disable">Inscrito</button>
+                                    {% else %}
+                                    <a class="btn mb-1 btn-primary"
+                                        href="{% url 'grupalActivity_inscribir' activity.id %}">Inscribirme</a>
+                                    {% endif %}
+                                </center>
                             </div>
-                        </div> 
+                        </div>
                     </div>
-                
+
                 </div>
-            
+
 
 
 
