@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.template import loader
 from .forms import eventRegisterForm, EspecialEventForm
 from django.contrib.auth.decorators import login_required
-from .models import GroupActivity
+from .models import GroupActivity, EspecialEvent
 from django.views.decorators.csrf import csrf_exempt
 import datetime
 from personalActivities.models import ActivityCategory
@@ -88,10 +88,12 @@ def recibirActividadGrupal(request):
 def grupal(request):
     act_type = ActivityCategory.objects.all()
     activities = GroupActivity.objects.all()
+    events = EspecialEvent.objects.all()
     context = {
         "pageTitle": "Grupal Activities list",
         "activities": activities,
-        "act_type": act_type
+        "act_type": act_type,
+        "events": events
     }
     return render(request, "grupalActivities/filtroActividadesgrupales.html", context)
 
@@ -117,3 +119,14 @@ def insertEspecialEvent(request):
     context['act_type'] = act_cat
 
     return render(request, "grupalActivities/especialEventsForm.html", context)
+
+
+def joinEspecialEvent(request, eventId):
+    e = EspecialEvent.objects.get(pk=eventId)
+    if request.user not in e.assistants.all():
+        e.assistants.add(request.user)
+        e.save()
+
+    page = grupal(request)
+    print(page)
+    return page

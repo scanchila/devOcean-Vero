@@ -10,5 +10,7 @@ urlpatterns = [
     path('recibirActividadGrupal/', views.recibirActividadGrupal,
          name='recibirActividadGrupal'),
     path('enventoEspecial/crear', views.insertEspecialEvent,
-         name='especialEventForm')
+         name='especialEventForm'),
+    path('enventoEspecial/join/<int:eventId>/', views.joinEspecialEvent,
+         name='especialEventJoin')
 ]
