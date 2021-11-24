@@ -9,6 +9,8 @@ import datetime
 from personalActivities.models import ActivityCategory, PersonalActivites
 from .models import GroupActivity
 from users.models import User_activity
+import time
+#import sklearn.metrics.pairwise
 # Create your views here.
 
 
@@ -95,7 +97,7 @@ def grupal(request):
         "pageTitle": "Grupal Activities list",
         "activities": activities,
         "act_type": act_type,
-        "events": events
+        "events": recommendation(request)
     }
     return render(request, "grupalActivities/filtroActividadesgrupales.html", context)
 
@@ -152,3 +154,35 @@ def joinEspecialEvent(request, eventId):
     page = grupal(request)
     print(page)
     return page
+
+
+def recommendation(request):
+    user = request.user
+    MIN_TIME = request.GET.get('MINTIME',300)
+    ALL_RECOMMEND = request.GET.get('ALLRECOMMEND',10)
+    #POPULAR_RECOMMEND = 5
+    TYPE_RECOMMEND = request.GET.get('TYPE_RECOMMEND',5)
+    TYPE_AMOUNT = request.GET.get('TYPE_AMOUNT',3)
+    data = user.especialevent_set.all()
+    all_categories = {x.category:i for i,x in enumerate(EspecialEvent.objects.all())}
+    activities = EspecialEvent.objects.all().difference(data)
+    filtr = lambda x, MIN_TIME: (((int(time.mktime(x.dateTime.timetuple())))+MIN_TIME)>time.time() 
+                                 )
+    x = [[ob,all_categories[ob.category],  int(time.mktime(ob.dateTime.timetuple()))] for ob in data]
+    foo = lambda x: x[0]
+    most_categories = [ob.category for ob in data]
+    most_categories = [(ob,  most_categories.count(ob)) for ob in set(most_categories)][:TYPE_AMOUNT]
+
+    y = [(ob, all_categories[ob.category],  int(time.mktime(ob.dateTime.timetuple())), len(ob.assistants.all())) for ob in activities if filtr(ob,MIN_TIME)]
+    foo = lambda x: x[2] #completion quantity
+    y.sort(key=foo)
+    y =  y[:ALL_RECOMMEND]
+    y = set(y+[(ob, all_categories[ob.category],  int(time.mktime(ob.dateTime.timetuple())), len(ob.user_profile_set.all())) for ob in activities if ob.category in most_categories])
+    
+    print(GroupActivity.objects.all())
+    print("\n\n\n\n\n")
+    print(y)
+    print("\n\n\n\n\n")
+    y = [x[0] for x in y]
+    return y # recommendations
+    #return render(request, "grupalActivities/filtroActividadesgrupales.html", context)
