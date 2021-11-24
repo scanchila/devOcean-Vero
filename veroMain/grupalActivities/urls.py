@@ -9,7 +9,12 @@ urlpatterns = [
          views.grupalActivity_inscribir, name='grupalActivity_inscribir'),
     path('grupalActivities/', views.index, name='grupalActivities'),
     path('myActivities/', views.myactivity, name='myActivities'),
-    path('filtroActividadesgrupales/', views.grupal, name='filtroActividadesgrupales'),
-    path('recibirActividadGrupal/', views.recibirActividadGrupal, name='recibirActividadGrupal')
-    
+    path('filtroActividadesgrupales/', views.grupal,
+         name='filtroActividadesgrupales'),
+    path('recibirActividadGrupal/', views.recibirActividadGrupal,
+         name='recibirActividadGrupal'),
+    path('enventoEspecial/crear', views.insertEspecialEvent,
+         name='especialEventForm'),
+    path('enventoEspecial/join/<int:eventId>/', views.joinEspecialEvent,
+         name='especialEventJoin')
 ]

@@ -16,3 +16,15 @@ class GroupActivity(models.Model):
     address = models.CharField(max_length=254)
     contact = models.CharField(max_length=254)
     creator = models.ForeignKey(User, on_delete=models.CASCADE)
+
+
+class EspecialEvent(models.Model):
+    name = models.CharField(max_length=255, unique=True)
+    description = models.CharField(max_length=254)
+    category = models.ForeignKey(ActivityCategory, on_delete=models.CASCADE)
+    dateTime = models.DateTimeField()
+    address = models.CharField(max_length=254)
+    contact = models.CharField(max_length=254)
+    creator = models.ForeignKey(User, on_delete=models.CASCADE)
+    capacity = models.IntegerField(default=0)
+    assistants = models.ManyToManyField(User, related_name='assisted_ev')
