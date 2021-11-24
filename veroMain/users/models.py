@@ -17,6 +17,7 @@ class User_profile(models.Model):
     activities = models.ManyToManyField(
         PersonalActivites, through='User_activity')
     group_activities = models.ManyToManyField(GroupActivity)
+    completed_group_activities = models.ManyToManyField(GroupActivity, related_name='completed')
 
     def __str__(self):
         return self.user.username

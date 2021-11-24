@@ -7,6 +7,10 @@ from .models import GroupActivity
 from django.views.decorators.csrf import csrf_exempt
 import datetime
 from personalActivities.models import ActivityCategory
+from grupalActivities.models import GroupActivity
+import random
+import time
+#import sklearn.metrics.pairwise
 # Create your views here.
 
 
@@ -92,5 +96,34 @@ def grupal(request):
         "activities": activities,
         "act_type": act_type
     }
+    return render(request, "grupalActivities/filtroActividadesgrupales.html", context)
+
+
+def recommendation(request):
+    user = request.user
+    MIN_TIME = request.GET.get('MINTIME',300)
+    ALL_RECOMMEND = request.GET.get('ALLRECOMMEND',10)
+    #POPULAR_RECOMMEND = 5
+    TYPE_RECOMMEND = request.GET.get('TYPE_RECOMMEND',5)
+    TYPE_AMOUNT = request.GET.get('TYPE_AMOUNT',3)
+    data = user.user_profile.completed_group_activities.all()
+    all_types = {x.type:i for i,x in enumerate(GroupActivity.objects.all())}
+    activities = GroupActivity.objects.all().difference(data)
+    filtr = lambda x, MIN_TIME: (((int(time.mktime(x.date.timetuple())))+MIN_TIME)>time.time()
+                                 
+                                 )
+    x = [[ob,all_types[ob.type], ob.duration, int(time.mktime(ob.date.timetuple()))] for ob in data]
+    foo = lambda x: x[1]
+    most_types = [ob.type for ob in data]
+    most_types = [(ob,  most_types.count(ob)) for ob in set(most_types)][:]
+
+    y = [(ob, all_types[ob.type], ob.duration, int(time.mktime(ob.date.timetuple())), len(ob.user_profile_set.all())) for ob in activities if filtr(ob,MIN_TIME)]
+    foo = lambda x: x[3] #completion quantity
+    y.sort(key=foo)
+    y =  y[:ALL_RECOMMEND]
+    y = set(y+[(ob, all_types[ob.type], ob.duration, int(time.mktime(ob.date.timetuple())), len(ob.user_profile_set.all())) for ob in activities if ob.type in most_types])
+    
+    print(GroupActivity.objects.all())
+    context = {'recommendations':y}
     return render(request, "grupalActivities/filtroActividadesgrupales.html", context)
 
